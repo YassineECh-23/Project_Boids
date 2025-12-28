@@ -1,3 +1,18 @@
 # CLion
+# Dossiers de compilation CLion (NE PAS VERSIONNER)
+cmake-build-debug/
+cmake-build-release/
+CMakeFiles/
+CMakeCache.txt
+
+# Dossier de configuration CLion (spécifique à votre PC)
 .idea/
-cmake-build-*/
+
+# Exécutables (Windows)
+*.exe
+*.dll
+*.pdb
+
+# Fichiers systèmes
+.DS_Store
+Thumbs.db
