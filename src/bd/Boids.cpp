@@ -55,42 +55,45 @@ void Boid::update(const Vec2<float>& totalForce,
 // GESTION DES BORDS
 // ============================================================
 
-void Boid::handleBounds(float width, float height) {
-    // Option choisie : WRAP (téléportation)
-    // Le boid réapparaît de l'autre côté
+    void Boid::handleBounds(const Settings& settings) {
 
-    if (position_.x < 0.0f) {
-        position_.x = width;
-    } else if (position_.x > width) {
-        position_.x = 0.0f;
+    // CAS 1 : MODE REBOND (Activé par la touche B)
+    if (settings.enableBounce) {
+        const float margin = 10.0f; // Marge pour éviter que ça colle au bord
+
+        // Rebond axe X
+        if (position_.x < margin) {
+            position_.x = margin;
+            velocity_.x = std::abs(velocity_.x);  // Force vers la droite (+)
+        }
+        else if (position_.x > settings.windowWidth - margin) {
+            position_.x = settings.windowWidth - margin;
+            velocity_.x = -std::abs(velocity_.x); // Force vers la gauche (-)
+        }
+
+        // Rebond axe Y
+        if (position_.y < margin) {
+            position_.y = margin;
+            velocity_.y = std::abs(velocity_.y);  // Force vers le bas (+)
+        }
+        else if (position_.y > settings.windowHeight - margin) {
+            position_.y = settings.windowHeight - margin;
+            velocity_.y = -std::abs(velocity_.y); // Force vers le haut (-)
+        }
     }
 
-    if (position_.y < 0.0f) {
-        position_.y = height;
-    } else if (position_.y > height) {
-        position_.y = 0.0f;
+    // CAS 2 : MODE WRAP (Téléportation classique)
+    else {
+        if (position_.x < 0.0f)
+            position_.x = settings.windowWidth;
+        else if (position_.x > settings.windowWidth)
+            position_.x = 0.0f;
+
+        if (position_.y < 0.0f)
+            position_.y = settings.windowHeight;
+        else if (position_.y > settings.windowHeight)
+            position_.y = 0.0f;
     }
-
-    /* ALTERNATIVE : REBOND (décommentez si vous préférez)
-
-    const float margin = 10.0f;
-
-    if (position_.x < margin) {
-        position_.x = margin;
-        velocity_.x = std::abs(velocity_.x);  // Rebond vers la droite
-    } else if (position_.x > width - margin) {
-        position_.x = width - margin;
-        velocity_.x = -std::abs(velocity_.x); // Rebond vers la gauche
-    }
-
-    if (position_.y < margin) {
-        position_.y = margin;
-        velocity_.y = std::abs(velocity_.y);  // Rebond vers le bas
-    } else if (position_.y > height - margin) {
-        position_.y = height - margin;
-        velocity_.y = -std::abs(velocity_.y); // Rebond vers le haut
-    }
-    */
 }
 
 } // namespace bd

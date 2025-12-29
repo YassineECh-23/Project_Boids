@@ -60,7 +60,7 @@ public:
      * - WRAP : téléporte de l'autre côté
      * - REBOND : inverse la vitesse
      */
-    void handleBounds(float width, float height);
+    void handleBounds(const Settings& settings);
 
     // ============================================================
     // ACCESSEURS

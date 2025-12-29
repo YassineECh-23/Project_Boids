@@ -1,43 +1,92 @@
 #include <SFML/Graphics.hpp>
-#include "../include/bd/Boids.h"
-#include "../include/bd/Settings.h"
-#include "../include/bd/Renderer.h"
+#include <iostream>
+#include <ctime>   // <--- Indispensable pour le hasard (time)
+#include <cstdlib> // <--- Indispensable pour srand
+
+#include "../../include/bd/Flock.h"
+#include "../../include/bd/Settings.h"
+#include "../../include/bd/Renderer.h"
+#include "../../include/bd/CohesionRule.h"
+#include "../../include/bd/SeparationRule.h"
+#include "../../include/bd/AlignmentRule.h"
+
+using namespace bd;
 
 int main() {
-    // 1. Configuration
-    bd::Settings settings;
-    sf::RenderWindow window(sf::VideoMode(settings.windowWidth, settings.windowHeight), "Boids ");
-    window.setFramerateLimit(60); // Important pour ne pas tourner à 2000 FPS
+    // 1. INITIALISER LE HASARD (IMPORTANT !)
+    // Sans ça, les boids auront toujours les mêmes positions de départ (ligne)
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-    // 2. Création des objets
-    bd::Renderer renderer(window);
+    // 2. CONFIGURATION
+    Settings settings;
+    settings.windowWidth = 1200;
+    settings.windowHeight = 800;
+    settings.nbBoids = 100;
+    settings.enableBounce = false; // On commence en mode Wrap
 
-    // Créons un boid au centre, qui part vers la droite et un peu le bas
-    bd::Boid monBoid(bd::Vec2<float>(400, 300), bd::Vec2<float>(3.0f, 1.5f));
+    // Paramètres
+    settings.r = 60.0f;
+    settings.dmin = 25.0f;
+    settings.vmax = 5.0f;
+    settings.wcoh = 0.008f;
+    settings.wsep = 0.05f;
+    settings.wali = 0.1f;
 
-    // Force nulle pour l'instant (il va juste avancer en ligne droite)
-    bd::Vec2<float> forceNulle(0, 0);
+    sf::RenderWindow window(sf::VideoMode(settings.windowWidth, settings.windowHeight), "Test Phase 3 - Boids");
+    window.setFramerateLimit(60);
+    Renderer renderer(window);
 
-    // 3. Boucle principale
+    Flock flock;
+    flock.initRandom(settings.nbBoids, settings.windowWidth, settings.windowHeight);
+
+    // Règles
+    DynamicArray<Rule*> rules;
+    rules.push_back(new CohesionRule());
+    rules.push_back(new SeparationRule());
+    rules.push_back(new AlignmentRule());
+
+    std::cout << "=== COMMANDES ===\n";
+    std::cout << "[ESPACE] : Reinitialiser les positions\n";
+    std::cout << "[B]      : Activer/Desactiver le REBOND (Bounce)\n";
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+            if (event.type == sf::Event::KeyPressed) {
+                // Reset
+                if (event.key.code == sf::Keyboard::Space) {
+                    flock.initRandom(settings.nbBoids, settings.windowWidth, settings.windowHeight);
+                    std::cout << "Reset !\n";
+                }
+
+                // Toggle Rebond (Bounce)
+                if (event.key.code == sf::Keyboard::B) {
+                    settings.enableBounce = !settings.enableBounce; // Inverse Vrai/Faux
+
+                    if (settings.enableBounce)
+                        std::cout << "Mode: REBOND (Murs solides)\n";
+                    else
+                        std::cout << "Mode: WRAP (Teleportation)\n";
+                }
+            }
         }
 
-        // --- MISE À JOUR (Logique) ---
-        // dt = 1.0f pour simplifier (idéalement on utilise une horloge)
-        monBoid.update(forceNulle, settings, 1.0f);
-        monBoid.handleBounds(settings.windowWidth, settings.windowHeight);
+        // Update
+        flock.updateAll(rules, settings, 1.0f);
 
-        // --- DESSIN (Rendu) ---
+        // Draw
         window.clear(sf::Color::Black);
-
-        renderer.drawBoid(monBoid);
-
+        for (int i = 0; i < flock.size(); ++i) {
+            renderer.drawBoid(flock.getBoid(i));
+        }
         window.display();
     }
+
+    // Nettoyage
+    for (size_t i = 0; i < rules.size(); ++i) delete rules[i];
 
     return 0;
 }

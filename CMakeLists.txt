@@ -61,6 +61,15 @@ set(BOIDS_HEADERS
         src/bd/Renderer.cpp
         include/bd/Renderer.h
         include/bd/Renderer.h
+        include/bd/Rule.h
+        src/bd/Flock.cpp
+        include/bd/Flock.h
+        src/bd/CohesionRule.cpp
+        include/bd/CohesionRule.h
+        src/bd/SeparationRule.cpp
+        include/bd/SeparationRule.h
+        src/bd/AlignmentRule.cpp
+        include/bd/AlignmentRule.h
         # Ajoute tes futurs headers ici
 )
 
