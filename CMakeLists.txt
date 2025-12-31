@@ -70,6 +70,8 @@ set(BOIDS_HEADERS
         include/bd/SeparationRule.h
         src/bd/AlignmentRule.cpp
         include/bd/AlignmentRule.h
+        src/bd/App.cpp
+        include/bd/App.h
         # Ajoute tes futurs headers ici
 )
 
