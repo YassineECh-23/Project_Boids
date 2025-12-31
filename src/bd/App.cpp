@@ -6,7 +6,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <iostream>
-//
+/////////
 namespace bd {
 
 App::App()
