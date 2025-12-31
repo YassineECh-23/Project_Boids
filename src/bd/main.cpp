@@ -1,3 +1,16 @@
+#include "../../include/bd/InterfaceMenuSFML.h"
+
+int main() {
+    bd::InterfaceMenuSFML menu;
+    menu.run();
+    return 0;
+}
+
+/*
+============================================================
+ ANCIEN MAIN (CONSERVÉ, NON MODIFIÉ)
+============================================================
+
 #include "../../include/bd/App.h"
 
 int main() {
@@ -6,8 +19,9 @@ int main() {
 
     while (app.window.isOpen()) {
         app.handleEvents();
-        app.update(1.0f);   // tu gardes ton dt fixe
+        app.update(1.0f);
         app.render();
     }
     return 0;
 }
+*/
