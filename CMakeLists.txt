@@ -64,6 +64,8 @@ set(BOIDS_HEADERS
         include/bd/AlignmentRule.h
         include/bd/App.h
         include/bd/InterfaceMenuSFML.h
+        src/bd/Simulation.cpp
+        include/bd/Simulation.h
 )
 
 # ==============================================================================

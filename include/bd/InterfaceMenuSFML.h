@@ -54,7 +54,8 @@ namespace bd {
         bool isClicked(const sf::RectangleShape& r, sf::Vector2f mouse) const;
 
         // actions
-        void launchApp();
+        //void launchApp();
+        void launchSimulation();
 
         // settings helpers
         void selectField(int index);

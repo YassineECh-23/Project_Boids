@@ -1,5 +1,5 @@
 #include "../../include/bd/InterfaceMenuSFML.h"
-#include "../../include/bd/App.h"
+#include "../../include/bd/Simulation.h"
 
 #include <iostream>
 #include <sstream>
@@ -123,7 +123,13 @@ void InterfaceMenuSFML::handleEvents() {
 
             if (screen == Screen::Main) {
                 if (isClicked(btnRun, mouse)) {
-                    launchApp();
+                    if (screen == Screen::Settings && selectedIndex != -1) {
+                        commitInput();          //
+                        selectedIndex = -1;
+                        inputBuffer.clear();
+                    }
+                    launchSimulation();
+
                 } else if (isClicked(btnSettings, mouse)) {
                     screen = Screen::Settings;
                     selectedIndex = -1;
@@ -137,7 +143,13 @@ void InterfaceMenuSFML::handleEvents() {
                     selectedIndex = -1;
                     inputBuffer.clear();
                 } else if (isClicked(btnStart, mouse)) {
-                    launchApp();
+                    if (screen == Screen::Settings && selectedIndex != -1) {
+                        commitInput();          //
+                        selectedIndex = -1;
+                        inputBuffer.clear();
+                    }
+                    launchSimulation();
+
                 } else {
                     // Selection d'un champ (zone cliquable sur la colonne valeur)
                     float y0 = 150.f;
@@ -300,7 +312,7 @@ void InterfaceMenuSFML::renderSettings() {
     window.draw(txtStart);
 }
 
-void InterfaceMenuSFML::launchApp() {
+/*void InterfaceMenuSFML::launchApp() {
     // On cache la fenêtre menu pendant l'App
     window.setVisible(false);
 
@@ -312,6 +324,14 @@ void InterfaceMenuSFML::launchApp() {
         app.update(1.0f);
         app.render();
     }
+
+    window.setVisible(true);
+}*/
+    void InterfaceMenuSFML::launchSimulation() {
+    window.setVisible(false);
+
+    bd::Simulation sim(settings); //
+    sim.run();
 
     window.setVisible(true);
 }
