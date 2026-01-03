@@ -66,6 +66,12 @@ set(BOIDS_HEADERS
         include/bd/AlignmentRule.h
         include/bd/Simulation.h
         include/bd/InterfaceMenuSFML.h
+        include/bd/ObstacleRule.cpp
+        include/bd/ObstacleRule.h
+        include/bd/ObstacleRule.h
+        include/bd/PredatorRule.cpp
+        include/bd/PredatorRule.h
+        include/bd/PredatorRule.h
 )
 
 # ==============================================================================

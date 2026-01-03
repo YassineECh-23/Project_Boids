@@ -49,6 +49,24 @@ namespace bd {
 
         //  rebond
         bool enableBounce = false;
+        // ============================================================
+        // EXTENSIONS : OBSTACLE (PHASE 5)
+        // ============================================================
+        bool enableObstacle = false;   // Activé via Clic Droit
+        float wobstacle = 5.0f;        // Poids très fort pour que la fuite soit prioritaire
+
+        float obstacleX = 0.0f;
+        float obstacleY = 0.0f;
+        float obstacleRadius = 150.0f; // Rayon de la zone de danger (assez grand)
+
+        // --- EXTENSION : PRÉDATEUR (PHASE 5) ---
+        bool enablePredator = false;    // Activé via la touche P
+        float wpredator = 8.0f;         // Poids TRÈS fort (Panique totale)
+
+        float predatorX = 0.0f;
+        float predatorY = 0.0f;
+        float predatorRadius = 150.0f;  // Rayon de peur
+        float predatorSpeed = 3.5f;     // Vitesse du prédateur (un peu moins vite que vmax=4.0)
     };
 
 } // namespace bd
