@@ -1,11 +1,8 @@
-//
-// Created by Yassine on 29/12/2025.
-//
-
 #ifndef PT_BOIDS_FLOCK_H
 #define PT_BOIDS_FLOCK_H
+
 #include "DynamicArray.h"
-#include "Boids.h"
+#include "Boids.h" // J'ai gardé "Boids.h" car c'est le nom dans ton arborescence
 #include "Rule.h"
 #include "Settings.h"
 
@@ -19,23 +16,22 @@ namespace bd {
         Flock();
         ~Flock() = default;
 
-        // Initialisation
-        void initRandom(int count, float width, float height);
+        // MODIFICATION : Ajout de 'const Settings& settings' pour récupérer vmax
+        void initRandom(int count, float width, float height, const Settings& settings);
 
-        // Ajout manuel (utile pour les tests)
+        // Ajout manuel
         void addBoid(const Boid& b);
 
         // Boucle principale de simulation
-        // Prend un tableau de pointeurs de règles (polymorphisme)
         void updateAll(const DynamicArray<Rule*>& rules, const Settings& settings, float dt);
 
-        // Accesseurs (nécessaires pour que les Règles puissent lire les positions)
+        // Accesseurs
         int size() const;
         const Boid& getBoid(int index) const;
-        Boid& getBoid(int index); // Version modifiable
+        Boid& getBoid(int index);
 
-        // Gestion du redimensionnement (Interface utilisateur)
-        void resize(int newCount, float width, float height);
+        // MODIFICATION : Ajout de 'const Settings& settings' pour gérer l'ajout de boids (vmax)
+        void resize(int newCount, float width, float height, const Settings& settings);
     };
 
 } // namespace bd

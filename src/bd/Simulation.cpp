@@ -36,7 +36,7 @@ void Simulation::init() {
     window.setFramerateLimit(60);
 
     // Boids
-    flock.initRandom(settings.nbBoids, settings.windowWidth, settings.windowHeight);
+    flock.initRandom(settings.nbBoids, settings.windowWidth, settings.windowHeight, settings);
 
     // Règles (safe si init() est rappelé plus tard)
     for (size_t i = 0; i < rules.size(); ++i) delete rules[i];
@@ -74,7 +74,7 @@ void Simulation::handleEvents() {
                 window.close();
 
             if (event.key.code == sf::Keyboard::Space) {
-                flock.initRandom(settings.nbBoids, settings.windowWidth, settings.windowHeight);
+                flock.initRandom(settings.nbBoids, settings.windowWidth, settings.windowHeight, settings);
             }
 
             if (event.key.code == sf::Keyboard::B) {
