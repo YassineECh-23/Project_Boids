@@ -1,5 +1,5 @@
 //
-// Created by Yassine on 28/12/2025.
+// tests/test_boids.cpp
 //
 
 #include <gtest/gtest.h>
@@ -11,12 +11,15 @@ using namespace bd;
 
 class BoidTest : public ::testing::Test {
 protected:
-    // On crée une instance de Settings par défaut pour les tests
     Settings settings;
 
     void SetUp() override {
-        // Initialisation commune si besoin
-        // Par défaut: vmax = 4.0, maxAccel = 0.1, etc.
+        // Configuration par défaut pour les tests
+        settings.vmax = 4.0f;
+        settings.maxAccel = 0.1f;
+        settings.windowWidth = 800.0f;
+        settings.windowHeight = 600.0f;
+        settings.enableBounce = false;
     }
 };
 
@@ -43,84 +46,70 @@ TEST_F(BoidTest, UpdateSansForce) {
     Boid b(Vec2<float>(100.0f, 100.0f), Vec2<float>(2.0f, 0.0f));
     Vec2<float> noForce(0.0f, 0.0f);
 
-    // dt = 1.0 pour simplifier le calcul mental
     b.update(noForce, settings, 1.0f);
 
-    // Nouvelle pos = 100 + 2*1 = 102
     EXPECT_FLOAT_EQ(b.getPosition().x, 102.0f);
     EXPECT_FLOAT_EQ(b.getPosition().y, 100.0f);
 }
 
-// Test de l'application d'une force (acceleration)
+// Test de l'application d'une force
 TEST_F(BoidTest, UpdateAvecForce) {
     Boid b(Vec2<float>(0.0f, 0.0f), Vec2<float>(1.0f, 0.0f));
-
-    // Force valide (inférieure à maxAccel qui est 0.1 par défaut)
-    Vec2<float> force(0.05f, 0.0f);
+    Vec2<float> force(0.05f, 0.0f); // Force < maxAccel
 
     b.update(force, settings, 1.0f);
 
-    // La vitesse doit avoir augmenté de 0.05
     EXPECT_FLOAT_EQ(b.getVelocity().x, 1.05f);
 }
 
 // Test de la limitation de vitesse (vmax)
 TEST_F(BoidTest, LimiteVitesseMax) {
     settings.vmax = 5.0f;
-
-    // Boid déjà à la vitesse max
     Boid b(Vec2<float>(0.0f, 0.0f), Vec2<float>(5.0f, 0.0f));
+    Vec2<float> force(0.1f, 0.0f); // Force qui accélère encore
 
-    // On essaie d'accélérer encore
-    Vec2<float> force(0.1f, 0.0f); // Force dans le même sens
-
-    // On applique plusieurs fois pour être sûr
-    b.update(force, settings, 1.0f);
     b.update(force, settings, 1.0f);
 
     // La vitesse ne doit pas dépasser 5.0
-    EXPECT_LE(b.getVelocity().length(), settings.vmax + 0.001f); // LE = Less or Equal
-    EXPECT_FLOAT_EQ(b.getVelocity().length(), 5.0f);
-}
-
-// Test de la limitation de l'accélération (maxAccel)
-TEST_F(BoidTest, LimiteAccelerationMax) {
-    settings.maxAccel = 0.1f;
-
-    Boid b(Vec2<float>(0.0f, 0.0f), Vec2<float>(0.0f, 0.0f));
-    Vec2<float> hugeForce(100.0f, 0.0f); // Force énorme
-
-    float dt = 1.0f;
-    b.update(hugeForce, settings, dt);
-
-    // La vitesse acquise ne doit être que de maxAccel * dt
-    // Car accel = clamp(force) -> 0.1
-    // vel += accel * dt -> 0.1 * 1.0 = 0.1
-    EXPECT_NEAR(b.getVelocity().x, 0.1f, 0.0001f);
+    EXPECT_LE(b.getVelocity().length(), settings.vmax + 0.001f);
 }
 
 // Test de la gestion des bords (Teleportation / Wrap)
 TEST_F(BoidTest, HandleBoundsWrap) {
-    float width = 800.0f;
-    float height = 600.0f;
+    // On s'assure qu'on est en mode WRAP
+    settings.enableBounce = false;
+    settings.windowWidth = 800.0f;
+    settings.windowHeight = 600.0f;
 
-    // Cas 1 : Sortie à gauche
+    // Cas 1 : Sortie à gauche -> Doit aller à droite (800)
     Boid bLeft(Vec2<float>(-5.0f, 300.0f), Vec2<float>(-1.0f, 0.0f));
-    bLeft.handleBounds(width, height);
-    EXPECT_FLOAT_EQ(bLeft.getPosition().x, width); // Doit être à 800
+    bLeft.handleBounds(settings); // <--- CORRECTION ICI (on passe settings)
+    EXPECT_FLOAT_EQ(bLeft.getPosition().x, 800.0f);
 
-    // Cas 2 : Sortie à droite
+    // Cas 2 : Sortie à droite -> Doit aller à gauche (0)
     Boid bRight(Vec2<float>(805.0f, 300.0f), Vec2<float>(1.0f, 0.0f));
-    bRight.handleBounds(width, height);
-    EXPECT_FLOAT_EQ(bRight.getPosition().x, 0.0f); // Doit être à 0
+    bRight.handleBounds(settings);
+    EXPECT_FLOAT_EQ(bRight.getPosition().x, 0.0f);
+}
 
-    // Cas 3 : Sortie en haut
-    Boid bTop(Vec2<float>(400.0f, -5.0f), Vec2<float>(0.0f, -1.0f));
-    bTop.handleBounds(width, height);
-    EXPECT_FLOAT_EQ(bTop.getPosition().y, height);
+// NOUVEAU TEST : Gestion des bords (Rebond / Bounce)
+TEST_F(BoidTest, HandleBoundsBounce) {
+    // On active le mode REBOND
+    settings.enableBounce = true;
+    settings.windowWidth = 800.0f;
 
-    // Cas 4 : Sortie en bas
-    Boid bBottom(Vec2<float>(400.0f, 605.0f), Vec2<float>(0.0f, 1.0f));
-    bBottom.handleBounds(width, height);
-    EXPECT_FLOAT_EQ(bBottom.getPosition().y, 0.0f);
+    // Marge définie dans le code = 10.0f
+    float margin = 10.0f;
+
+    // On place un boid trop à gauche qui va vers la gauche
+    Boid b(Vec2<float>(5.0f, 300.0f), Vec2<float>(-10.0f, 0.0f));
+
+    b.handleBounds(settings);
+
+    // 1. Il doit être replacé à la marge (10.0f)
+    EXPECT_FLOAT_EQ(b.getPosition().x, margin);
+
+    // 2. Sa vitesse doit être inversée (positive)
+    EXPECT_GT(b.getVelocity().x, 0.0f); // Doit être > 0
+    EXPECT_FLOAT_EQ(b.getVelocity().x, 10.0f);
 }

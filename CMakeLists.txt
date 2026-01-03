@@ -19,7 +19,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # ==============================================================================
-# 2) SFML (sources, statique, sans audio/network)
+# 2) SFML (Version Statique Standard)
 # ==============================================================================
 FetchContent_Declare(
         sfml
@@ -29,6 +29,8 @@ FetchContent_Declare(
 
 set(SFML_BUILD_AUDIO OFF CACHE BOOL "" FORCE)
 set(SFML_BUILD_NETWORK OFF CACHE BOOL "" FORCE)
+
+# On revient au standard : tout en statique
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 set(SFML_USE_STATIC_STD_LIBS ON CACHE BOOL "" FORCE)
 
@@ -47,7 +49,7 @@ set(BOIDS_SOURCES
         src/bd/CohesionRule.cpp
         src/bd/SeparationRule.cpp
         src/bd/AlignmentRule.cpp
-        src/bd/App.cpp
+        src/bd/Simulation.cpp
         src/bd/InterfaceMenuSFML.cpp
 )
 
@@ -62,14 +64,12 @@ set(BOIDS_HEADERS
         include/bd/CohesionRule.h
         include/bd/SeparationRule.h
         include/bd/AlignmentRule.h
-        include/bd/App.h
-        include/bd/InterfaceMenuSFML.h
-        src/bd/Simulation.cpp
         include/bd/Simulation.h
+        include/bd/InterfaceMenuSFML.h
 )
 
 # ==============================================================================
-# 4) Exe principal
+# 4) Exécutable Principal
 # ==============================================================================
 add_executable(PT_Boids
         ${BOIDS_SOURCES}
@@ -83,9 +83,7 @@ if(WIN32)
     target_link_options(PT_Boids PRIVATE -static-libgcc -static-libstdc++)
 endif()
 
-# ==============================================================================
-# 4b) Copier assets si le dossier existe (SINON on ne casse pas le build)
-# ==============================================================================
+# Copie des assets
 if (EXISTS "${CMAKE_SOURCE_DIR}/assets")
     add_custom_command(TARGET PT_Boids POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_directory
@@ -101,9 +99,18 @@ add_executable(run_tests
         tests/test_vec2.cpp
         tests/test_dynamic_array.cpp
         tests/test_boids.cpp
+
+        # --- AJOUT DU NOUVEAU TEST ---
+        tests/test_rules.cpp
+
+        # Sources nécessaires
         src/bd/Vec2.cpp
-        src/bd/DynamicArray.cpp
         src/bd/Boids.cpp
+        src/bd/DynamicArray.cpp
+        src/bd/Flock.cpp            # <--- Indispensable pour Flock
+        src/bd/CohesionRule.cpp     # <--- Indispensable pour les règles
+        src/bd/SeparationRule.cpp
+        src/bd/AlignmentRule.cpp
 )
 
 target_include_directories(run_tests PRIVATE include)
