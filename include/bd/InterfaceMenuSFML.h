@@ -42,6 +42,8 @@ namespace bd {
         int selectedIndex = -1;          // -1 = rien sélectionné
         std::string inputBuffer;         // ce que l'utilisateur tape
         sf::Text txtHint;
+        // AJOUTER CECI :
+        sf::Text txtError; // Le texte qui affichera l'erreur en rouge
 
         void initUI();
         void handleEvents();

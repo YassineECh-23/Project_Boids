@@ -47,7 +47,7 @@ namespace bd {
         float windowWidth = 800.0f;
         float windowHeight = 600.0f;
 
-        // --- NOUVEAU : Option de rebond ---
+        //  rebond
         bool enableBounce = false;
     };
 
