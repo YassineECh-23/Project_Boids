@@ -1,8 +1,3 @@
-//
-// Settings.h - Paramètres globaux de la simulation
-// Valeurs par défaut du cahier des charges (page 2)
-//
-
 #ifndef BD_SETTINGS_H
 #define BD_SETTINGS_H
 
@@ -47,8 +42,15 @@ namespace bd {
         float windowWidth = 800.0f;
         float windowHeight = 600.0f;
 
+        // Limites de sécurité pour la résolution (NOUVEAU)
+        float widthMin = 800.0f;
+        float widthMax = 2560.0f;
+        float heightMin = 600.0f;
+        float heightMax = 1440.0f;
+
         //  rebond
         bool enableBounce = false;
+
         // ============================================================
         // EXTENSIONS : OBSTACLE (PHASE 5)
         // ============================================================
@@ -71,4 +73,4 @@ namespace bd {
 
 } // namespace bd
 
-#endif // BD_SETTINGS_HIDS_SETTINGS_H
+#endif // BD_SETTINGS_H

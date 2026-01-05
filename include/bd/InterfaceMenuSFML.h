@@ -42,10 +42,14 @@ namespace bd {
         int selectedIndex = -1;          // -1 = rien sélectionné
         std::string inputBuffer;         // ce que l'utilisateur tape
         sf::Text txtHint;
-        // AJOUTER CECI :
-        sf::Text txtError; // Le texte qui affichera l'erreur en rouge
+        sf::Text txtError;
 
+        // Initialisation
         void initUI();
+
+        // --- NOUVEAU : Méthode pour recalculer les positions ---
+        void updateLayout();
+
         void handleEvents();
         void update();
         void render();
@@ -56,7 +60,6 @@ namespace bd {
         bool isClicked(const sf::RectangleShape& r, sf::Vector2f mouse) const;
 
         // actions
-        //void launchApp();
         void launchSimulation();
 
         // settings helpers
