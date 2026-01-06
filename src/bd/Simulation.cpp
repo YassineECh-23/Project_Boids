@@ -5,6 +5,9 @@
 #include "../../include/bd/ObstacleRule.h"
 #include "../../include/bd/PredatorRule.h"
 
+// Nécessaire pour la sauvegarde automatique et le chargement
+#include "../../include/bd/SaveManager.h"
+
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -39,7 +42,10 @@ void Simulation::init() {
     window.setFramerateLimit(60);
 
     // Initialisation Boids
-    flock.initRandom(settings.nbBoids, settings.windowWidth, settings.windowHeight, settings);
+    // On vérifie si le flock est vide pour ne pas écraser un chargement fait via le menu
+    if (flock.size() == 0) {
+        flock.initRandom(settings.nbBoids, settings.windowWidth, settings.windowHeight, settings);
+    }
 
     // Initialisation Règles
     for (size_t i = 0; i < rules.size(); ++i) delete rules[i];
@@ -48,7 +54,8 @@ void Simulation::init() {
     rules.push_back(new CohesionRule());
     rules.push_back(new SeparationRule());
     rules.push_back(new AlignmentRule());
-    // Phase 5 : Obstacle & Prédateur
+
+    // Règles Phase 5 : Obstacle & Prédateur
     rules.push_back(new ObstacleRule());
     rules.push_back(new PredatorRule());
 
@@ -56,12 +63,27 @@ void Simulation::init() {
     settings.predatorX = 50.0f;
     settings.predatorY = 50.0f;
 
-    std::cout << "=== COMMANDES ===\n";
+    std::cout << "=== COMMANDES SIMULATION ===\n";
     std::cout << "[ESC]        : Quitter\n";
     std::cout << "[ESPACE]     : Reset Positions\n";
+    std::cout << "[S]          : SAUVEGARDE AUTO (dans /assets/saves/)\n";
     std::cout << "[B]          : Rebond ON/OFF\n";
     std::cout << "[CLIC DROIT] : Placer OBSTACLE\n";
     std::cout << "[P]          : Activer PREDATEUR\n";
+}
+
+// Fonction appelée par le bouton LOAD du menu
+void Simulation::loadFromFile(const std::string& filename) {
+    // On appelle la méthode statique de chargement du SaveManager
+    if (SaveManager::load(filename, settings, flock)) {
+
+        // Si la résolution a changé dans le fichier, on adapte la fenêtre
+        window.setSize(sf::Vector2u(static_cast<unsigned>(settings.windowWidth),
+                                    static_cast<unsigned>(settings.windowHeight)));
+        window.setView(sf::View(sf::FloatRect(0, 0, settings.windowWidth, settings.windowHeight)));
+
+        std::cout << "Simulation chargee avec succes : " << filename << std::endl;
+    }
 }
 
 void Simulation::run() {
@@ -99,7 +121,11 @@ void Simulation::handleEvents() {
                 std::cout << "Predateur: " << (settings.enablePredator ? "ON" : "OFF") << std::endl;
             }
 
-            // Gestion Flèches ou Scroll pour Resize (Phase 4 optionnelle) ici...
+            // --- SAUVEGARDE AUTOMATIQUE (Touche S) ---
+            if (event.key.code == sf::Keyboard::S) {
+                // C'est ici qu'on appelle saveAuto au lieu de save
+                SaveManager::saveAuto(settings, flock);
+            }
         }
 
         // --- SOURIS ---
@@ -109,7 +135,7 @@ void Simulation::handleEvents() {
                 settings.obstacleX = static_cast<float>(event.mouseButton.x);
                 settings.obstacleY = static_cast<float>(event.mouseButton.y);
                 settings.enableObstacle = true;
-                std::cout << "Obstacle place." << std::endl;
+                std::cout << "Obstacle place en (" << settings.obstacleX << ", " << settings.obstacleY << ")\n";
             }
         }
     }
@@ -119,7 +145,7 @@ void Simulation::update(float dt) {
     // 1. Mise à jour des Boids
     flock.updateAll(rules, settings, dt);
 
-    // 2. IA du Prédateur (Chasse le centre du troupeau)
+    // 2. IA du Prédateur (il chasse le centre du troupeau)
     if (settings.enablePredator && flock.size() > 0) {
         float avgX = 0.0f;
         float avgY = 0.0f;
@@ -146,11 +172,10 @@ void Simulation::update(float dt) {
 void Simulation::render() {
     window.clear(sf::Color::Black);
 
+    // Dessin des boids
     renderer.drawFlock(flock);
 
-    // Dessin DEBUG temporaire (en attendant que Renderer le fasse)
-
-    // Obstacle (Bleu)
+    // Dessin de l'Obstacle (Cercle Bleu)
     if (settings.enableObstacle) {
         sf::CircleShape obs(15.0f);
         obs.setOrigin(15.0f, 15.0f);
@@ -159,7 +184,7 @@ void Simulation::render() {
         window.draw(obs);
     }
 
-    // Prédateur (Rouge)
+    // Dessin du Prédateur (Cercle Rouge)
     if (settings.enablePredator) {
         sf::CircleShape pred(10.0f);
         pred.setOrigin(10.0f, 10.0f);
@@ -168,7 +193,9 @@ void Simulation::render() {
         window.draw(pred);
     }
 
+    // Interface
     renderer.drawUI(settings);
+
     window.display();
 }
 

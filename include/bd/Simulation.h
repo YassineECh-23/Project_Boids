@@ -16,6 +16,7 @@ namespace bd {
         ~Simulation();
 
         void run();
+        void loadFromFile(const std::string& filename);
 
     private:
         sf::RenderWindow window;

@@ -32,6 +32,7 @@ namespace bd {
 
         // MODIFICATION : Ajout de 'const Settings& settings' pour gérer l'ajout de boids (vmax)
         void resize(int newCount, float width, float height, const Settings& settings);
+        void clear();
     };
 
 } // namespace bd

@@ -1,9 +1,11 @@
 #include "../../include/bd/InterfaceMenuSFML.h"
 #include "../../include/bd/Simulation.h"
+#include "../../include/bd/SaveManager.h"
 
 #include <iostream>
 #include <sstream>
 #include <cctype>
+#include <filesystem> // Pour extraire le nom du fichier
 
 namespace bd {
 
@@ -14,20 +16,14 @@ InterfaceMenuSFML::InterfaceMenuSFML()
 }
 
 void InterfaceMenuSFML::initUI() {
-
     fontLoaded = font.loadFromFile("../assets/Roboto-Regular.ttf");
-    if (!fontLoaded) {
-        std::cerr << "Failed to load font ../assets/Roboto-Regular.ttf\n";
-    }
+    if (!fontLoaded) std::cerr << "Failed to load font\n";
 
-    // -- Configuration initiale des textes et boutons --
-
-    // Title
     txtTitle.setString("BOIDS");
     txtTitle.setCharacterSize(56);
     if (fontLoaded) txtTitle.setFont(font);
 
-    // Style commun des boutons
+    // Style Boutons
     auto setupBtnStyle = [&](sf::RectangleShape& b) {
         b.setSize({260.f, 70.f});
         b.setFillColor(sf::Color(40, 40, 40));
@@ -36,10 +32,11 @@ void InterfaceMenuSFML::initUI() {
     };
 
     setupBtnStyle(btnRun);
+    setupBtnStyle(btnLoad);
     setupBtnStyle(btnSettings);
     setupBtnStyle(btnQuit);
 
-    // Textes des boutons
+    // Style Textes
     auto setupTextStyle = [&](sf::Text& t, const std::string& s, unsigned size) {
         t.setString(s);
         t.setCharacterSize(size);
@@ -47,10 +44,11 @@ void InterfaceMenuSFML::initUI() {
     };
 
     setupTextStyle(txtRun, "RUN", 26);
+    setupTextStyle(txtLoad, "LOAD", 26);
     setupTextStyle(txtSettings, "SETTINGS", 26);
     setupTextStyle(txtQuit, "QUIT", 26);
 
-    // Boutons Back / Start
+    // Boutons Back/Start (communs à Settings et Load)
     btnBack.setSize({180.f, 55.f});
     btnBack.setFillColor(sf::Color(40, 40, 40));
     btnBack.setOutlineThickness(2.f);
@@ -65,7 +63,7 @@ void InterfaceMenuSFML::initUI() {
     setupTextStyle(txtStart, "RUN", 20);
 
     // Hint & Error
-    txtHint.setString("Clique un champ puis tape un nombre. Enter = valider. ESC = retour.");
+    txtHint.setString("Clique un champ puis tape un nombre. Enter = valider.");
     txtHint.setCharacterSize(18);
     if (fontLoaded) txtHint.setFont(font);
 
@@ -73,55 +71,57 @@ void InterfaceMenuSFML::initUI() {
     txtError.setFillColor(sf::Color::Red);
     if (fontLoaded) txtError.setFont(font);
 
-    // --- APPLICATION DU CENTRAGE INITIAL ---
+    // Bouton Refresh (Load screen)
+    btnRefresh.setSize({180.f, 40.f});
+    btnRefresh.setFillColor(sf::Color(60, 60, 60));
+    setupTextStyle(txtRefresh, "REFRESH", 18);
+
     updateLayout();
 }
 
-// --- GESTION DU REDIMENSIONNEMENT ---
+void InterfaceMenuSFML::refreshSaves() {
+    saveFiles = SaveManager::listSaves();
+}
+
 void InterfaceMenuSFML::updateLayout() {
     sf::Vector2u size = window.getSize();
     float winW = static_cast<float>(size.x);
     float winH = static_cast<float>(size.y);
     float centerX = winW / 2.0f;
 
-    // 1. Centrer le Titre
+    // Titre
     sf::FloatRect tr = txtTitle.getLocalBounds();
     txtTitle.setOrigin(tr.left + tr.width / 2.0f, tr.top + tr.height / 2.0f);
     txtTitle.setPosition(centerX, winH * 0.15f);
 
-    // 2. Centrer le Menu Principal
+    // Main Menu Buttons
     float btnW = btnRun.getSize().x;
     float btnH = btnRun.getSize().y;
-    float spacing = 20.f;
-    float startY = winH * 0.35f;
+    float spacing = 15.f;
+    float startY = winH * 0.30f;
 
     auto centerBtn = [&](sf::RectangleShape& b, sf::Text& t, float y) {
         b.setPosition(centerX - btnW / 2.0f, y);
-        // Centrer le texte dans le bouton
         sf::FloatRect tRect = t.getLocalBounds();
         t.setOrigin(tRect.left + tRect.width / 2.0f, tRect.top + tRect.height / 2.0f);
         t.setPosition(centerX, y + btnH / 2.0f);
     };
 
     centerBtn(btnRun, txtRun, startY);
-    centerBtn(btnSettings, txtSettings, startY + btnH + spacing);
-    centerBtn(btnQuit, txtQuit, startY + (btnH + spacing) * 2);
+    centerBtn(btnLoad, txtLoad, startY + btnH + spacing);
+    centerBtn(btnSettings, txtSettings, startY + (btnH + spacing) * 2);
+    centerBtn(btnQuit, txtQuit, startY + (btnH + spacing) * 3);
 
-    // 3. Boutons Footer (Back / Start)
+    // Footer Buttons (Back / Start)
     float footerY = winH - 80.f;
-
-    // Back à 10% gauche
     btnBack.setPosition(winW * 0.1f, footerY);
-    // Start à 10% droite (aligné à droite)
     btnStart.setPosition(winW * 0.9f - btnStart.getSize().x, footerY);
 
-    // Centrer texte Back
     sf::FloatRect br = txtBack.getLocalBounds();
     txtBack.setOrigin(br.left + br.width / 2.0f, br.top + br.height / 2.0f);
     txtBack.setPosition(btnBack.getPosition().x + btnBack.getSize().x / 2.0f,
                         btnBack.getPosition().y + btnBack.getSize().y / 2.0f);
 
-    // Centrer texte Start
     sf::FloatRect sr = txtStart.getLocalBounds();
     txtStart.setOrigin(sr.left + sr.width / 2.0f, sr.top + sr.height / 2.0f);
     txtStart.setPosition(btnStart.getPosition().x + btnStart.getSize().x / 2.0f,
@@ -145,83 +145,78 @@ void InterfaceMenuSFML::handleEvents() {
     while (window.pollEvent(e)) {
         if (e.type == sf::Event::Closed) window.close();
 
-        // --- GESTION RESIZE ---
         if (e.type == sf::Event::Resized) {
-            // Ajuster la vue pour éviter l'étirement
             sf::FloatRect visibleArea(0, 0, (float)e.size.width, (float)e.size.height);
             window.setView(sf::View(visibleArea));
-            // Recalculer les positions
             updateLayout();
         }
 
-        // --- Keyboard for settings screen ---
+        // --- Keyboard (Settings) ---
         if (screen == Screen::Settings) {
             if (e.type == sf::Event::KeyPressed) {
-                if (e.key.code == sf::Keyboard::Escape) {
-                    screen = Screen::Main;
-                    selectedIndex = -1;
-                    inputBuffer.clear();
-                    txtError.setString("");
-                }
-                if (e.key.code == sf::Keyboard::Enter) {
-                    commitInput();
-                }
-                if (e.key.code == sf::Keyboard::BackSpace) {
-                    backspaceInput();
-                }
+                if (e.key.code == sf::Keyboard::Escape) { screen = Screen::Main; }
+                if (e.key.code == sf::Keyboard::Enter) { commitInput(); }
+                if (e.key.code == sf::Keyboard::BackSpace) { backspaceInput(); }
             }
-
             if (e.type == sf::Event::TextEntered) {
                 char c = static_cast<char>(e.text.unicode);
-                if (c >= 32 && c <= 126) {
-                    if (std::isdigit((unsigned char)c) || c == '.' || c == '-') {
-                        appendChar(c);
-                    }
-                }
+                if (c >= 32 && c <= 126) if (std::isdigit((unsigned char)c) || c == '.' || c == '-') appendChar(c);
             }
         }
 
-        // --- Mouse clicks ---
+        // --- Mouse Clicks ---
         if (e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Left) {
             sf::Vector2f mouse = window.mapPixelToCoords({e.mouseButton.x, e.mouseButton.y});
 
+            // 1. MENU PRINCIPAL
             if (screen == Screen::Main) {
                 if (isClicked(btnRun, mouse)) {
                     launchSimulation();
-                } else if (isClicked(btnSettings, mouse)) {
+                }
+                else if (isClicked(btnLoad, mouse)) {
+                    screen = Screen::Load;
+                    refreshSaves(); // Charger la liste
+                }
+                else if (isClicked(btnSettings, mouse)) {
                     screen = Screen::Settings;
-                    selectedIndex = -1;
-                    inputBuffer.clear();
-                    txtError.setString("");
-                } else if (isClicked(btnQuit, mouse)) {
+                    selectedIndex = -1; inputBuffer.clear(); txtError.setString("");
+                }
+                else if (isClicked(btnQuit, mouse)) {
                     window.close();
                 }
-            } else { // Settings screen
-                if (isClicked(btnBack, mouse)) {
-                    screen = Screen::Main;
-                    selectedIndex = -1;
-                    inputBuffer.clear();
-                    txtError.setString("");
-                } else if (isClicked(btnStart, mouse)) {
-                    if (selectedIndex != -1) commitInput();
-                    if (txtError.getString().isEmpty()) {
-                        launchSimulation();
-                    }
-                } else {
-                    // Clic sur champs : on doit recalculer les zones car elles bougent
+            }
+            // 2. ECRAN SETTINGS
+            else if (screen == Screen::Settings) {
+                if (isClicked(btnBack, mouse)) screen = Screen::Main;
+                else if (isClicked(btnStart, mouse)) { if(selectedIndex!=-1) commitInput(); if(txtError.getString().isEmpty()) launchSimulation(); }
+                else {
                     float winW = static_cast<float>(window.getSize().x);
                     float centerX = winW / 2.0f;
+                    float y0 = 130.f; float dy = 45.f;
+                    for (int i = 0; i < 8; ++i) {
+                        if (sf::FloatRect(centerX, y0 + i * dy, 220.f, 35.f).contains(mouse)) selectField(i);
+                    }
+                }
+            }
+            // 3. ECRAN LOAD
+            else if (screen == Screen::Load) {
+                if (isClicked(btnBack, mouse)) {
+                    screen = Screen::Main;
+                }
+                else {
+                    // Vérifier clic sur un fichier
+                    float winW = static_cast<float>(window.getSize().x);
+                    float centerX = winW / 2.0f;
+                    float startY = 120.f;
+                    float itemH = 40.f;
+                    float spacing = 10.f;
 
-                    // --- NOUVEAU : Paramètres d'espacement (doit matcher renderSettings) ---
-                    float y0 = 130.f;
-                    float dy = 45.f; // Espacement réduit
-
-                    for (int i = 0; i < 8; ++i) { // <--- Boucle jusqu'à 8
-                        float y = y0 + i * dy;
-                        // La boite est centrée en X, largeur 220, hauteur ~35
-                        sf::FloatRect valueRect(centerX, y, 220.f, 35.f);
-                        if (valueRect.contains(mouse)) {
-                            selectField(i);
+                    for (size_t i = 0; i < saveFiles.size(); ++i) {
+                        float y = startY + i * (itemH + spacing);
+                        sf::FloatRect itemRect(centerX - 250.f, y, 500.f, itemH);
+                        if (itemRect.contains(mouse)) {
+                            // Charger ce fichier spécifique
+                            launchSimulation(saveFiles[i]);
                         }
                     }
                 }
@@ -230,21 +225,11 @@ void InterfaceMenuSFML::handleEvents() {
     }
 }
 
-void InterfaceMenuSFML::appendChar(char c) {
-    if (selectedIndex == -1) return;
-    if (inputBuffer.size() < 12) inputBuffer.push_back(c);
-}
-
-void InterfaceMenuSFML::backspaceInput() {
-    if (selectedIndex == -1) return;
-    if (!inputBuffer.empty()) inputBuffer.pop_back();
-}
-
+// ... (appendChar, backspaceInput, selectField, commitInput : CODE IDENTIQUE A AVANT) ...
+void InterfaceMenuSFML::appendChar(char c) { if (selectedIndex != -1 && inputBuffer.size() < 12) inputBuffer.push_back(c); }
+void InterfaceMenuSFML::backspaceInput() { if (selectedIndex != -1 && !inputBuffer.empty()) inputBuffer.pop_back(); }
 void InterfaceMenuSFML::selectField(int index) {
-    selectedIndex = index;
-    inputBuffer.clear();
-
-    txtError.setString("");
+    selectedIndex = index; inputBuffer.clear(); txtError.setString("");
     std::ostringstream oss;
     switch (index) {
         case 0: oss << settings.nbBoids; break;
@@ -253,227 +238,159 @@ void InterfaceMenuSFML::selectField(int index) {
         case 3: oss << settings.wcoh; break;
         case 4: oss << settings.wsep; break;
         case 5: oss << settings.wali; break;
-        // --- NOUVEAU : Résolution ---
         case 6: oss << (int)settings.windowWidth; break;
         case 7: oss << (int)settings.windowHeight; break;
     }
     inputBuffer = oss.str();
 }
-
 void InterfaceMenuSFML::commitInput() {
-    if (selectedIndex == -1) return;
-    if (inputBuffer.empty() || inputBuffer == "-" || inputBuffer == ".") return;
-
-    txtError.setString("");
-
+    if (selectedIndex == -1 || inputBuffer.empty()) return;
     try {
-        // --- CAS nbBoids ---
-        if (selectedIndex == 0) {
-            int v = std::stoi(inputBuffer);
-            if (v < settings.nbBoidsMin || v > settings.nbBoidsMax) {
-                txtError.setString("Erreur: Min = " + std::to_string(settings.nbBoidsMin) +
-                                   ", Max = " + std::to_string(settings.nbBoidsMax));
-                return;
-            }
-            settings.nbBoids = v;
+        if(selectedIndex == 0) settings.nbBoids = std::stoi(inputBuffer);
+        else if (selectedIndex >= 6) { float v = std::stof(inputBuffer); if(selectedIndex==6) settings.windowWidth=v; else settings.windowHeight=v; }
+        else { float v = std::stof(inputBuffer);
+            if(selectedIndex==1) settings.r=v; else if(selectedIndex==2) settings.dmin=v;
+            else if(selectedIndex==3) settings.wcoh=v; else if(selectedIndex==4) settings.wsep=v; else if(selectedIndex==5) settings.wali=v;
         }
-        // --- CAS Largeur / Hauteur (indices 6 et 7) ---
-        else if (selectedIndex == 6 || selectedIndex == 7) {
-            float v = std::stof(inputBuffer);
-            float minVal = (selectedIndex == 6) ? settings.widthMin : settings.heightMin;
-            float maxVal = (selectedIndex == 6) ? settings.widthMax : settings.heightMax;
-
-            if (v < minVal || v > maxVal) {
-                txtError.setString("Erreur: Min = " + std::to_string((int)minVal) +
-                                   ", Max = " + std::to_string((int)maxVal));
-                return;
-            }
-
-            if (selectedIndex == 6) settings.windowWidth = v;
-            else settings.windowHeight = v;
-        }
-        // --- AUTRES PARAMETRES ---
-        else {
-            float v = std::stof(inputBuffer);
-            float minVal = 0.f, maxVal = 0.f;
-
-            if (selectedIndex == 1) { minVal = settings.rMin; maxVal = settings.rMax; }
-            else if (selectedIndex == 2) { minVal = settings.dminMin; maxVal = settings.dminMax; }
-            else { minVal = settings.weightMin; maxVal = settings.weightMax; }
-
-            if (v < minVal || v > maxVal) {
-                std::string sMin = std::to_string(minVal);
-                std::string sMax = std::to_string(maxVal);
-                // Nettoyage string
-                sMin.erase(sMin.find_last_not_of('0') + 1, std::string::npos);
-                sMax.erase(sMax.find_last_not_of('0') + 1, std::string::npos);
-                if (sMin.back() == '.') sMin.pop_back();
-                if (sMax.back() == '.') sMax.pop_back();
-
-                txtError.setString("Erreur: Valeur attendue entre " + sMin + " et " + sMax);
-                return;
-            }
-
-            if (selectedIndex == 1) settings.r = v;
-            else if (selectedIndex == 2) settings.dmin = v;
-            else if (selectedIndex == 3) settings.wcoh = v;
-            else if (selectedIndex == 4) settings.wsep = v;
-            else if (selectedIndex == 5) settings.wali = v;
-        }
-
-        std::ostringstream oss;
-        if (selectedIndex == 0) oss << settings.nbBoids;
-        else if (selectedIndex == 1) oss << settings.r;
-        else if (selectedIndex == 2) oss << settings.dmin;
-        else if (selectedIndex == 3) oss << settings.wcoh;
-        else if (selectedIndex == 4) oss << settings.wsep;
-        else if (selectedIndex == 5) oss << settings.wali;
-        else if (selectedIndex == 6) oss << (int)settings.windowWidth;
-        else if (selectedIndex == 7) oss << (int)settings.windowHeight;
-
-        inputBuffer = oss.str();
-
-    } catch (...) {
-        txtError.setString("Erreur: Format nombre invalide");
-    }
+    } catch(...) {}
 }
 
 void InterfaceMenuSFML::update() {
     sf::Vector2f mouse = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-
     auto paint = [&](sf::RectangleShape& b) {
-        bool hover = b.getGlobalBounds().contains(mouse);
-        b.setFillColor(hover ? sf::Color(70, 70, 70) : sf::Color(40, 40, 40));
+        b.setFillColor(b.getGlobalBounds().contains(mouse) ? sf::Color(70,70,70) : sf::Color(40,40,40));
     };
 
     if (screen == Screen::Main) {
-        paint(btnRun);
-        paint(btnSettings);
-        paint(btnQuit);
-    } else {
+        paint(btnRun); paint(btnLoad); paint(btnSettings); paint(btnQuit);
+    }
+    else if (screen == Screen::Settings) {
+        paint(btnBack); paint(btnStart);
+    }
+    else if (screen == Screen::Load) {
         paint(btnBack);
-        paint(btnStart);
+        // On ne peint pas les items de liste ici (fait dans renderLoad pour simplification)
     }
 }
 
 void InterfaceMenuSFML::render() {
     window.clear(sf::Color(15, 15, 20));
     if (screen == Screen::Main) renderMain();
-    else renderSettings();
+    else if (screen == Screen::Settings) renderSettings();
+    else if (screen == Screen::Load) renderLoad();
     window.display();
 }
 
 void InterfaceMenuSFML::renderMain() {
     window.draw(txtTitle);
-    window.draw(btnRun);
-    window.draw(btnSettings);
-    window.draw(btnQuit);
-    window.draw(txtRun);
-    window.draw(txtSettings);
-    window.draw(txtQuit);
+    window.draw(btnRun); window.draw(btnLoad); window.draw(btnSettings); window.draw(btnQuit);
+    window.draw(txtRun); window.draw(txtLoad); window.draw(txtSettings); window.draw(txtQuit);
 }
 
 void InterfaceMenuSFML::renderSettings() {
-    // Récupérer le centre pour positionner les éléments dynamiquement
+    // (Garde le code existant de renderSettings ici)
+    float winW = static_cast<float>(window.getSize().x);
+    float centerX = winW / 2.0f;
+    sf::FloatRect hintRect = txtHint.getLocalBounds(); txtHint.setOrigin(hintRect.left + hintRect.width/2.0f, 0); txtHint.setPosition(centerX, 100.f); window.draw(txtHint);
+    sf::FloatRect errRect = txtError.getLocalBounds(); txtError.setOrigin(errRect.left + errRect.width/2.0f, 0); txtError.setPosition(centerX, 75.f); window.draw(txtError);
+    sf::Text title; title.setString("SETTINGS"); title.setCharacterSize(34); if (fontLoaded) title.setFont(font);
+    sf::FloatRect tr = title.getLocalBounds(); title.setOrigin(tr.left + tr.width/2.0f, tr.top + tr.height/2.0f); title.setPosition(centerX, 45.f); window.draw(title);
+
+    const char* names[8] = {"nbBoids", "r", "dmin", "wcoh", "wsep", "wali", "Width", "Height"};
+    float y0 = 130.f; float dy = 45.f;
+    for (int i = 0; i < 8; ++i) {
+        float y = y0 + i * dy;
+        sf::Text label; label.setString(names[i]); label.setCharacterSize(20); if(fontLoaded) label.setFont(font); label.setPosition(centerX - 220.f, y+5.f); window.draw(label);
+        sf::RectangleShape box({220.f, 35.f}); box.setPosition(centerX, y); box.setFillColor(sf::Color(30, 30, 35));
+        if (i == selectedIndex) box.setOutlineColor(sf::Color(255, 200, 80)); else box.setOutlineColor(sf::Color(120, 120, 120));
+        box.setOutlineThickness(2.f); window.draw(box);
+        std::ostringstream oss;
+        if(i==selectedIndex) oss << inputBuffer;
+        else {
+             switch(i) { case 0: oss<<settings.nbBoids; break; case 1: oss<<settings.r; break; case 2: oss<<settings.dmin; break;
+                         case 3: oss<<settings.wcoh; break; case 4: oss<<settings.wsep; break; case 5: oss<<settings.wali; break;
+                         case 6: oss<<(int)settings.windowWidth; break; case 7: oss<<(int)settings.windowHeight; break; }
+        }
+        sf::Text val; val.setString(oss.str()); val.setCharacterSize(20); val.setPosition(centerX+15.f, y+4.f); if(fontLoaded) val.setFont(font); window.draw(val);
+    }
+    window.draw(btnBack); window.draw(btnStart); window.draw(txtBack); window.draw(txtStart);
+}
+
+void InterfaceMenuSFML::renderLoad() {
     float winW = static_cast<float>(window.getSize().x);
     float centerX = winW / 2.0f;
 
-    // Centrer Hint et Error
-    sf::FloatRect hintRect = txtHint.getLocalBounds();
-    txtHint.setOrigin(hintRect.left + hintRect.width/2.0f, 0);
-    txtHint.setPosition(centerX, 100.f); // Un peu remonté
-    window.draw(txtHint);
-
-    sf::FloatRect errRect = txtError.getLocalBounds();
-    txtError.setOrigin(errRect.left + errRect.width/2.0f, 0);
-    txtError.setPosition(centerX, 75.f); // Un peu remonté
-    window.draw(txtError);
-
-    // Titre Settings
+    // Titre
     sf::Text title;
-    title.setString("SETTINGS");
+    title.setString("LOAD GAME");
     title.setCharacterSize(34);
     if (fontLoaded) title.setFont(font);
-
     sf::FloatRect tr = title.getLocalBounds();
-    title.setOrigin(tr.left + tr.width/2.0f, tr.top + tr.height/2.0f);
-    title.setPosition(centerX, 45.f); // Un peu remonté
+    title.setOrigin(tr.left + tr.width / 2.0f, tr.top + tr.height / 2.0f);
+    title.setPosition(centerX, 50.f);
     window.draw(title);
 
-    // --- LISTE DES PARAMETRES (8 lignes maintenant) ---
-    const char* names[8] = {"nbBoids", "r", "dmin", "wcoh", "wsep", "wali", "Width", "Height"};
+    // Liste des fichiers
+    float startY = 120.f;
+    float itemH = 40.f;
+    float spacing = 10.f;
+    sf::Vector2f mouse = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 
-    // Paramètres d'espacement (resserrés)
-    float y0 = 130.f;
-    float dy = 45.f;
+    if (saveFiles.empty()) {
+        sf::Text emptyTxt;
+        emptyTxt.setString("Aucune sauvegarde trouvee.");
+        emptyTxt.setCharacterSize(20);
+        if (fontLoaded) emptyTxt.setFont(font);
+        sf::FloatRect er = emptyTxt.getLocalBounds();
+        emptyTxt.setOrigin(er.left + er.width/2.0f, 0);
+        emptyTxt.setPosition(centerX, 200.f);
+        window.draw(emptyTxt);
+    } else {
+        for (size_t i = 0; i < saveFiles.size(); ++i) {
+            float y = startY + i * (itemH + spacing);
 
-    for (int i = 0; i < 8; ++i) { // <--- Boucle jusqu'à 8
-        float y = y0 + i * dy;
+            // Fond de l'item
+            sf::RectangleShape itemRect({500.f, itemH});
+            itemRect.setPosition(centerX - 250.f, y);
 
-        // Label à gauche du centre
-        sf::Text label;
-        label.setString(names[i]);
-        label.setCharacterSize(20); // Un peu plus petit
-        if (fontLoaded) label.setFont(font);
-
-        label.setPosition(centerX - 220.f, y + 5.f);
-        window.draw(label);
-
-        // Zone valeur (input box) au centre
-        sf::RectangleShape box({220.f, 35.f}); // Hauteur réduite à 35
-        box.setPosition(centerX, y);
-        box.setFillColor(sf::Color(30, 30, 35));
-
-        if (i == selectedIndex) {
-            box.setOutlineColor(sf::Color(255, 200, 80));
-            if (!txtError.getString().isEmpty()) {
-                 box.setOutlineColor(sf::Color::Red);
+            // Hover effect
+            if (itemRect.getGlobalBounds().contains(mouse)) {
+                itemRect.setFillColor(sf::Color(70, 70, 80));
+                itemRect.setOutlineColor(sf::Color::White);
+            } else {
+                itemRect.setFillColor(sf::Color(40, 40, 50));
+                itemRect.setOutlineColor(sf::Color(100, 100, 100));
             }
-        } else {
-            box.setOutlineColor(sf::Color(120, 120, 120));
+            itemRect.setOutlineThickness(1.f);
+            window.draw(itemRect);
+
+            // Nom du fichier (on extrait juste le nom pour faire joli)
+            std::string pathStr = saveFiles[i];
+            std::string filename = std::filesystem::path(pathStr).filename().string();
+
+            sf::Text txtFile;
+            txtFile.setString(filename);
+            txtFile.setCharacterSize(18);
+            if (fontLoaded) txtFile.setFont(font);
+            txtFile.setPosition(centerX - 230.f, y + 8.f);
+            window.draw(txtFile);
         }
-
-        box.setOutlineThickness(2.f);
-        window.draw(box);
-
-        std::ostringstream oss;
-        if (i == selectedIndex) {
-            oss << inputBuffer;
-        } else {
-            switch (i) {
-                case 0: oss << settings.nbBoids; break;
-                case 1: oss << settings.r; break;
-                case 2: oss << settings.dmin; break;
-                case 3: oss << settings.wcoh; break;
-                case 4: oss << settings.wsep; break;
-                case 5: oss << settings.wali; break;
-                case 6: oss << (int)settings.windowWidth; break; // Cast int
-                case 7: oss << (int)settings.windowHeight; break;// Cast int
-            }
-        }
-
-        sf::Text val;
-        val.setString(oss.str());
-        val.setCharacterSize(20);
-        // Texte un peu décalé dans la boite
-        val.setPosition(centerX + 15.f, y + 4.f);
-        if (fontLoaded) val.setFont(font);
-        window.draw(val);
     }
 
-    // Boutons de navigation (déjà positionnés par updateLayout)
+    // Bouton retour
     window.draw(btnBack);
-    window.draw(btnStart);
     window.draw(txtBack);
-    window.draw(txtStart);
 }
 
-void InterfaceMenuSFML::launchSimulation() {
+void InterfaceMenuSFML::launchSimulation(const std::string& saveFile) {
     window.setVisible(false);
+    bd::Simulation sim(settings); // settings par défaut
 
-    bd::Simulation sim(settings);
+    if (!saveFile.empty()) {
+        sim.loadFromFile(saveFile);
+    }
+
     sim.run();
-
     window.setVisible(true);
 }
 

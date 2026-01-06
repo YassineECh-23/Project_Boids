@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <vector>
 #include "Settings.h"
 
 namespace bd {
@@ -13,7 +14,8 @@ namespace bd {
         void run();
 
     private:
-        enum class Screen { Main, Settings };
+        // AJOUT : Nouvel état "Load"
+        enum class Screen { Main, Settings, Load };
 
         sf::RenderWindow window;
         sf::Font font;
@@ -24,11 +26,13 @@ namespace bd {
 
         // --- Main buttons ---
         sf::RectangleShape btnRun;
+        sf::RectangleShape btnLoad;
         sf::RectangleShape btnSettings;
         sf::RectangleShape btnQuit;
 
         sf::Text txtTitle;
         sf::Text txtRun;
+        sf::Text txtLoad;
         sf::Text txtSettings;
         sf::Text txtQuit;
 
@@ -39,15 +43,17 @@ namespace bd {
         sf::Text txtStart;
 
         // --- Settings editing ---
-        int selectedIndex = -1;          // -1 = rien sélectionné
-        std::string inputBuffer;         // ce que l'utilisateur tape
+        int selectedIndex = -1;
+        std::string inputBuffer;
         sf::Text txtHint;
         sf::Text txtError;
 
-        // Initialisation
-        void initUI();
+        // --- LOAD SCREEN (NOUVEAU) ---
+        std::vector<std::string> saveFiles; // Liste des fichiers trouvés
+        sf::RectangleShape btnRefresh;      // Bouton pour recharger la liste
+        sf::Text txtRefresh;
 
-        // --- NOUVEAU : Méthode pour recalculer les positions ---
+        void initUI();
         void updateLayout();
 
         void handleEvents();
@@ -56,17 +62,20 @@ namespace bd {
 
         void renderMain();
         void renderSettings();
+        void renderLoad(); // <--- Nouvelle méthode d'affichage
 
         bool isClicked(const sf::RectangleShape& r, sf::Vector2f mouse) const;
 
-        // actions
-        void launchSimulation();
+        void launchSimulation(const std::string& saveFile = ""); // Paramètre optionnel
 
         // settings helpers
         void selectField(int index);
         void commitInput();
         void backspaceInput();
         void appendChar(char c);
+
+        // Helper pour rafraîchir la liste des sauvegardes
+        void refreshSaves();
     };
 
 } // namespace bd

@@ -107,5 +107,8 @@ namespace bd {
             }
         }
     }
+    void Flock::clear() {
+        boids_.clear();
+    }
 
 } // namespace bd
