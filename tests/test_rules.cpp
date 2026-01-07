@@ -19,7 +19,7 @@ protected:
         settings.dmin = 20.0f;  // Distance min de séparation
 
         // On s'assure que le flock est vide au départ
-        flock.initRandom(0, 800, 600);
+        flock.initRandom(0, 800, 600,settings);
     }
 };
 
