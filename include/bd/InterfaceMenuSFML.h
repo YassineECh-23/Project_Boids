@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
-#include <vector>
+#include "DynamicArray.h"
 #include "Settings.h"
 
 namespace bd {
@@ -56,7 +56,7 @@ namespace bd {
         sf::Text txtError;          // Message d’erreur éventuel
 
         // --- Écran LOAD ---
-        std::vector<std::string> saveFiles; // Liste des fichiers de sauvegarde trouvés
+       DynamicArray<std::string> saveFiles; // Liste des fichiers de sauvegarde trouvés
         sf::RectangleShape btnRefresh;      // Bouton pour rafraîchir la liste
         sf::Text txtRefresh;                // Texte du bouton Refresh
 

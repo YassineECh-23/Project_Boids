@@ -17,7 +17,7 @@ namespace bd {
         static bool load(const std::string& filepath, Settings& settings, Flock& flock);
 
         // Récupère la liste des fichiers de sauvegarde disponibles
-        static std::vector<std::string> listSaves();
+        static DynamicArray<std::string> listSaves();
 
         // Dossier de sauvegarde
         static const std::string SAVE_FOLDER;

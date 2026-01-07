@@ -106,13 +106,11 @@ namespace bd {
     /**
      * Liste tous les fichiers de sauvegarde disponibles dans le dossier SAVE_FOLDER.
      * Retourne uniquement les fichiers avec l'extension ".txt".
-     *
-     * @return Un vecteur contenant les chemins des sauvegardes trouvées
+     * @return DynamicArray<std::string> Liste des chemins de fichiers de sauvegarde
      */
-    std::vector<std::string> SaveManager::listSaves() {
-        std::vector<std::string> files;
+    DynamicArray<std::string> SaveManager::listSaves() {
+        DynamicArray<std::string> files;
         if (!fs::exists(SAVE_FOLDER)) return files;
-
         for (const auto& entry : fs::directory_iterator(SAVE_FOLDER)) {
             if (entry.path().extension() == ".txt") {
                 files.push_back(entry.path().string());
