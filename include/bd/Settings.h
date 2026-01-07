@@ -5,7 +5,7 @@ namespace bd {
 
     struct Settings {
         // ============================================================
-        // PARAMÈTRES PAR DÉFAUT DU SUJET
+        // PARAMÈTRES PAR DÉFAUT
         // ============================================================
 
         int nbBoids = 50;              // Nombre de boids
@@ -42,7 +42,7 @@ namespace bd {
         float windowWidth = 800.0f;
         float windowHeight = 600.0f;
 
-        // Limites de sécurité pour la résolution (NOUVEAU)
+        // Limites de sécurité pour la résolution
         float widthMin = 800.0f;
         float widthMax = 2560.0f;
         float heightMin = 600.0f;
@@ -52,7 +52,7 @@ namespace bd {
         bool enableBounce = false;
 
         // ============================================================
-        // EXTENSIONS : OBSTACLE (PHASE 5)
+        // EXTENSIONS : OBSTACLE ET PRÉDATEUR
         // ============================================================
         bool enableObstacle = false;   // Activé via Clic Droit
         float wobstacle = 5.0f;        // Poids très fort pour que la fuite soit prioritaire
@@ -61,14 +61,14 @@ namespace bd {
         float obstacleY = 0.0f;
         float obstacleRadius = 150.0f; // Rayon de la zone de danger (assez grand)
 
-        // --- EXTENSION : PRÉDATEUR (PHASE 5) ---
+
         bool enablePredator = false;    // Activé via la touche P
         float wpredator = 8.0f;         // Poids TRÈS fort (Panique totale)
 
         float predatorX = 0.0f;
         float predatorY = 0.0f;
         float predatorRadius = 150.0f;  // Rayon de peur
-        float predatorSpeed = 3.5f;     // Vitesse du prédateur (un peu moins vite que vmax=4.0)
+        float predatorSpeed = 2.5f;     // Vitesse du prédateur (un peu moins vite que vmax=4.0)
     };
 
 } // namespace bd

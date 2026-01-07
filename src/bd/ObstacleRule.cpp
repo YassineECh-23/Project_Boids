@@ -3,6 +3,18 @@
 
 namespace bd {
 
+    /**
+     * Calcule la force d’évitement d’obstacle appliquée à un boid.
+     * - Si l’option obstacle est désactivée : retourne (0,0)
+     * - Si le boid est en dehors du rayon d’influence : retourne (0,0)
+     * - Sinon : génère une force de "steering" qui pousse le boid à fuir l’obstacle
+     *   en visant une vitesse désirée orientée à l’opposé de l’obstacle.
+     *
+     * @param flock      Le groupe de boids
+     * @param boidIndex  Indice du boid courant
+     * @param settings   Paramètres globaux (activation obstacle, position, rayon, vmax, etc.)
+     * @return           Vecteur force d’évitement (steering) pour ce boid
+     */
     Vec2<float> ObstacleRule::computeForce(const Flock& flock, int boidIndex, const Settings& settings) const {
         // Si l'obstacle n'est pas activé, aucune force
         if (!settings.enableObstacle) {
@@ -16,16 +28,15 @@ namespace bd {
         Vec2<float> away = me.getPosition() - obstaclePos;
         float dist = away.length();
 
-        // Si je suis hors de la zone de danger, je m'en fiche
+        // Si le boid est hors de la zone d'influence (ou distance quasi nulle), aucune force
         if (dist > settings.obstacleRadius || dist <= 0.0001f) {
             return Vec2<float>(0.0f, 0.0f);
         }
 
-        // Si je suis dans la zone : PANIQUE !
-        // Je veux aller à Vmax dans la direction opposée à l'obstacle
+        // Si le boid est dans la zone : on calcule une vitesse désirée à Vmax dans la direction de fuite
         Vec2<float> desired = away.normalized() * settings.vmax;
 
-        // Steering force = Desired - Velocity
+        // Force de steering : différence entre vitesse désirée et vitesse actuelle
         return desired - me.getVelocity();
     }
 

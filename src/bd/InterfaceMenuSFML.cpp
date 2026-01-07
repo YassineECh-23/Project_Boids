@@ -5,7 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <cctype>
-#include <filesystem> // Pour extraire le nom du fichier
+#include <filesystem>
 
 namespace bd {
 
@@ -151,7 +151,7 @@ void InterfaceMenuSFML::handleEvents() {
             updateLayout();
         }
 
-        // --- Keyboard (Settings) ---
+        // --- Clavier (Settings) ---
         if (screen == Screen::Settings) {
             if (e.type == sf::Event::KeyPressed) {
                 if (e.key.code == sf::Keyboard::Escape) { screen = Screen::Main; }
@@ -225,7 +225,6 @@ void InterfaceMenuSFML::handleEvents() {
     }
 }
 
-// ... (appendChar, backspaceInput, selectField, commitInput : CODE IDENTIQUE A AVANT) ...
 void InterfaceMenuSFML::appendChar(char c) { if (selectedIndex != -1 && inputBuffer.size() < 12) inputBuffer.push_back(c); }
 void InterfaceMenuSFML::backspaceInput() { if (selectedIndex != -1 && !inputBuffer.empty()) inputBuffer.pop_back(); }
 void InterfaceMenuSFML::selectField(int index) {

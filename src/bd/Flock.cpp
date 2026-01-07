@@ -1,42 +1,81 @@
 #include "../../include/bd/Flock.h"
 
-// Inclusion de TOUTES les règles pour pouvoir appliquer les poids spécifiques
 #include "../../include/bd/CohesionRule.h"
 #include "../../include/bd/SeparationRule.h"
 #include "../../include/bd/AlignmentRule.h"
 #include "../../include/bd/ObstacleRule.h"
 #include "../../include/bd/PredatorRule.h"
 
-#include <cstdlib> // pour rand()
+#include <cstdlib>
 
 namespace bd {
 
+    /**
+     * Constructeur par défaut du flock.
+     * Initialise un groupe de boids vide.
+     */
     Flock::Flock() {}
 
+    /**
+     * Initialise le flock avec un nombre donné de boids placés aléatoirement.
+     * Supprime les boids existants puis redimensionne le flock.
+     *
+     * @param count    Nombre de boids à créer
+     * @param width    Largeur de la zone de simulation
+     * @param height   Hauteur de la zone de simulation
+     * @param settings Paramètres globaux de la simulation
+     */
     void Flock::initRandom(int count, float width, float height, const Settings& settings) {
         boids_.clear();
         resize(count, width, height, settings);
     }
 
+    /**
+     * Ajoute un boid au flock.
+     *
+     * @param b Boid à ajouter
+     */
     void Flock::addBoid(const Boid& b) {
         boids_.push_back(b);
     }
 
+    /**
+     * Retourne le nombre de boids dans le flock.
+     */
     int Flock::size() const {
         return static_cast<int>(boids_.size());
     }
 
+    /**
+     * Accès en lecture seule à un boid du flock.
+     *
+     * @param index Indice du boid
+     */
     const Boid& Flock::getBoid(int index) const {
         return boids_[static_cast<size_t>(index)];
     }
 
+    /**
+     * Accès modifiable à un boid du flock.
+     *
+     * @param index Indice du boid
+     */
     Boid& Flock::getBoid(int index) {
         return boids_[static_cast<size_t>(index)];
     }
 
-    // ============================================================
-    // UPDATE ALL : APPLICATION DES RÈGLES ET DES POIDS
-    // ============================================================
+    /**
+     * Met à jour l’ensemble des boids du flock.
+     * Pour chaque boid :
+     *  - calcule la force totale résultant des différentes règles
+     *  - applique les pondérations associées à chaque règle
+     *  - met à jour la position et la vitesse du boid
+     *  - gère les collisions avec les bords
+     *
+     * @param rules    Liste des règles de comportement
+     * @param settings Paramètres globaux de la simulation
+     * @param dt       Delta time (temps écoulé depuis la dernière mise à jour)
+     */
     void Flock::updateAll(const DynamicArray<Rule*>& rules,
                           const Settings& settings,
                           float dt) {
@@ -48,9 +87,7 @@ namespace bd {
                 Rule* rule = rules[r];
                 Vec2<float> force = rule->computeForce(*this, i, settings);
 
-                // --- APPLICATION DES POIDS (PHASE 2, 4 & 5) ---
-
-                // Règles de base
+                // Application des poids selon le type de règle
                 if (dynamic_cast<CohesionRule*>(rule)) {
                     force *= settings.wcoh;
                 }
@@ -60,7 +97,7 @@ namespace bd {
                 else if (dynamic_cast<AlignmentRule*>(rule)) {
                     force *= settings.wali;
                 }
-                // Règles Phase 5 (Extensions)
+                // Extensions Obstacles et Predators
                 else if (dynamic_cast<ObstacleRule*>(rule)) {
                     force *= settings.wobstacle;
                 }
@@ -76,20 +113,26 @@ namespace bd {
         }
     }
 
-    // ============================================================
-    // RESIZE : AJOUT/SUPPRESSION DYNAMIQUE (PHASE 4)
-    // ============================================================
+    /**
+     * Redimensionne le flock.
+     * - Si newCount > taille actuelle : ajoute des boids aléatoires
+     * - Si newCount < taille actuelle : supprime des boids
+     *
+     * @param newCount Nouveau nombre de boids souhaité
+     * @param width    Largeur de la zone de simulation
+     * @param height   Hauteur de la zone de simulation
+     * @param settings Paramètres globaux (vmax, etc.)
+     */
     void Flock::resize(int newCount, float width, float height, const Settings& settings) {
         int currentSize = size();
 
         if (newCount > currentSize) {
-            // AJOUT
+            // Ajout de boids
             int numberToAdd = newCount - currentSize;
             for (int i = 0; i < numberToAdd; ++i) {
                 float posX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * width;
                 float posY = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * height;
 
-                // Vitesse aléatoire bornée par vmax
                 float velX = (static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 2.0f - 1.0f) * settings.vmax;
                 float velY = (static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 2.0f - 1.0f) * settings.vmax;
 
@@ -97,16 +140,19 @@ namespace bd {
             }
         }
         else if (newCount < currentSize) {
-            // SUPPRESSION
+            // Suppression de boids
             int numberToRemove = currentSize - newCount;
             for (int i = 0; i < numberToRemove; ++i) {
                 if (!boids_.empty()) {
-                    // Suppression du dernier élément
                     boids_.removeAt(boids_.size() - 1);
                 }
             }
         }
     }
+
+    /**
+     * Supprime tous les boids du flock.
+     */
     void Flock::clear() {
         boids_.clear();
     }

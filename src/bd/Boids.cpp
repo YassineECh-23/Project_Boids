@@ -1,7 +1,3 @@
-//
-// Created by Yassine on 27/12/2025.
-//
-
 #include "../../include/bd/Boids.h"//
 // Boid.cpp - Implémentation de la classe Boid
 //
@@ -9,80 +5,73 @@
 
 namespace bd {
 
-// ============================================================
-// CONSTRUCTEURS
-// ============================================================
-
-Boid::Boid()
-    : position_(0.0f, 0.0f), velocity_(0.0f, 0.0f) {
-}
-
-Boid::Boid(const Vec2<float>& pos, const Vec2<float>& vel)
-    : position_(pos), velocity_(vel) {
-}
-
-// ============================================================
-// MISE À JOUR
-// ============================================================
-
-void Boid::update(const Vec2<float>& totalForce,
-                  const Settings& settings,
-                  float dt) {
-    // ÉTAPE 1 : Limiter la force à maxAccel
-    Vec2<float> acceleration = totalForce;
-    float accelMagnitude = acceleration.length();
-
-    if (accelMagnitude > settings.maxAccel) {
-        // Normaliser et multiplier par maxAccel
-        acceleration = acceleration.normalized() * settings.maxAccel;
+    Boid::Boid()
+        : position_(0.0f, 0.0f), velocity_(0.0f, 0.0f) {
     }
 
-    // ÉTAPE 2 : Mettre à jour la vitesse
-    velocity_ += acceleration * dt;
-
-    // ÉTAPE 3 : Limiter la vitesse à vmax
-    float speed = velocity_.length();
-    if (speed > settings.vmax) {
-        // Normaliser et multiplier par vmax
-        velocity_ = velocity_.normalized() * settings.vmax;
+    Boid::Boid(const Vec2<float>& pos, const Vec2<float>& vel)
+        : position_(pos), velocity_(vel) {
     }
 
-    // ÉTAPE 4 : Mettre à jour la position
-    position_ += velocity_ * dt;
-}
+    /**
+     * Met à jour l'état du boid en fonction de la force totale appliquée.
+     * - La force est interprétée comme une accélération
+     * - L'accélération est limitée par maxAccel
+     * - La vitesse est mise à jour puis limitée par vmax
+     * - La position est ensuite mise à jour selon la vitesse
+     *
+     * @param totalForce Force résultante calculée par les règles (alignement, cohésion, séparation, obstacles, etc.)
+     * @param settings   Paramètres globaux (vmax, maxAccel, etc.)
+     * @param dt         Delta time (temps écoulé depuis la dernière frame)
+     */
+    void Boid::update(const Vec2<float>& totalForce,const Settings& settings,float dt) {
+        Vec2<float> acceleration = totalForce;
+        float accelMagnitude = acceleration.length();
 
-// ============================================================
-// GESTION DES BORDS
-// ============================================================
+        if (accelMagnitude > settings.maxAccel) {
+            acceleration = acceleration.normalized() * settings.maxAccel;
+        }
+        velocity_ += acceleration * dt;
+        float speed = velocity_.length();
+        if (speed > settings.vmax) {
+            velocity_ = velocity_.normalized() * settings.vmax;
+        }
+        position_ += velocity_ * dt;
+    }
 
+    /**
+     * Gère le comportement du boid lorsqu'il atteint les limites de la fenêtre.
+     * Deux modes possibles selon les paramètres :
+     * - enableBounce = true  : rebond sur les bords
+     * - enableBounce = false :  (sort d'un côté, réapparaît de l'autre)
+     *
+     * @param settings Paramètres globaux (dimensions fenêtre, mode rebond, etc.)
+     */
     void Boid::handleBounds(const Settings& settings) {
-
-    // CAS 1 : MODE REBOND (Activé par la touche B)
     if (settings.enableBounce) {
-        const float margin = 10.0f; // Marge pour éviter que ça colle au bord
+        const float margin = 10.0f;
 
-        // Rebond axe X
+
         if (position_.x < margin) {
             position_.x = margin;
-            velocity_.x = std::abs(velocity_.x);  // Force vers la droite (+)
+            velocity_.x = std::abs(velocity_.x);
         }
         else if (position_.x > settings.windowWidth - margin) {
             position_.x = settings.windowWidth - margin;
-            velocity_.x = -std::abs(velocity_.x); // Force vers la gauche (-)
+            velocity_.x = -std::abs(velocity_.x);
         }
 
-        // Rebond axe Y
+
         if (position_.y < margin) {
             position_.y = margin;
-            velocity_.y = std::abs(velocity_.y);  // Force vers le bas (+)
+            velocity_.y = std::abs(velocity_.y);
         }
         else if (position_.y > settings.windowHeight - margin) {
             position_.y = settings.windowHeight - margin;
-            velocity_.y = -std::abs(velocity_.y); // Force vers le haut (-)
+            velocity_.y = -std::abs(velocity_.y);
         }
     }
 
-    // CAS 2 : MODE WRAP (Téléportation classique)
     else {
         if (position_.x < 0.0f)
             position_.x = settings.windowWidth;

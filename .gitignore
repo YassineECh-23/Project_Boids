@@ -16,3 +16,5 @@ CMakeCache.txt
 # Fichiers systèmes
 .DS_Store
 Thumbs.db
+# Fichiers temporaires
+saves/

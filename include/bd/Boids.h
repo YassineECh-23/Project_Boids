@@ -26,24 +26,15 @@ private:
     Vec2<float> velocity_;
 
 public:
-    // ============================================================
-    // CONSTRUCTEURS
-    // ============================================================
-
-    /// Constructeur par défaut
+    // Constructeur par défaut
     Boid();
 
-    /// Constructeur avec position et vitesse
+    // Constructeur avec position et vitesse
     Boid(const Vec2<float>& pos, const Vec2<float>& vel);
 
-    // ============================================================
-    // MISE À JOUR
-    // ============================================================
 
     /**
      * @brief Met à jour la vitesse et la position
-     *
-     * Algorithme (page 2 du sujet) :
      * 1. Limiter totalForce à maxAccel
      * 2. velocity += totalForce * dt
      * 3. Limiter velocity à vmax
@@ -62,9 +53,6 @@ public:
      */
     void handleBounds(const Settings& settings);
 
-    // ============================================================
-    // ACCESSEURS
-    // ============================================================
 
     const Vec2<float>& getPosition() const { return position_; }
     const Vec2<float>& getVelocity() const { return velocity_; }

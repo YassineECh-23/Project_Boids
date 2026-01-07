@@ -2,7 +2,7 @@
 #define PT_BOIDS_FLOCK_H
 
 #include "DynamicArray.h"
-#include "Boids.h" // J'ai gardé "Boids.h" car c'est le nom dans ton arborescence
+#include "Boids.h"
 #include "Rule.h"
 #include "Settings.h"
 
@@ -16,7 +16,7 @@ namespace bd {
         Flock();
         ~Flock() = default;
 
-        // MODIFICATION : Ajout de 'const Settings& settings' pour récupérer vmax
+        // Initialisation aléatoire
         void initRandom(int count, float width, float height, const Settings& settings);
 
         // Ajout manuel
@@ -30,7 +30,7 @@ namespace bd {
         const Boid& getBoid(int index) const;
         Boid& getBoid(int index);
 
-        // MODIFICATION : Ajout de 'const Settings& settings' pour gérer l'ajout de boids (vmax)
+        // Redimensionnement et nettoyage
         void resize(int newCount, float width, float height, const Settings& settings);
         void clear();
     };

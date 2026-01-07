@@ -10,13 +10,13 @@ namespace bd {
 
     class SaveManager {
     public:
-        // Sauvegarde avec un nom automatique (timestamp)
+        // Sauvegarde avec un nom automatique
         static bool saveAuto(const Settings& settings, const Flock& flock);
 
         // Charge un fichier spécifique
         static bool load(const std::string& filepath, Settings& settings, Flock& flock);
 
-        // Récupère la liste des fichiers de sauvegarde (.save ou .txt)
+        // Récupère la liste des fichiers de sauvegarde disponibles
         static std::vector<std::string> listSaves();
 
         // Dossier de sauvegarde

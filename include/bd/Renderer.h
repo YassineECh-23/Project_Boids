@@ -16,14 +16,11 @@ namespace bd {
         // Dessine 1 boid
         void drawBoid(const Boid& boid);
 
-        //  PHASE 3 : Dessine tout le flock
+        //  Dessine tout le flock
         void drawFlock(const Flock& flock);
 
         //  UI : afficher les paramètres
         void drawUI(const Settings& settings);
-
-        // Ancien debug (tu peux garder)
-        void drawDebug(const Settings& settings);
 
     private:
         sf::RenderWindow& window_;

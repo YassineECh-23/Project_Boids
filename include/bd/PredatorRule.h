@@ -1,7 +1,3 @@
-//
-// Created by Yassine on 04/01/2026.
-//
-
 #ifndef PT_BOIDS_PREDATORRULE_H
 #define PT_BOIDS_PREDATORRULE_H
 

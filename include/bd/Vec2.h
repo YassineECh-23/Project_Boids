@@ -13,27 +13,20 @@ class Vec2 {
 public:
     T x, y;
 
-    // ============================================================
-    // CONSTRUCTEURS
-    // ============================================================
     Vec2() : x(T(0)), y(T(0)) {}
     Vec2(T x, T y) : x(x), y(y) {}
 
-    // ============================================================
-    // MÉTHODES MATHÉMATIQUES
-    // ============================================================
-
-    /// Longueur au carré (plus rapide car pas de sqrt)
+    // Longueur au carré (plus rapide car pas de sqrt)
     T lengthSquared() const {
         return x * x + y * y;
     }
 
-    /// Longueur du vecteur
+    // Longueur du vecteur
     T length() const {
         return std::sqrt(lengthSquared());
     }
 
-    /// Retourne un vecteur normalisé (longueur = 1)
+    // Retourne un vecteur normalisé (longueur = 1)
     Vec2 normalized() const {
         T len = length();
         if (len > T(0)) {
@@ -42,9 +35,6 @@ public:
         return Vec2(0, 0);
     }
 
-    // ============================================================
-    // OPÉRATEURS ARITHMÉTIQUES (obligatoires)
-    // ============================================================
 
     Vec2 operator+(const Vec2& v) const {
         return Vec2(x + v.x, y + v.y);
@@ -62,9 +52,6 @@ public:
         return Vec2(x / scalar, y / scalar);
     }
 
-    // ============================================================
-    // OPÉRATEURS COMPOSÉS (obligatoires)
-    // ============================================================
 
     Vec2& operator+=(const Vec2& v) {
         x += v.x;
@@ -90,9 +77,7 @@ public:
         return *this;
     }
 
-    // ============================================================
-    // COMPARAISONS (obligatoires)
-    // ============================================================
+
 
     bool operator==(const Vec2& v) const {
         return (x == v.x) && (y == v.y);
@@ -102,32 +87,25 @@ public:
         return !(*this == v);
     }
 
-    // ============================================================
-    // FONCTIONS STATIQUES (utiles pour les boids)
-    // ============================================================
 
-    /// Produit scalaire
+    // Produit scalaire
     static T dot(const Vec2& a, const Vec2& b) {
         return a.x * b.x + a.y * b.y;
     }
 
-    /// Distance entre deux points
+    // Distance entre deux points
     static T distance(const Vec2& a, const Vec2& b) {
         return (b - a).length();
     }
 };
 
-// ============================================================
-// OPÉRATEURS EXTERNES (obligatoires)
-// ============================================================
-
-/// Multiplication scalaire à gauche : 2.0f * v
+// Multiplication scalaire à gauche :
 template<typename T>
 Vec2<T> operator*(T scalar, const Vec2<T>& v) {
     return v * scalar;
 }
 
-/// Opérateur de flux pour affichage : std::cout << v
+// Opérateur de flux pour affichage
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const Vec2<T>& v) {
     os << "(" << v.x << ", " << v.y << ")";

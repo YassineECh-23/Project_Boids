@@ -1,7 +1,3 @@
-//
-// Created by Yassine on 29/12/2025.
-//
-
 #ifndef PT_BOIDS_SEPARATIONRULE_H
 #define PT_BOIDS_SEPARATIONRULE_H
 

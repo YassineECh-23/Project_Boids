@@ -15,14 +15,12 @@ namespace bd {
 
         /**
          * Calcule la force exercée sur un boid donné.
-         * @param flock : Référence vers la meute (pour accéder aux voisins)
+         * @param flock : Référence vers le flock contenant tous les boids (pour accéder aux voisins)
          * @param boidIndex : L'index du boid actuel (pour ne pas se comparer à soi-même)
          * @param settings : Les paramètres globaux (poids, rayons, etc.)
          * @return Un vecteur force (Vec2)
          */
-        virtual Vec2<float> computeForce(const Flock& flock,
-                                         int boidIndex,
-                                         const Settings& settings) const = 0;
+        virtual Vec2<float> computeForce(const Flock& flock,int boidIndex,const Settings& settings) const = 0;
     };
 
 } // namespace bd
