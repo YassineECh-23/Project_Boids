@@ -1,0 +1,5 @@
+<map id="bd::Flock::resize" name="bd::Flock::resize">
+<area shape="rect" id="node1" title="Redimensionne le flock pour atteindre un nombre cible de boids." alt="" coords="5,31,133,57"/>
+<area shape="rect" id="node2" href="$classbd_1_1Flock.html#ae4ba7ff647c2c374de6b2461beb77b21" title="Ajoute manuellement un boid au groupe." alt="" coords="181,5,324,32"/>
+<area shape="rect" id="node3" href="$classbd_1_1Flock.html#a379014239f890153080fec2c334478a4" title="Retourne le nombre de boids dans le groupe." alt="" coords="195,56,310,83"/>
+</map>

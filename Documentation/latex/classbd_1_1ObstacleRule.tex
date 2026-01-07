@@ -1,0 +1,105 @@
+\hypertarget{classbd_1_1ObstacleRule}{}\doxysection{bd\+::Obstacle\+Rule Class Reference}
+\label{classbd_1_1ObstacleRule}\index{bd::ObstacleRule@{bd::ObstacleRule}}
+
+
+Règle d\textquotesingle{}évitement d\textquotesingle{}obstacle (Obstacle Avoidance).  
+
+
+
+
+{\ttfamily \#include $<$Obstacle\+Rule.\+h$>$}
+
+
+
+Inheritance diagram for bd\+::Obstacle\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classbd_1_1ObstacleRule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for bd\+::Obstacle\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classbd_1_1ObstacleRule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \mbox{\hyperlink{classbd_1_1ObstacleRule_ab44bf5f4867f43f989c54781a48de228}{compute\+Force}} (const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock, int boid\+Index, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings) const override
+\begin{DoxyCompactList}\small\item\em Calcule la force d\textquotesingle{}évitement d\textquotesingle{}obstacle pour un boid donné. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Règle d\textquotesingle{}évitement d\textquotesingle{}obstacle (Obstacle Avoidance). 
+
+Cette règle permet aux boids d\textquotesingle{}éviter une zone circulaire définie comme un obstacle. Si un boid s\textquotesingle{}approche trop près du centre de l\textquotesingle{}obstacle, une force répulsive est générée pour le pousser à s\textquotesingle{}éloigner. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1ObstacleRule_ab44bf5f4867f43f989c54781a48de228}\label{classbd_1_1ObstacleRule_ab44bf5f4867f43f989c54781a48de228}} 
+\index{bd::ObstacleRule@{bd::ObstacleRule}!computeForce@{computeForce}}
+\index{computeForce@{computeForce}!bd::ObstacleRule@{bd::ObstacleRule}}
+\doxysubsubsection{\texorpdfstring{computeForce()}{computeForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ bd\+::\+Obstacle\+Rule\+::compute\+Force (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock,  }\item[{int}]{boid\+Index,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcule la force d\textquotesingle{}évitement d\textquotesingle{}obstacle pour un boid donné. 
+
+Si l\textquotesingle{}obstacle est activé et que le boid se trouve dans son rayon d\textquotesingle{}influence (settings.\+obstacle\+Radius), une force est calculée pour diriger le boid à l\textquotesingle{}opposé de la position de l\textquotesingle{}obstacle (settings.\+obstacleX, settings.\+obstacleY).
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Référence vers le groupe de boids. \\
+\hline
+{\em boid\+Index} & Indice du boid courant. \\
+\hline
+{\em settings} & Paramètres globaux (position et rayon de l\textquotesingle{}obstacle). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}} Le vecteur force d\textquotesingle{}évitement (steering force).
+\end{DoxyReturn}
+Calcule la force d’évitement d’obstacle appliquée à un boid.
+\begin{DoxyItemize}
+\item Si l’option obstacle est désactivée \+: retourne (0,0)
+\item Si le boid est en dehors du rayon d’influence \+: retourne (0,0)
+\item Sinon \+: génère une force de \char`\"{}steering\char`\"{} qui pousse le boid à fuir l’obstacle en visant une vitesse désirée orientée à l’opposé de l’obstacle.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Le groupe de boids \\
+\hline
+{\em boid\+Index} & Indice du boid courant \\
+\hline
+{\em settings} & Paramètres globaux (activation obstacle, position, rayon, vmax, etc.) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vecteur force d’évitement (steering) pour ce boid 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227}{bd\+::\+Rule}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1ObstacleRule_ab44bf5f4867f43f989c54781a48de228_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{ObstacleRule_8h}{Obstacle\+Rule.\+h}}\item 
+src/bd/\mbox{\hyperlink{ObstacleRule_8cpp}{Obstacle\+Rule.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,369 @@
+\hypertarget{classbd_1_1Flock}{}\doxysection{bd\+::Flock Class Reference}
+\label{classbd_1_1Flock}\index{bd::Flock@{bd::Flock}}
+
+
+Classe gérant un ensemble de boids (groupe/nuée).  
+
+
+
+
+{\ttfamily \#include $<$Flock.\+h$>$}
+
+
+
+Collaboration diagram for bd\+::Flock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classbd_1_1Flock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Flock_a77b168d74b94b394690d968150d58327}{Flock}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut. Crée un \mbox{\hyperlink{classbd_1_1Flock}{Flock}} vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Flock_aea8b14ecd6ac2565861cdb0ffd886537}{$\sim$\+Flock}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructeur par défaut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Flock_a309e0bcace04f559e9f6ef6cca1232e4}{init\+Random}} (int count, float width, float height, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings)
+\begin{DoxyCompactList}\small\item\em Initialise le flock avec un nombre donné de boids aléatoires. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Flock_ae4ba7ff647c2c374de6b2461beb77b21}{add\+Boid}} (const \mbox{\hyperlink{classbd_1_1Boid}{Boid}} \&b)
+\begin{DoxyCompactList}\small\item\em Ajoute manuellement un boid au groupe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Flock_a74adf1b51b3509ddc703d1db4447615a}{update\+All}} (const \mbox{\hyperlink{classbd_1_1DynamicArray}{Dynamic\+Array}}$<$ \mbox{\hyperlink{classbd_1_1Rule}{Rule}} $\ast$ $>$ \&rules, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings, float dt)
+\begin{DoxyCompactList}\small\item\em Met à jour l\textquotesingle{}ensemble des boids du flock. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classbd_1_1Flock_a379014239f890153080fec2c334478a4}{size}} () const
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de boids dans le groupe. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classbd_1_1Boid}{Boid}} \& \mbox{\hyperlink{classbd_1_1Flock_a93240d7223ba8d46e632803fcc382b70}{get\+Boid}} (int index) const
+\begin{DoxyCompactList}\small\item\em Accès en lecture seule à un boid spécifique. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Boid}{Boid}} \& \mbox{\hyperlink{classbd_1_1Flock_a69e455b3c1e19adb6e9883ff66b054a8}{get\+Boid}} (int index)
+\begin{DoxyCompactList}\small\item\em Accès modifiable à un boid spécifique. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Flock_ae315d20c7a1eedb43c4047ff60096333}{resize}} (int new\+Count, float width, float height, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings)
+\begin{DoxyCompactList}\small\item\em Redimensionne le flock pour atteindre un nombre cible de boids. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Flock_a1d89e725e02fe4a3bb0c4f784e9b35fb}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Vide le flock. Supprime tous les boids. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe gérant un ensemble de boids (groupe/nuée). 
+
+Le \mbox{\hyperlink{classbd_1_1Flock}{Flock}} est le conteneur principal des agents. Il est responsable de \+:
+\begin{DoxyItemize}
+\item Stocker tous les boids.
+\item Les initialiser et les gérer (ajout, suppression).
+\item Appliquer les règles de comportement à l\textquotesingle{}ensemble du groupe. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbd_1_1Flock_a77b168d74b94b394690d968150d58327}\label{classbd_1_1Flock_a77b168d74b94b394690d968150d58327}} 
+\index{bd::Flock@{bd::Flock}!Flock@{Flock}}
+\index{Flock@{Flock}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{Flock()}{Flock()}}
+{\footnotesize\ttfamily bd\+::\+Flock\+::\+Flock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur par défaut. Crée un \mbox{\hyperlink{classbd_1_1Flock}{Flock}} vide. 
+
+Constructeur par défaut du flock. Initialise un groupe de boids vide. \mbox{\Hypertarget{classbd_1_1Flock_aea8b14ecd6ac2565861cdb0ffd886537}\label{classbd_1_1Flock_aea8b14ecd6ac2565861cdb0ffd886537}} 
+\index{bd::Flock@{bd::Flock}!````~Flock@{$\sim$Flock}}
+\index{````~Flock@{$\sim$Flock}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{$\sim$Flock()}{~Flock()}}
+{\footnotesize\ttfamily bd\+::\+Flock\+::$\sim$\+Flock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructeur par défaut. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1Flock_ae4ba7ff647c2c374de6b2461beb77b21}\label{classbd_1_1Flock_ae4ba7ff647c2c374de6b2461beb77b21}} 
+\index{bd::Flock@{bd::Flock}!addBoid@{addBoid}}
+\index{addBoid@{addBoid}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{addBoid()}{addBoid()}}
+{\footnotesize\ttfamily void bd\+::\+Flock\+::add\+Boid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Boid}{Boid}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Ajoute manuellement un boid au groupe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Le boid à ajouter.\\
+\hline
+\end{DoxyParams}
+Ajoute un boid au flock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & \mbox{\hyperlink{classbd_1_1Boid}{Boid}} à ajouter \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Flock_ae4ba7ff647c2c374de6b2461beb77b21_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Flock_a1d89e725e02fe4a3bb0c4f784e9b35fb}\label{classbd_1_1Flock_a1d89e725e02fe4a3bb0c4f784e9b35fb}} 
+\index{bd::Flock@{bd::Flock}!clear@{clear}}
+\index{clear@{clear}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void bd\+::\+Flock\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Vide le flock. Supprime tous les boids. 
+
+Supprime tous les boids du flock. \mbox{\Hypertarget{classbd_1_1Flock_a69e455b3c1e19adb6e9883ff66b054a8}\label{classbd_1_1Flock_a69e455b3c1e19adb6e9883ff66b054a8}} 
+\index{bd::Flock@{bd::Flock}!getBoid@{getBoid}}
+\index{getBoid@{getBoid}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{getBoid()}{getBoid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbd_1_1Boid}{Boid}} \& bd\+::\+Flock\+::get\+Boid (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Accès modifiable à un boid spécifique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & L\textquotesingle{}indice du boid dans le tableau. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Boid}{Boid}}\& Référence modifiable vers le boid.
+\end{DoxyReturn}
+Accès modifiable à un boid du flock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Indice du boid \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbd_1_1Flock_a93240d7223ba8d46e632803fcc382b70}\label{classbd_1_1Flock_a93240d7223ba8d46e632803fcc382b70}} 
+\index{bd::Flock@{bd::Flock}!getBoid@{getBoid}}
+\index{getBoid@{getBoid}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{getBoid()}{getBoid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classbd_1_1Boid}{Boid}} \& bd\+::\+Flock\+::get\+Boid (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Accès en lecture seule à un boid spécifique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & L\textquotesingle{}indice du boid dans le tableau. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const \mbox{\hyperlink{classbd_1_1Boid}{Boid}}\& Référence constante vers le boid.
+\end{DoxyReturn}
+Accès en lecture seule à un boid du flock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Indice du boid \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Flock_a93240d7223ba8d46e632803fcc382b70_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Flock_a309e0bcace04f559e9f6ef6cca1232e4}\label{classbd_1_1Flock_a309e0bcace04f559e9f6ef6cca1232e4}} 
+\index{bd::Flock@{bd::Flock}!initRandom@{initRandom}}
+\index{initRandom@{initRandom}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{initRandom()}{initRandom()}}
+{\footnotesize\ttfamily void bd\+::\+Flock\+::init\+Random (\begin{DoxyParamCaption}\item[{int}]{count,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Initialise le flock avec un nombre donné de boids aléatoires. 
+
+Vide le flock existant et crée \textquotesingle{}count\textquotesingle{} nouveaux boids avec des positions et des vitesses aléatoires comprises dans les limites données.
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Nombre de boids à créer. \\
+\hline
+{\em width} & Largeur de la zone d\textquotesingle{}apparition. \\
+\hline
+{\em height} & Hauteur de la zone d\textquotesingle{}apparition. \\
+\hline
+{\em settings} & Paramètres globaux (utilisés pour la vitesse max, etc.).\\
+\hline
+\end{DoxyParams}
+Initialise le flock avec un nombre donné de boids placés aléatoirement. Supprime les boids existants puis redimensionne le flock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Nombre de boids à créer \\
+\hline
+{\em width} & Largeur de la zone de simulation \\
+\hline
+{\em height} & Hauteur de la zone de simulation \\
+\hline
+{\em settings} & Paramètres globaux de la simulation \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Flock_a309e0bcace04f559e9f6ef6cca1232e4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Flock_a309e0bcace04f559e9f6ef6cca1232e4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Flock_ae315d20c7a1eedb43c4047ff60096333}\label{classbd_1_1Flock_ae315d20c7a1eedb43c4047ff60096333}} 
+\index{bd::Flock@{bd::Flock}!resize@{resize}}
+\index{resize@{resize}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void bd\+::\+Flock\+::resize (\begin{DoxyParamCaption}\item[{int}]{new\+Count,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Redimensionne le flock pour atteindre un nombre cible de boids. 
+
+
+\begin{DoxyItemize}
+\item Si new\+Count $>$ taille actuelle \+: Ajoute des boids aléatoires.
+\item Si new\+Count $<$ taille actuelle \+: Supprime les derniers boids.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Count} & Le nouveau nombre de boids désiré. \\
+\hline
+{\em width} & Largeur pour l\textquotesingle{}apparition des nouveaux boids. \\
+\hline
+{\em height} & Hauteur pour l\textquotesingle{}apparition des nouveaux boids. \\
+\hline
+{\em settings} & Paramètres pour l\textquotesingle{}initialisation des nouveaux boids.\\
+\hline
+\end{DoxyParams}
+Redimensionne le flock.
+\begin{DoxyItemize}
+\item Si new\+Count $>$ taille actuelle \+: ajoute des boids aléatoires
+\item Si new\+Count $<$ taille actuelle \+: supprime des boids
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Count} & Nouveau nombre de boids souhaité \\
+\hline
+{\em width} & Largeur de la zone de simulation \\
+\hline
+{\em height} & Hauteur de la zone de simulation \\
+\hline
+{\em settings} & Paramètres globaux (vmax, etc.) \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{classbd_1_1Flock_ae315d20c7a1eedb43c4047ff60096333_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Flock_ae315d20c7a1eedb43c4047ff60096333_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Flock_a379014239f890153080fec2c334478a4}\label{classbd_1_1Flock_a379014239f890153080fec2c334478a4}} 
+\index{bd::Flock@{bd::Flock}!size@{size}}
+\index{size@{size}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int bd\+::\+Flock\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retourne le nombre de boids dans le groupe. 
+
+\begin{DoxyReturn}{Returns}
+int Le nombre de boids.
+\end{DoxyReturn}
+Retourne le nombre de boids dans le flock. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Flock_a379014239f890153080fec2c334478a4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Flock_a74adf1b51b3509ddc703d1db4447615a}\label{classbd_1_1Flock_a74adf1b51b3509ddc703d1db4447615a}} 
+\index{bd::Flock@{bd::Flock}!updateAll@{updateAll}}
+\index{updateAll@{updateAll}!bd::Flock@{bd::Flock}}
+\doxysubsubsection{\texorpdfstring{updateAll()}{updateAll()}}
+{\footnotesize\ttfamily void bd\+::\+Flock\+::update\+All (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1DynamicArray}{Dynamic\+Array}}$<$ \mbox{\hyperlink{classbd_1_1Rule}{Rule}} $\ast$ $>$ \&}]{rules,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+Met à jour l\textquotesingle{}ensemble des boids du flock. 
+
+Cette méthode est le cœur de la simulation à chaque frame. Pour chaque boid, elle \+:
+\begin{DoxyEnumerate}
+\item Calcule la somme des forces de toutes les règles actives.
+\item Applique les pondérations définies dans \mbox{\hyperlink{structbd_1_1Settings}{Settings}}.
+\item Met à jour la physique (position, vitesse) du boid.
+\item Gère les collisions avec les bords.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rules} & La liste des règles (Rule$\ast$) à appliquer. \\
+\hline
+{\em settings} & Les paramètres globaux de la simulation. \\
+\hline
+{\em dt} & Le pas de temps (delta time).\\
+\hline
+\end{DoxyParams}
+Met à jour l’ensemble des boids du flock. Pour chaque boid \+:
+\begin{DoxyItemize}
+\item calcule la force totale résultant des différentes règles
+\item applique les pondérations associées à chaque règle
+\item met à jour la position et la vitesse du boid
+\item gère les collisions avec les bords
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rules} & Liste des règles de comportement \\
+\hline
+{\em settings} & Paramètres globaux de la simulation \\
+\hline
+{\em dt} & Delta time (temps écoulé depuis la dernière mise à jour) \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Flock_a74adf1b51b3509ddc703d1db4447615a_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{Flock_8h}{Flock.\+h}}\item 
+src/bd/\mbox{\hyperlink{Flock_8cpp}{Flock.\+cpp}}\end{DoxyCompactItemize}

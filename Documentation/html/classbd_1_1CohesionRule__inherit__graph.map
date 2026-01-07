@@ -1,0 +1,4 @@
+<map id="bd::CohesionRule" name="bd::CohesionRule">
+<area shape="rect" id="node1" title="Règle de cohésion (Cohesion)." alt="" coords="5,145,144,223"/>
+<area shape="rect" id="node2" href="$classbd_1_1Rule.html" title="Classe abstraite de base pour toutes les règles de comportement." alt="" coords="5,5,144,97"/>
+</map>

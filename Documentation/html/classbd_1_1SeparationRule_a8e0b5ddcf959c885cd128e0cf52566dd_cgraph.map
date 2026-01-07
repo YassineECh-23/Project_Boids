@@ -1,0 +1,7 @@
+<map id="bd::SeparationRule::computeForce" name="bd::SeparationRule::computeForce">
+<area shape="rect" id="node1" title="Calcule la force de séparation pour un boid donné." alt="" coords="5,74,151,115"/>
+<area shape="rect" id="node2" href="$classbd_1_1Vec2.html#a9c6718dc587abd40dcd5e69971a643b4" title="Calcule la distance euclidienne entre deux points." alt="" coords="207,5,347,32"/>
+<area shape="rect" id="node3" href="$classbd_1_1Flock.html#a93240d7223ba8d46e632803fcc382b70" title="Accès en lecture seule à un boid spécifique." alt="" coords="207,56,346,83"/>
+<area shape="rect" id="node4" href="$classbd_1_1Boid.html#ac1917af7a157301a08765b93842aaee6" title="Récupère la position actuelle." alt="" coords="199,107,355,133"/>
+<area shape="rect" id="node5" href="$classbd_1_1Flock.html#a379014239f890153080fec2c334478a4" title="Retourne le nombre de boids dans le groupe." alt="" coords="219,157,334,184"/>
+</map>

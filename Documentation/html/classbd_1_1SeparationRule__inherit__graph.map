@@ -1,0 +1,4 @@
+<map id="bd::SeparationRule" name="bd::SeparationRule">
+<area shape="rect" id="node1" title="Règle de séparation (Separation)." alt="" coords="5,145,151,223"/>
+<area shape="rect" id="node2" href="$classbd_1_1Rule.html" title="Classe abstraite de base pour toutes les règles de comportement." alt="" coords="9,5,147,97"/>
+</map>

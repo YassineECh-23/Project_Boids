@@ -1,0 +1,8 @@
+<map id="bd::Boid::getVelocity" name="bd::Boid::getVelocity">
+<area shape="rect" id="node1" title="Récupère la vitesse actuelle." alt="" coords="479,111,635,138"/>
+<area shape="rect" id="node2" href="$classbd_1_1AlignmentRule.html#a56637d71caf89aba564aa27372344c83" title="Calcule la force d&#39;alignement appliquée à un boid." alt="" coords="257,5,407,47"/>
+<area shape="rect" id="node3" href="$classbd_1_1ObstacleRule.html#ab44bf5f4867f43f989c54781a48de228" title="Calcule la force d&#39;évitement d&#39;obstacle pour un boid donné." alt="" coords="233,71,431,112"/>
+<area shape="rect" id="node4" href="$classbd_1_1PredatorRule.html#acf10f3da014ad6d432f98059b51af424" title="Calcule la force de fuite face au prédateur." alt="" coords="235,136,429,177"/>
+<area shape="rect" id="node5" href="$classbd_1_1Renderer.html#ab739ae76e3107b10c765198e4ba37538" title="Dessine un boid individuel." alt="" coords="245,202,419,229"/>
+<area shape="rect" id="node6" href="$classbd_1_1Renderer.html#a6a9dd6d3becca0a5ce90af92effb9cc4" title="Dessine l&#39;ensemble du groupe (Flock)." alt="" coords="5,202,185,229"/>
+</map>

@@ -1,0 +1,187 @@
+\hypertarget{classbd_1_1SaveManager}{}\doxysection{bd\+::Save\+Manager Class Reference}
+\label{classbd_1_1SaveManager}\index{bd::SaveManager@{bd::SaveManager}}
+
+
+Gestionnaire de persistance (Sauvegarde et Chargement).  
+
+
+
+
+{\ttfamily \#include $<$Save\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for bd\+::Save\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classbd_1_1SaveManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classbd_1_1SaveManager_a058adc70192969ca1cdbe7475c3dc37b}{save\+Auto}} (const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings, const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock)
+\begin{DoxyCompactList}\small\item\em Sauvegarde l\textquotesingle{}état actuel avec un nom généré automatiquement. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classbd_1_1SaveManager_ac77bbf1fc5b6fcb18b7b8706648d8055}{load}} (const std\+::string \&filepath, \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings, \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock)
+\begin{DoxyCompactList}\small\item\em Charge une simulation depuis un fichier spécifique. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classbd_1_1DynamicArray}{Dynamic\+Array}}$<$ std\+::string $>$ \mbox{\hyperlink{classbd_1_1SaveManager_a9868d62af711c5a972dea5683c5bd05f}{list\+Saves}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la liste des fichiers de sauvegarde disponibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \mbox{\hyperlink{classbd_1_1SaveManager_a5cc4687f357baa85a4825b526b88c37a}{SAVE\+\_\+\+FOLDER}} = \char`\"{}assets/saves/\char`\"{}
+\begin{DoxyCompactList}\small\item\em Chemin relatif vers le dossier de stockage des sauvegardes. Par exemple \char`\"{}assets/saves/\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestionnaire de persistance (Sauvegarde et Chargement). 
+
+Cette classe utilitaire (méthodes statiques) permet de \+:
+\begin{DoxyItemize}
+\item Sauvegarder l\textquotesingle{}état actuel de la simulation (paramètres + boids) dans un fichier.
+\item Charger une simulation depuis un fichier existant.
+\item Lister les sauvegardes disponibles sur le disque. 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1SaveManager_a9868d62af711c5a972dea5683c5bd05f}\label{classbd_1_1SaveManager_a9868d62af711c5a972dea5683c5bd05f}} 
+\index{bd::SaveManager@{bd::SaveManager}!listSaves@{listSaves}}
+\index{listSaves@{listSaves}!bd::SaveManager@{bd::SaveManager}}
+\doxysubsubsection{\texorpdfstring{listSaves()}{listSaves()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbd_1_1DynamicArray}{Dynamic\+Array}}$<$ std\+::string $>$ bd\+::\+Save\+Manager\+::list\+Saves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Récupère la liste des fichiers de sauvegarde disponibles. 
+
+Scanne le répertoire défini par SAVE\+\_\+\+FOLDER.
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1DynamicArray}{Dynamic\+Array$<$std\+::string$>$}} Une liste contenant les noms des fichiers trouvés.
+\end{DoxyReturn}
+Liste tous les fichiers de sauvegarde disponibles dans le dossier SAVE\+\_\+\+FOLDER. Retourne uniquement les fichiers avec l\textquotesingle{}extension \char`\"{}.\+txt\char`\"{}. \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1DynamicArray}{Dynamic\+Array$<$std\+::string$>$}} Liste des chemins de fichiers de sauvegarde 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1SaveManager_a9868d62af711c5a972dea5683c5bd05f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1SaveManager_ac77bbf1fc5b6fcb18b7b8706648d8055}\label{classbd_1_1SaveManager_ac77bbf1fc5b6fcb18b7b8706648d8055}} 
+\index{bd::SaveManager@{bd::SaveManager}!load@{load}}
+\index{load@{load}!bd::SaveManager@{bd::SaveManager}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily bool bd\+::\+Save\+Manager\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath,  }\item[{\mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings,  }\item[{\mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Charge une simulation depuis un fichier spécifique. 
+
+Lit le fichier, parse les données et remplace l\textquotesingle{}état actuel des objets settings et flock passés en référence.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & Chemin complet du fichier à charger. \\
+\hline
+{\em settings} & Objet \mbox{\hyperlink{structbd_1_1Settings}{Settings}} à mettre à jour avec les valeurs du fichier. \\
+\hline
+{\em flock} & Objet \mbox{\hyperlink{classbd_1_1Flock}{Flock}} à repeupler avec les boids du fichier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Si le chargement a réussi. 
+
+false Si le fichier n\textquotesingle{}existe pas ou est corrompu.
+\end{DoxyReturn}
+Charge une configuration (\mbox{\hyperlink{structbd_1_1Settings}{Settings}}) depuis un fichier texte.
+\begin{DoxyItemize}
+\item Ouvre le fichier de sauvegarde
+\item Lit des couples clé/valeur et met à jour les champs correspondants
+\item Ne reconstruit pas les positions des boids (le flock n\textquotesingle{}est pas modifié ici)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & Chemin du fichier à charger \\
+\hline
+{\em settings} & Référence vers les paramètres à remplir \\
+\hline
+{\em flock} & \mbox{\hyperlink{classbd_1_1Flock}{Flock}} courant (non utilisé ici pour les mêmes raisons que save\+Auto) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si le chargement a réussi, sinon false 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1SaveManager_ac77bbf1fc5b6fcb18b7b8706648d8055_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1SaveManager_a058adc70192969ca1cdbe7475c3dc37b}\label{classbd_1_1SaveManager_a058adc70192969ca1cdbe7475c3dc37b}} 
+\index{bd::SaveManager@{bd::SaveManager}!saveAuto@{saveAuto}}
+\index{saveAuto@{saveAuto}!bd::SaveManager@{bd::SaveManager}}
+\doxysubsubsection{\texorpdfstring{saveAuto()}{saveAuto()}}
+{\footnotesize\ttfamily bool bd\+::\+Save\+Manager\+::save\+Auto (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings,  }\item[{const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sauvegarde l\textquotesingle{}état actuel avec un nom généré automatiquement. 
+
+Crée un fichier (généralement horodaté ou numéroté) dans le dossier de sauvegarde contenant toutes les données nécessaires pour restaurer la simulation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings} & Les paramètres de configuration actuels. \\
+\hline
+{\em flock} & L\textquotesingle{}état actuel du groupe de boids (positions, vitesses). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Si la sauvegarde a réussi. 
+
+false En cas d\textquotesingle{}erreur d\textquotesingle{}écriture fichier.
+\end{DoxyReturn}
+Sauvegarde automatiquement la configuration (\mbox{\hyperlink{structbd_1_1Settings}{Settings}}) dans un fichier texte.
+\begin{DoxyItemize}
+\item Crée le dossier de sauvegarde s\textquotesingle{}il n\textquotesingle{}existe pas
+\item Génère un nom de fichier basé sur la date/heure actuelle
+\item Écrit uniquement les paramètres (pas les positions/vitesses des boids)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings} & Paramètres de la simulation à sauvegarder \\
+\hline
+{\em flock} & \mbox{\hyperlink{classbd_1_1Flock}{Flock}} courant (non utilisé ici car on ne sauvegarde pas les boids) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la sauvegarde a réussi, sinon false 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classbd_1_1SaveManager_a5cc4687f357baa85a4825b526b88c37a}\label{classbd_1_1SaveManager_a5cc4687f357baa85a4825b526b88c37a}} 
+\index{bd::SaveManager@{bd::SaveManager}!SAVE\_FOLDER@{SAVE\_FOLDER}}
+\index{SAVE\_FOLDER@{SAVE\_FOLDER}!bd::SaveManager@{bd::SaveManager}}
+\doxysubsubsection{\texorpdfstring{SAVE\_FOLDER}{SAVE\_FOLDER}}
+{\footnotesize\ttfamily const std\+::string bd\+::\+Save\+Manager\+::\+SAVE\+\_\+\+FOLDER = \char`\"{}assets/saves/\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Chemin relatif vers le dossier de stockage des sauvegardes. Par exemple \char`\"{}assets/saves/\char`\"{}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{SaveManager_8h}{Save\+Manager.\+h}}\item 
+src/bd/\mbox{\hyperlink{SaveManager_8cpp}{Save\+Manager.\+cpp}}\end{DoxyCompactItemize}

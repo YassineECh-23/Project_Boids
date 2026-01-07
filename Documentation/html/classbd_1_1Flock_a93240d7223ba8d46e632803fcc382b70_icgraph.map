@@ -1,0 +1,9 @@
+<map id="bd::Flock::getBoid" name="bd::Flock::getBoid">
+<area shape="rect" id="node1" title="Accès en lecture seule à un boid spécifique." alt="" coords="253,177,392,203"/>
+<area shape="rect" id="node2" href="$classbd_1_1AlignmentRule.html#a56637d71caf89aba564aa27372344c83" title="Calcule la force d&#39;alignement appliquée à un boid." alt="" coords="30,5,181,47"/>
+<area shape="rect" id="node3" href="$classbd_1_1CohesionRule.html#a2d5eceb7a00287dd38c510a2bf7f2107" title="Calcule la force de cohésion appliquée à un boid." alt="" coords="5,71,205,112"/>
+<area shape="rect" id="node4" href="$classbd_1_1ObstacleRule.html#ab44bf5f4867f43f989c54781a48de228" title="Calcule la force d&#39;évitement d&#39;obstacle pour un boid donné." alt="" coords="7,136,204,177"/>
+<area shape="rect" id="node5" href="$classbd_1_1PredatorRule.html#acf10f3da014ad6d432f98059b51af424" title="Calcule la force de fuite face au prédateur." alt="" coords="8,201,203,243"/>
+<area shape="rect" id="node6" href="$classbd_1_1SeparationRule.html#a8e0b5ddcf959c885cd128e0cf52566dd" title="Calcule la force de séparation pour un boid donné." alt="" coords="33,267,178,308"/>
+<area shape="rect" id="node7" href="$classbd_1_1Renderer.html#a6a9dd6d3becca0a5ce90af92effb9cc4" title="Dessine l&#39;ensemble du groupe (Flock)." alt="" coords="15,333,195,359"/>
+</map>

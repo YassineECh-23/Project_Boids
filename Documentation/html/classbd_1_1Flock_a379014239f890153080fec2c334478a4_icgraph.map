@@ -1,0 +1,11 @@
+<map id="bd::Flock::size" name="bd::Flock::size">
+<area shape="rect" id="node1" title="Retourne le nombre de boids dans le groupe." alt="" coords="721,173,836,199"/>
+<area shape="rect" id="node2" href="$classbd_1_1AlignmentRule.html#a56637d71caf89aba564aa27372344c83" title="Calcule la force d&#39;alignement appliquée à un boid." alt="" coords="498,5,649,47"/>
+<area shape="rect" id="node3" href="$classbd_1_1CohesionRule.html#a2d5eceb7a00287dd38c510a2bf7f2107" title="Calcule la force de cohésion appliquée à un boid." alt="" coords="473,71,673,112"/>
+<area shape="rect" id="node4" href="$classbd_1_1SeparationRule.html#a8e0b5ddcf959c885cd128e0cf52566dd" title="Calcule la force de séparation pour un boid donné." alt="" coords="501,136,646,177"/>
+<area shape="rect" id="node5" href="$classbd_1_1Renderer.html#a6a9dd6d3becca0a5ce90af92effb9cc4" title="Dessine l&#39;ensemble du groupe (Flock)." alt="" coords="483,202,663,229"/>
+<area shape="rect" id="node6" href="$classbd_1_1Flock.html#ae315d20c7a1eedb43c4047ff60096333" title="Redimensionne le flock pour atteindre un nombre cible de boids." alt="" coords="509,253,637,279"/>
+<area shape="rect" id="node9" href="$classbd_1_1Flock.html#a74adf1b51b3509ddc703d1db4447615a" title="Met à jour l&#39;ensemble des boids du flock." alt="" coords="498,303,649,330"/>
+<area shape="rect" id="node7" href="$classbd_1_1Flock.html#a309e0bcace04f559e9f6ef6cca1232e4" title="Initialise le flock avec un nombre donné de boids aléatoires." alt="" coords="261,253,425,279"/>
+<area shape="rect" id="node8" href="$classbd_1_1Simulation.html#a20d30dd1eaf08fd76a58a22b2017f6fb" title="Charge une simulation depuis un fichier de sauvegarde." alt="" coords="5,253,213,279"/>
+</map>

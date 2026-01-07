@@ -1,0 +1,4 @@
+<map id="bd::Renderer::drawBoid" name="bd::Renderer::drawBoid">
+<area shape="rect" id="node1" title="Dessine un boid individuel." alt="" coords="233,5,408,32"/>
+<area shape="rect" id="node2" href="$classbd_1_1Renderer.html#a6a9dd6d3becca0a5ce90af92effb9cc4" title="Dessine l&#39;ensemble du groupe (Flock)." alt="" coords="5,5,185,32"/>
+</map>

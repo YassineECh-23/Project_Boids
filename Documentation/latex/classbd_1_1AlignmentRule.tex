@@ -1,0 +1,86 @@
+\hypertarget{classbd_1_1AlignmentRule}{}\doxysection{bd\+::Alignment\+Rule Class Reference}
+\label{classbd_1_1AlignmentRule}\index{bd::AlignmentRule@{bd::AlignmentRule}}
+
+
+Règle d\textquotesingle{}alignement (Alignment).  
+
+
+
+
+{\ttfamily \#include $<$Alignment\+Rule.\+h$>$}
+
+
+
+Inheritance diagram for bd\+::Alignment\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classbd_1_1AlignmentRule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for bd\+::Alignment\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classbd_1_1AlignmentRule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \mbox{\hyperlink{classbd_1_1AlignmentRule_a56637d71caf89aba564aa27372344c83}{compute\+Force}} (const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock, int boid\+Index, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings) const override
+\begin{DoxyCompactList}\small\item\em Calcule la force d\textquotesingle{}alignement appliquée à un boid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Règle d\textquotesingle{}alignement (Alignment). 
+
+Cette classe implémente la règle qui pousse un boid à aligner sa vitesse (direction et intensité) sur celle de ses voisins locaux. Cela permet au groupe de se déplacer de manière coordonnée dans la même direction. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1AlignmentRule_a56637d71caf89aba564aa27372344c83}\label{classbd_1_1AlignmentRule_a56637d71caf89aba564aa27372344c83}} 
+\index{bd::AlignmentRule@{bd::AlignmentRule}!computeForce@{computeForce}}
+\index{computeForce@{computeForce}!bd::AlignmentRule@{bd::AlignmentRule}}
+\doxysubsubsection{\texorpdfstring{computeForce()}{computeForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ bd\+::\+Alignment\+Rule\+::compute\+Force (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock,  }\item[{int}]{boid\+Index,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcule la force d\textquotesingle{}alignement appliquée à un boid. 
+
+La force est calculée en faisant la moyenne des vitesses des voisins dans le rayon de perception, puis en soustrayant la vitesse actuelle du boid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Référence constante vers l\textquotesingle{}ensemble du groupe (\mbox{\hyperlink{classbd_1_1Flock}{Flock}}). \\
+\hline
+{\em boid\+Index} & L\textquotesingle{}indice du boid pour lequel on calcule la force. \\
+\hline
+{\em settings} & Les paramètres globaux (rayon de perception, poids, etc.). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}} Le vecteur force d\textquotesingle{}alignement (steering force).
+\end{DoxyReturn}
+Calcule la force d’alignement appliquée à un boid. Cette règle vise à aligner la vitesse du boid courant avec la vitesse moyenne de ses voisins proches. 
+
+Implements \mbox{\hyperlink{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227}{bd\+::\+Rule}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{classbd_1_1AlignmentRule_a56637d71caf89aba564aa27372344c83_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{AlignmentRule_8h}{Alignment\+Rule.\+h}}\item 
+src/bd/\mbox{\hyperlink{AlignmentRule_8cpp}{Alignment\+Rule.\+cpp}}\end{DoxyCompactItemize}

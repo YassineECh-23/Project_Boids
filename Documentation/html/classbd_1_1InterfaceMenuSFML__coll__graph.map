@@ -1,0 +1,3 @@
+<map id="bd::InterfaceMenuSFML" name="bd::InterfaceMenuSFML">
+<area shape="rect" id="node1" title="Classe gérant l’interface graphique du menu principal avec SFML." alt="" coords="5,5,181,97"/>
+</map>

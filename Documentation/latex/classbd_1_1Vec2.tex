@@ -1,0 +1,516 @@
+\hypertarget{classbd_1_1Vec2}{}\doxysection{bd\+::Vec2$<$ T $>$ Class Template Reference}
+\label{classbd_1_1Vec2}\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+
+
+Classe template représentant un vecteur mathématique 2D.  
+
+
+
+
+{\ttfamily \#include $<$Vec2.\+h$>$}
+
+
+
+Collaboration diagram for bd\+::Vec2$<$ T $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classbd_1_1Vec2__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Vec2_a1bfd9cef1fda2910c4b500f899b93936}{Vec2}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut. Initialise le vecteur à l\textquotesingle{}origine (0, 0). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2_a63a3225470c1a48375d45a7e050db113}{Vec2}} (T \mbox{\hyperlink{classbd_1_1Vec2_aedd5f0c9f846a67c6fd92bbe1c1b02c5}{x}}, T \mbox{\hyperlink{classbd_1_1Vec2_a510b6885585e97b8c38d317425c8635f}{y}})
+\begin{DoxyCompactList}\small\item\em Constructeur avec paramètres. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classbd_1_1Vec2_aeb6baa21141046a9bee316491d2d1c55}{length\+Squared}} () const
+\begin{DoxyCompactList}\small\item\em Calcule la longueur au carré du vecteur (Magnitude²). \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classbd_1_1Vec2_a65843232aa3af8fb109764ccf59b0c7c}{length}} () const
+\begin{DoxyCompactList}\small\item\em Calcule la longueur réelle du vecteur (Magnitude). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2_a0c6f60a3d08c6c638ecc2a1f98c684ba}{normalized}} () const
+\begin{DoxyCompactList}\small\item\em Retourne une copie normalisée du vecteur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2_aa69f01f78ed2d42d571858cd5042e6df}{operator+}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&v) const
+\begin{DoxyCompactList}\small\item\em Opérateur d\textquotesingle{}addition vectorielle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2_a9d0b2279d7b20f2bdc895a95aad7c3a5}{operator-\/}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&v) const
+\begin{DoxyCompactList}\small\item\em Opérateur de soustraction vectorielle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2_acf2d3f631be26905dd3eb3f7e9ebfb63}{operator$\ast$}} (T scalar) const
+\begin{DoxyCompactList}\small\item\em Opérateur de multiplication par un scalaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2_ac1579cf6f756bf30572cbfc2c5f193a2}{operator/}} (T scalar) const
+\begin{DoxyCompactList}\small\item\em Opérateur de division par un scalaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \& \mbox{\hyperlink{classbd_1_1Vec2_afa09bf92f5f521d99a3ea2a12d753613}{operator+=}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&v)
+\begin{DoxyCompactList}\small\item\em Opérateur d\textquotesingle{}addition composée (+=). Ajoute un vecteur à l\textquotesingle{}instance courante. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \& \mbox{\hyperlink{classbd_1_1Vec2_a71d3623b3b9d850214a0c2994d4f1ec8}{operator-\/=}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&v)
+\begin{DoxyCompactList}\small\item\em Opérateur de soustraction composée (-\/=). Soustrait un vecteur à l\textquotesingle{}instance courante. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \& \mbox{\hyperlink{classbd_1_1Vec2_aefbd6547e304084131bfb665746aef15}{operator$\ast$=}} (T scalar)
+\begin{DoxyCompactList}\small\item\em Opérateur de multiplication composée ($\ast$=). Multiplie l\textquotesingle{}instance courante par un scalaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \& \mbox{\hyperlink{classbd_1_1Vec2_a26c7443df250c93c046105871c4c4a11}{operator/=}} (T scalar)
+\begin{DoxyCompactList}\small\item\em Opérateur de division composée (/=). Divise l\textquotesingle{}instance courante par un scalaire. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbd_1_1Vec2_a12dd187236c5d3474084ca95b87d0f06}{operator==}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&v) const
+\begin{DoxyCompactList}\small\item\em Opérateur d\textquotesingle{}égalité. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbd_1_1Vec2_a158e22bbf9a8a7126fc052a2617dd47d}{operator!=}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&v) const
+\begin{DoxyCompactList}\small\item\em Opérateur d\textquotesingle{}inégalité. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static T \mbox{\hyperlink{classbd_1_1Vec2_a53a87eb44fea8f1220924726c0ec01db}{dot}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&a, const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&b)
+\begin{DoxyCompactList}\small\item\em Calcule le produit scalaire (Dot Product) de deux vecteurs. \end{DoxyCompactList}\item 
+static T \mbox{\hyperlink{classbd_1_1Vec2_a9c6718dc587abd40dcd5e69971a643b4}{distance}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&a, const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \&b)
+\begin{DoxyCompactList}\small\item\em Calcule la distance euclidienne entre deux points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classbd_1_1Vec2_aedd5f0c9f846a67c6fd92bbe1c1b02c5}{x}}
+\begin{DoxyCompactList}\small\item\em Composante X du vecteur. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classbd_1_1Vec2_a510b6885585e97b8c38d317425c8635f}{y}}
+\begin{DoxyCompactList}\small\item\em Composante Y du vecteur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class bd\+::\+Vec2$<$ T $>$}
+
+Classe template représentant un vecteur mathématique 2D. 
+
+Cette classe générique est utilisée pour représenter des positions, des vitesses, des forces ou des dimensions. Elle fournit toutes les opérations vectorielles usuelles (addition, soustraction, produit scalaire, normalisation, etc.).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Le type de données sous-\/jacent (ex\+: float, double, int). \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbd_1_1Vec2_a1bfd9cef1fda2910c4b500f899b93936}\label{classbd_1_1Vec2_a1bfd9cef1fda2910c4b500f899b93936}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!Vec2@{Vec2}}
+\index{Vec2@{Vec2}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vec2()}{Vec2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur par défaut. Initialise le vecteur à l\textquotesingle{}origine (0, 0). 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Vec2_a1bfd9cef1fda2910c4b500f899b93936_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_a63a3225470c1a48375d45a7e050db113}\label{classbd_1_1Vec2_a63a3225470c1a48375d45a7e050db113}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!Vec2@{Vec2}}
+\index{Vec2@{Vec2}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vec2()}{Vec2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} (\begin{DoxyParamCaption}\item[{T}]{x,  }\item[{T}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur avec paramètres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Valeur de la composante X. \\
+\hline
+{\em y} & Valeur de la composante Y. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1Vec2_a9c6718dc587abd40dcd5e69971a643b4}\label{classbd_1_1Vec2_a9c6718dc587abd40dcd5e69971a643b4}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!distance@{distance}}
+\index{distance@{distance}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static T \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Calcule la distance euclidienne entre deux points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Position du premier point. \\
+\hline
+{\em b} & Position du second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T La distance entre a et b. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Vec2_a9c6718dc587abd40dcd5e69971a643b4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_a53a87eb44fea8f1220924726c0ec01db}\label{classbd_1_1Vec2_a53a87eb44fea8f1220924726c0ec01db}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!dot@{dot}}
+\index{dot@{dot}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dot()}{dot()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static T \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Calcule le produit scalaire (Dot Product) de deux vecteurs. 
+
+Le produit scalaire est utile pour calculer des angles ou des projections. Si le résultat est 0, les vecteurs sont perpendiculaires.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Premier vecteur. \\
+\hline
+{\em b} & Second vecteur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T Le résultat du produit scalaire. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbd_1_1Vec2_a65843232aa3af8fb109764ccf59b0c7c}\label{classbd_1_1Vec2_a65843232aa3af8fb109764ccf59b0c7c}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!length@{length}}
+\index{length@{length}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calcule la longueur réelle du vecteur (Magnitude). 
+
+\begin{DoxyReturn}{Returns}
+T La racine carrée de la longueur au carré. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classbd_1_1Vec2_a65843232aa3af8fb109764ccf59b0c7c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Vec2_a65843232aa3af8fb109764ccf59b0c7c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_aeb6baa21141046a9bee316491d2d1c55}\label{classbd_1_1Vec2_aeb6baa21141046a9bee316491d2d1c55}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!lengthSquared@{lengthSquared}}
+\index{lengthSquared@{lengthSquared}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{lengthSquared()}{lengthSquared()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::length\+Squared (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calcule la longueur au carré du vecteur (Magnitude²). 
+
+Cette méthode est plus performante que \mbox{\hyperlink{classbd_1_1Vec2_a65843232aa3af8fb109764ccf59b0c7c}{length()}} car elle évite le calcul coûteux de la racine carrée (sqrt). À utiliser pour les comparaisons de distances.
+
+\begin{DoxyReturn}{Returns}
+T La somme des carrés des composantes (x$\ast$x + y$\ast$y). 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Vec2_aeb6baa21141046a9bee316491d2d1c55_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_a0c6f60a3d08c6c638ecc2a1f98c684ba}\label{classbd_1_1Vec2_a0c6f60a3d08c6c638ecc2a1f98c684ba}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!normalized@{normalized}}
+\index{normalized@{normalized}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{normalized()}{normalized()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::normalized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retourne une copie normalisée du vecteur. 
+
+Le vecteur retourné a une direction identique mais une longueur de 1 (vecteur unitaire). Gère le cas du vecteur nul pour éviter la division par zéro.
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} Le vecteur normalisé. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Vec2_a0c6f60a3d08c6c638ecc2a1f98c684ba_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Vec2_a0c6f60a3d08c6c638ecc2a1f98c684ba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_a158e22bbf9a8a7126fc052a2617dd47d}\label{classbd_1_1Vec2_a158e22bbf9a8a7126fc052a2617dd47d}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur d\textquotesingle{}inégalité. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Le vecteur à comparer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Si x ou y sont différents. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbd_1_1Vec2_acf2d3f631be26905dd3eb3f7e9ebfb63}\label{classbd_1_1Vec2_acf2d3f631be26905dd3eb3f7e9ebfb63}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{T}]{scalar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur de multiplication par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & Le nombre par lequel multiplier le vecteur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} Un nouveau vecteur mis à l\textquotesingle{}échelle. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{classbd_1_1Vec2_acf2d3f631be26905dd3eb3f7e9ebfb63_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_aefbd6547e304084131bfb665746aef15}\label{classbd_1_1Vec2_aefbd6547e304084131bfb665746aef15}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}\& \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{T}]{scalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur de multiplication composée ($\ast$=). Multiplie l\textquotesingle{}instance courante par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & Le facteur de multiplication. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}\& Référence vers l\textquotesingle{}objet courant modifié. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbd_1_1Vec2_aa69f01f78ed2d42d571858cd5042e6df}\label{classbd_1_1Vec2_aa69f01f78ed2d42d571858cd5042e6df}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur d\textquotesingle{}addition vectorielle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Le vecteur à ajouter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} Un nouveau vecteur résultant de (x1+x2, y1+y2). 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{classbd_1_1Vec2_aa69f01f78ed2d42d571858cd5042e6df_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_afa09bf92f5f521d99a3ea2a12d753613}\label{classbd_1_1Vec2_afa09bf92f5f521d99a3ea2a12d753613}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}\& \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur d\textquotesingle{}addition composée (+=). Ajoute un vecteur à l\textquotesingle{}instance courante. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Le vecteur à ajouter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}\& Référence vers l\textquotesingle{}objet courant modifié. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbd_1_1Vec2_a9d0b2279d7b20f2bdc895a95aad7c3a5}\label{classbd_1_1Vec2_a9d0b2279d7b20f2bdc895a95aad7c3a5}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur de soustraction vectorielle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Le vecteur à soustraire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} Un nouveau vecteur résultant de (x1-\/x2, y1-\/y2). 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classbd_1_1Vec2_a9d0b2279d7b20f2bdc895a95aad7c3a5_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_a71d3623b3b9d850214a0c2994d4f1ec8}\label{classbd_1_1Vec2_a71d3623b3b9d850214a0c2994d4f1ec8}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}\& \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur de soustraction composée (-\/=). Soustrait un vecteur à l\textquotesingle{}instance courante. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Le vecteur à soustraire. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}\& Référence vers l\textquotesingle{}objet courant modifié. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbd_1_1Vec2_ac1579cf6f756bf30572cbfc2c5f193a2}\label{classbd_1_1Vec2_ac1579cf6f756bf30572cbfc2c5f193a2}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator/ (\begin{DoxyParamCaption}\item[{T}]{scalar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur de division par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & Le nombre par lequel diviser le vecteur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}} Un nouveau vecteur réduit. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{classbd_1_1Vec2_ac1579cf6f756bf30572cbfc2c5f193a2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Vec2_a26c7443df250c93c046105871c4c4a11}\label{classbd_1_1Vec2_a26c7443df250c93c046105871c4c4a11}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}\& \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{T}]{scalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur de division composée (/=). Divise l\textquotesingle{}instance courante par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & Le diviseur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}\& Référence vers l\textquotesingle{}objet courant modifié. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbd_1_1Vec2_a12dd187236c5d3474084ca95b87d0f06}\label{classbd_1_1Vec2_a12dd187236c5d3474084ca95b87d0f06}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Opérateur d\textquotesingle{}égalité. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Le vecteur à comparer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Si x et y sont identiques. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classbd_1_1Vec2_aedd5f0c9f846a67c6fd92bbe1c1b02c5}\label{classbd_1_1Vec2_aedd5f0c9f846a67c6fd92bbe1c1b02c5}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!x@{x}}
+\index{x@{x}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::x}
+
+
+
+Composante X du vecteur. 
+
+\mbox{\Hypertarget{classbd_1_1Vec2_a510b6885585e97b8c38d317425c8635f}\label{classbd_1_1Vec2_a510b6885585e97b8c38d317425c8635f}} 
+\index{bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}!y@{y}}
+\index{y@{y}!bd::Vec2$<$ T $>$@{bd::Vec2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classbd_1_1Vec2}{bd\+::\+Vec2}}$<$ T $>$\+::y}
+
+
+
+Composante Y du vecteur. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{Vec2_8h}{Vec2.\+h}}\end{DoxyCompactItemize}

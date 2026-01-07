@@ -1,0 +1,5 @@
+<map id="bd::Flock::resize" name="bd::Flock::resize">
+<area shape="rect" id="node1" title="Redimensionne le flock pour atteindre un nombre cible de boids." alt="" coords="473,5,601,32"/>
+<area shape="rect" id="node2" href="$classbd_1_1Flock.html#a309e0bcace04f559e9f6ef6cca1232e4" title="Initialise le flock avec un nombre donné de boids aléatoires." alt="" coords="261,5,425,32"/>
+<area shape="rect" id="node3" href="$classbd_1_1Simulation.html#a20d30dd1eaf08fd76a58a22b2017f6fb" title="Charge une simulation depuis un fichier de sauvegarde." alt="" coords="5,5,213,32"/>
+</map>

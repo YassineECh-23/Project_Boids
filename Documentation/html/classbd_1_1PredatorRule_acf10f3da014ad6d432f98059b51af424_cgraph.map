@@ -1,0 +1,10 @@
+<map id="bd::PredatorRule::computeForce" name="bd::PredatorRule::computeForce">
+<area shape="rect" id="node1" title="Calcule la force de fuite face au prédateur." alt="" coords="5,99,200,141"/>
+<area shape="rect" id="node2" href="$classbd_1_1Flock.html#a93240d7223ba8d46e632803fcc382b70" title="Accès en lecture seule à un boid spécifique." alt="" coords="258,5,397,32"/>
+<area shape="rect" id="node3" href="$classbd_1_1Boid.html#ac1917af7a157301a08765b93842aaee6" title="Récupère la position actuelle." alt="" coords="249,56,405,83"/>
+<area shape="rect" id="node4" href="$classbd_1_1Boid.html#a7ae22c008d002847c36c21ea6dbe1479" title="Récupère la vitesse actuelle." alt="" coords="249,107,405,133"/>
+<area shape="rect" id="node5" href="$classbd_1_1Vec2.html#a65843232aa3af8fb109764ccf59b0c7c" title="Calcule la longueur réelle du vecteur (Magnitude)." alt="" coords="455,157,581,184"/>
+<area shape="rect" id="node7" href="$classbd_1_1Vec2.html#a0c6f60a3d08c6c638ecc2a1f98c684ba" title="Retourne une copie normalisée du vecteur." alt="" coords="248,208,407,235"/>
+<area shape="rect" id="node6" href="$classbd_1_1Vec2.html#aeb6baa21141046a9bee316491d2d1c55" title="Calcule la longueur au carré du vecteur (Magnitude²)." alt="" coords="629,157,808,184"/>
+<area shape="rect" id="node8" href="$classbd_1_1Vec2.html#a1bfd9cef1fda2910c4b500f899b93936" title="Constructeur par défaut. Initialise le vecteur à l&#39;origine (0, 0)." alt="" coords="460,208,576,235"/>
+</map>

@@ -1,0 +1,100 @@
+\hypertarget{classbd_1_1CohesionRule}{}\doxysection{bd\+::Cohesion\+Rule Class Reference}
+\label{classbd_1_1CohesionRule}\index{bd::CohesionRule@{bd::CohesionRule}}
+
+
+Règle de cohésion (Cohesion).  
+
+
+
+
+{\ttfamily \#include $<$Cohesion\+Rule.\+h$>$}
+
+
+
+Inheritance diagram for bd\+::Cohesion\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classbd_1_1CohesionRule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for bd\+::Cohesion\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classbd_1_1CohesionRule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \mbox{\hyperlink{classbd_1_1CohesionRule_a2d5eceb7a00287dd38c510a2bf7f2107}{compute\+Force}} (const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock, int boid\+Index, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings) const override
+\begin{DoxyCompactList}\small\item\em Calcule la force de cohésion appliquée à un boid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Règle de cohésion (Cohesion). 
+
+Cette règle pousse un boid à se diriger vers la position moyenne (centre de masse) de ses voisins locaux. Cela permet au groupe de rester ensemble et d\textquotesingle{}éviter que des individus ne s\textquotesingle{}isolent. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1CohesionRule_a2d5eceb7a00287dd38c510a2bf7f2107}\label{classbd_1_1CohesionRule_a2d5eceb7a00287dd38c510a2bf7f2107}} 
+\index{bd::CohesionRule@{bd::CohesionRule}!computeForce@{computeForce}}
+\index{computeForce@{computeForce}!bd::CohesionRule@{bd::CohesionRule}}
+\doxysubsubsection{\texorpdfstring{computeForce()}{computeForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ bd\+::\+Cohesion\+Rule\+::compute\+Force (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock,  }\item[{int}]{boid\+Index,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcule la force de cohésion appliquée à un boid. 
+
+La force est calculée en déterminant le centre de masse des voisins dans le rayon de perception, puis en créant un vecteur directeur depuis la position du boid vers ce centre.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Référence constante vers l\textquotesingle{}ensemble du groupe (\mbox{\hyperlink{classbd_1_1Flock}{Flock}}). \\
+\hline
+{\em boid\+Index} & L\textquotesingle{}indice du boid pour lequel on calcule la force. \\
+\hline
+{\em settings} & Les paramètres globaux (rayon de perception, poids, etc.). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}} Le vecteur force de cohésion (steering force).
+\end{DoxyReturn}
+Calcule la force de cohésion appliquée à un boid. Cette règle attire le boid courant vers le centre de masse de ses voisins situés dans un rayon donné.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Le groupe de boids \\
+\hline
+{\em boid\+Index} & Indice du boid courant dans le flock \\
+\hline
+{\em settings} & Paramètres globaux de la simulation (rayon r, etc.) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vecteur représentant la force de cohésion 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227}{bd\+::\+Rule}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1CohesionRule_a2d5eceb7a00287dd38c510a2bf7f2107_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{CohesionRule_8h}{Cohesion\+Rule.\+h}}\item 
+src/bd/\mbox{\hyperlink{CohesionRule_8cpp}{Cohesion\+Rule.\+cpp}}\end{DoxyCompactItemize}

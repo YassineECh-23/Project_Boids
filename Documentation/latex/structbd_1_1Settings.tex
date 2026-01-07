@@ -1,0 +1,449 @@
+\hypertarget{structbd_1_1Settings}{}\doxysection{bd\+::Settings Struct Reference}
+\label{structbd_1_1Settings}\index{bd::Settings@{bd::Settings}}
+
+
+Structure contenant tous les paramètres de configuration de la simulation.  
+
+
+
+
+{\ttfamily \#include $<$Settings.\+h$>$}
+
+
+
+Collaboration diagram for bd\+::Settings\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{structbd_1_1Settings__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structbd_1_1Settings_afe8db1d7993822738651db5d489a0272}{nb\+Boids}} = 50
+\begin{DoxyCompactList}\small\item\em Nombre d\textquotesingle{}agents (boids) actifs dans la simulation. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a1438055dd1efcef6965d9b04bd99aed8}{vmax}} = 4.\+0f
+\begin{DoxyCompactList}\small\item\em Vitesse maximale de déplacement d\textquotesingle{}un boid (en pixels/frame). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a9d19bc1b3c5a6de5e3151e763a5e4ada}{max\+Accel}} = 0.\+1f
+\begin{DoxyCompactList}\small\item\em Force maximale applicable pour changer de direction (maniabilité). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a892aaa916ff2cb3e887375bd17c4d10f}{r}} = 50.\+0f
+\begin{DoxyCompactList}\small\item\em Rayon de perception locale \+: distance pour considérer un autre boid comme voisin. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_ae9981263a99c12cc577884c7c5e6098d}{dmin}} = 20.\+0f
+\begin{DoxyCompactList}\small\item\em Distance minimale de confort \+: en dessous, la règle de séparation s\textquotesingle{}active. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_adb02ced7ff4a8ef8514236155c639f4c}{wcoh}} = 0.\+01f
+\begin{DoxyCompactList}\small\item\em Poids de la règle de Cohésion (attraction vers le centre du groupe). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a9f51f9980d3dee1009174d6ce5ee1bf7}{wsep}} = 0.\+05f
+\begin{DoxyCompactList}\small\item\em Poids de la règle de Séparation (répulsion des voisins trop proches). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_ae3470e7b5396523d3e3675ca98b67de3}{wali}} = 0.\+125f
+\begin{DoxyCompactList}\small\item\em Poids de la règle d\textquotesingle{}Alignement (mimiétisme de la vitesse des voisins). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structbd_1_1Settings_ae073c1b3f2de3d514d13e1b318853a79}{nb\+Boids\+Min}} = 10
+\begin{DoxyCompactList}\small\item\em Valeur minimale autorisée pour le nombre de boids via l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structbd_1_1Settings_aeb6de540fc7fbbf1ce17a60ddc60576e}{nb\+Boids\+Max}} = 200
+\begin{DoxyCompactList}\small\item\em Valeur maximale autorisée pour le nombre de boids via l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a5a6e0a0565bbe0a27505a0f60ceac702}{r\+Min}} = 10.\+0f
+\begin{DoxyCompactList}\small\item\em Valeur minimale pour le rayon de perception. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_acd9d15c43a876418de27aad6d2b53ff5}{r\+Max}} = 100.\+0f
+\begin{DoxyCompactList}\small\item\em Valeur maximale pour le rayon de perception. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a3cf48416dba4d94ddf9f0cb7d07f34fb}{dmin\+Min}} = 5.\+0f
+\begin{DoxyCompactList}\small\item\em Valeur minimale pour la distance de séparation. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a778c01bea0c05087b8b8d42661fa7c57}{dmin\+Max}} = 50.\+0f
+\begin{DoxyCompactList}\small\item\em Valeur maximale pour la distance de séparation. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a1a107bbacbb503a7e9dd3719e8468ed5}{weight\+Min}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Poids minimum pour les règles (0 = règle désactivée). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a9a57c0764d2ddc7a94e061b86fad849d}{weight\+Max}} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em Poids maximum pour les règles. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a478f06852c0d8adae6e4770fd0d50a9f}{window\+Width}} = 800.\+0f
+\begin{DoxyCompactList}\small\item\em Largeur de la fenêtre de simulation (en pixels). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a62f0513123ca392b461fd1f102a2d4b0}{window\+Height}} = 600.\+0f
+\begin{DoxyCompactList}\small\item\em Hauteur de la fenêtre de simulation (en pixels). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_afb4867de66c3b65dc8b7a907d4080dc6}{width\+Min}} = 800.\+0f
+\begin{DoxyCompactList}\small\item\em Largeur minimale acceptée pour la fenêtre. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_aef589617665d76282092cf8ad4688a5b}{width\+Max}} = 2560.\+0f
+\begin{DoxyCompactList}\small\item\em Largeur maximale acceptée pour la fenêtre. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_aaafc4f1cd6df1e336207b014facacf7c}{height\+Min}} = 600.\+0f
+\begin{DoxyCompactList}\small\item\em Hauteur minimale acceptée pour la fenêtre. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_aa93db2ee6e41e598d9170b96742ee75b}{height\+Max}} = 1440.\+0f
+\begin{DoxyCompactList}\small\item\em Hauteur maximale acceptée pour la fenêtre. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structbd_1_1Settings_a348eeeb8dcf5460bc42ab8093964abb5}{enable\+Bounce}} = false
+\begin{DoxyCompactList}\small\item\em Mode de gestion des bords. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structbd_1_1Settings_accd285e317af796d7d16b15fbb90bf2b}{enable\+Obstacle}} = false
+\begin{DoxyCompactList}\small\item\em Active ou désactive la présence d\textquotesingle{}un obstacle statique (Clic Droit). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a51a29766e320a205e9dd61254355829d}{wobstacle}} = 5.\+0f
+\begin{DoxyCompactList}\small\item\em Poids de la force d\textquotesingle{}évitement d\textquotesingle{}obstacle (prioritaire si élevé). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_ae58c8e2f90781079fa691d6bd3941d02}{obstacleX}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Position X de l\textquotesingle{}obstacle. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a0e7168280eb1b117ac070bbfb7c39335}{obstacleY}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Position Y de l\textquotesingle{}obstacle. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a5718a68f4e76f4ee95b8b2fdba432a9b}{obstacle\+Radius}} = 150.\+0f
+\begin{DoxyCompactList}\small\item\em Rayon d\textquotesingle{}action de l\textquotesingle{}obstacle (zone à éviter). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structbd_1_1Settings_a2177c6d57c308cc923c9a3f8cac66d88}{enable\+Predator}} = false
+\begin{DoxyCompactList}\small\item\em Active ou désactive le prédateur mobile (Touche P). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a4eee7c09da15c6966d24b10c4417278e}{wpredator}} = 8.\+0f
+\begin{DoxyCompactList}\small\item\em Poids de la force de fuite face au prédateur (Très élevé pour panique). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a3bbec6772c777d83d9399638576ce56d}{predatorX}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Position X actuelle du prédateur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a6feec713d2e7bf45e38756f7471df7aa}{predatorY}} = 0.\+0f
+\begin{DoxyCompactList}\small\item\em Position Y actuelle du prédateur. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a703877c4d1687e13a844e99d22fe93ea}{predator\+Radius}} = 150.\+0f
+\begin{DoxyCompactList}\small\item\em Rayon de menace du prédateur (distance à laquelle les boids paniquent). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structbd_1_1Settings_a83b2f6768254b01aced782d24229fa20}{predator\+Speed}} = 2.\+5f
+\begin{DoxyCompactList}\small\item\em Vitesse de déplacement du prédateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure contenant tous les paramètres de configuration de la simulation. 
+
+Cette structure regroupe les constantes et variables qui influencent le comportement des boids, les limites de l\textquotesingle{}environnement, les poids des règles et l\textquotesingle{}état des extensions (obstacles, prédateurs). Elle est partagée entre le moteur de simulation et l\textquotesingle{}interface graphique. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structbd_1_1Settings_ae9981263a99c12cc577884c7c5e6098d}\label{structbd_1_1Settings_ae9981263a99c12cc577884c7c5e6098d}} 
+\index{bd::Settings@{bd::Settings}!dmin@{dmin}}
+\index{dmin@{dmin}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{dmin}{dmin}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::dmin = 20.\+0f}
+
+
+
+Distance minimale de confort \+: en dessous, la règle de séparation s\textquotesingle{}active. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a778c01bea0c05087b8b8d42661fa7c57}\label{structbd_1_1Settings_a778c01bea0c05087b8b8d42661fa7c57}} 
+\index{bd::Settings@{bd::Settings}!dminMax@{dminMax}}
+\index{dminMax@{dminMax}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{dminMax}{dminMax}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::dmin\+Max = 50.\+0f}
+
+
+
+Valeur maximale pour la distance de séparation. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a3cf48416dba4d94ddf9f0cb7d07f34fb}\label{structbd_1_1Settings_a3cf48416dba4d94ddf9f0cb7d07f34fb}} 
+\index{bd::Settings@{bd::Settings}!dminMin@{dminMin}}
+\index{dminMin@{dminMin}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{dminMin}{dminMin}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::dmin\+Min = 5.\+0f}
+
+
+
+Valeur minimale pour la distance de séparation. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a348eeeb8dcf5460bc42ab8093964abb5}\label{structbd_1_1Settings_a348eeeb8dcf5460bc42ab8093964abb5}} 
+\index{bd::Settings@{bd::Settings}!enableBounce@{enableBounce}}
+\index{enableBounce@{enableBounce}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{enableBounce}{enableBounce}}
+{\footnotesize\ttfamily bool bd\+::\+Settings\+::enable\+Bounce = false}
+
+
+
+Mode de gestion des bords. 
+
+
+\begin{DoxyItemize}
+\item false \+: Wrap (téléportation de l\textquotesingle{}autre côté).
+\item true \+: Bounce (rebond contre les murs). 
+\end{DoxyItemize}\mbox{\Hypertarget{structbd_1_1Settings_accd285e317af796d7d16b15fbb90bf2b}\label{structbd_1_1Settings_accd285e317af796d7d16b15fbb90bf2b}} 
+\index{bd::Settings@{bd::Settings}!enableObstacle@{enableObstacle}}
+\index{enableObstacle@{enableObstacle}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{enableObstacle}{enableObstacle}}
+{\footnotesize\ttfamily bool bd\+::\+Settings\+::enable\+Obstacle = false}
+
+
+
+Active ou désactive la présence d\textquotesingle{}un obstacle statique (Clic Droit). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a2177c6d57c308cc923c9a3f8cac66d88}\label{structbd_1_1Settings_a2177c6d57c308cc923c9a3f8cac66d88}} 
+\index{bd::Settings@{bd::Settings}!enablePredator@{enablePredator}}
+\index{enablePredator@{enablePredator}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{enablePredator}{enablePredator}}
+{\footnotesize\ttfamily bool bd\+::\+Settings\+::enable\+Predator = false}
+
+
+
+Active ou désactive le prédateur mobile (Touche P). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_aa93db2ee6e41e598d9170b96742ee75b}\label{structbd_1_1Settings_aa93db2ee6e41e598d9170b96742ee75b}} 
+\index{bd::Settings@{bd::Settings}!heightMax@{heightMax}}
+\index{heightMax@{heightMax}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{heightMax}{heightMax}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::height\+Max = 1440.\+0f}
+
+
+
+Hauteur maximale acceptée pour la fenêtre. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_aaafc4f1cd6df1e336207b014facacf7c}\label{structbd_1_1Settings_aaafc4f1cd6df1e336207b014facacf7c}} 
+\index{bd::Settings@{bd::Settings}!heightMin@{heightMin}}
+\index{heightMin@{heightMin}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{heightMin}{heightMin}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::height\+Min = 600.\+0f}
+
+
+
+Hauteur minimale acceptée pour la fenêtre. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a9d19bc1b3c5a6de5e3151e763a5e4ada}\label{structbd_1_1Settings_a9d19bc1b3c5a6de5e3151e763a5e4ada}} 
+\index{bd::Settings@{bd::Settings}!maxAccel@{maxAccel}}
+\index{maxAccel@{maxAccel}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{maxAccel}{maxAccel}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::max\+Accel = 0.\+1f}
+
+
+
+Force maximale applicable pour changer de direction (maniabilité). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_afe8db1d7993822738651db5d489a0272}\label{structbd_1_1Settings_afe8db1d7993822738651db5d489a0272}} 
+\index{bd::Settings@{bd::Settings}!nbBoids@{nbBoids}}
+\index{nbBoids@{nbBoids}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{nbBoids}{nbBoids}}
+{\footnotesize\ttfamily int bd\+::\+Settings\+::nb\+Boids = 50}
+
+
+
+Nombre d\textquotesingle{}agents (boids) actifs dans la simulation. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_aeb6de540fc7fbbf1ce17a60ddc60576e}\label{structbd_1_1Settings_aeb6de540fc7fbbf1ce17a60ddc60576e}} 
+\index{bd::Settings@{bd::Settings}!nbBoidsMax@{nbBoidsMax}}
+\index{nbBoidsMax@{nbBoidsMax}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{nbBoidsMax}{nbBoidsMax}}
+{\footnotesize\ttfamily int bd\+::\+Settings\+::nb\+Boids\+Max = 200}
+
+
+
+Valeur maximale autorisée pour le nombre de boids via l\textquotesingle{}interface. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_ae073c1b3f2de3d514d13e1b318853a79}\label{structbd_1_1Settings_ae073c1b3f2de3d514d13e1b318853a79}} 
+\index{bd::Settings@{bd::Settings}!nbBoidsMin@{nbBoidsMin}}
+\index{nbBoidsMin@{nbBoidsMin}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{nbBoidsMin}{nbBoidsMin}}
+{\footnotesize\ttfamily int bd\+::\+Settings\+::nb\+Boids\+Min = 10}
+
+
+
+Valeur minimale autorisée pour le nombre de boids via l\textquotesingle{}interface. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a5718a68f4e76f4ee95b8b2fdba432a9b}\label{structbd_1_1Settings_a5718a68f4e76f4ee95b8b2fdba432a9b}} 
+\index{bd::Settings@{bd::Settings}!obstacleRadius@{obstacleRadius}}
+\index{obstacleRadius@{obstacleRadius}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{obstacleRadius}{obstacleRadius}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::obstacle\+Radius = 150.\+0f}
+
+
+
+Rayon d\textquotesingle{}action de l\textquotesingle{}obstacle (zone à éviter). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_ae58c8e2f90781079fa691d6bd3941d02}\label{structbd_1_1Settings_ae58c8e2f90781079fa691d6bd3941d02}} 
+\index{bd::Settings@{bd::Settings}!obstacleX@{obstacleX}}
+\index{obstacleX@{obstacleX}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{obstacleX}{obstacleX}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::obstacleX = 0.\+0f}
+
+
+
+Position X de l\textquotesingle{}obstacle. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a0e7168280eb1b117ac070bbfb7c39335}\label{structbd_1_1Settings_a0e7168280eb1b117ac070bbfb7c39335}} 
+\index{bd::Settings@{bd::Settings}!obstacleY@{obstacleY}}
+\index{obstacleY@{obstacleY}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{obstacleY}{obstacleY}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::obstacleY = 0.\+0f}
+
+
+
+Position Y de l\textquotesingle{}obstacle. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a703877c4d1687e13a844e99d22fe93ea}\label{structbd_1_1Settings_a703877c4d1687e13a844e99d22fe93ea}} 
+\index{bd::Settings@{bd::Settings}!predatorRadius@{predatorRadius}}
+\index{predatorRadius@{predatorRadius}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{predatorRadius}{predatorRadius}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::predator\+Radius = 150.\+0f}
+
+
+
+Rayon de menace du prédateur (distance à laquelle les boids paniquent). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a83b2f6768254b01aced782d24229fa20}\label{structbd_1_1Settings_a83b2f6768254b01aced782d24229fa20}} 
+\index{bd::Settings@{bd::Settings}!predatorSpeed@{predatorSpeed}}
+\index{predatorSpeed@{predatorSpeed}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{predatorSpeed}{predatorSpeed}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::predator\+Speed = 2.\+5f}
+
+
+
+Vitesse de déplacement du prédateur. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a3bbec6772c777d83d9399638576ce56d}\label{structbd_1_1Settings_a3bbec6772c777d83d9399638576ce56d}} 
+\index{bd::Settings@{bd::Settings}!predatorX@{predatorX}}
+\index{predatorX@{predatorX}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{predatorX}{predatorX}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::predatorX = 0.\+0f}
+
+
+
+Position X actuelle du prédateur. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a6feec713d2e7bf45e38756f7471df7aa}\label{structbd_1_1Settings_a6feec713d2e7bf45e38756f7471df7aa}} 
+\index{bd::Settings@{bd::Settings}!predatorY@{predatorY}}
+\index{predatorY@{predatorY}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{predatorY}{predatorY}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::predatorY = 0.\+0f}
+
+
+
+Position Y actuelle du prédateur. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a892aaa916ff2cb3e887375bd17c4d10f}\label{structbd_1_1Settings_a892aaa916ff2cb3e887375bd17c4d10f}} 
+\index{bd::Settings@{bd::Settings}!r@{r}}
+\index{r@{r}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::r = 50.\+0f}
+
+
+
+Rayon de perception locale \+: distance pour considérer un autre boid comme voisin. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_acd9d15c43a876418de27aad6d2b53ff5}\label{structbd_1_1Settings_acd9d15c43a876418de27aad6d2b53ff5}} 
+\index{bd::Settings@{bd::Settings}!rMax@{rMax}}
+\index{rMax@{rMax}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{rMax}{rMax}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::r\+Max = 100.\+0f}
+
+
+
+Valeur maximale pour le rayon de perception. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a5a6e0a0565bbe0a27505a0f60ceac702}\label{structbd_1_1Settings_a5a6e0a0565bbe0a27505a0f60ceac702}} 
+\index{bd::Settings@{bd::Settings}!rMin@{rMin}}
+\index{rMin@{rMin}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{rMin}{rMin}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::r\+Min = 10.\+0f}
+
+
+
+Valeur minimale pour le rayon de perception. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a1438055dd1efcef6965d9b04bd99aed8}\label{structbd_1_1Settings_a1438055dd1efcef6965d9b04bd99aed8}} 
+\index{bd::Settings@{bd::Settings}!vmax@{vmax}}
+\index{vmax@{vmax}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{vmax}{vmax}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::vmax = 4.\+0f}
+
+
+
+Vitesse maximale de déplacement d\textquotesingle{}un boid (en pixels/frame). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_ae3470e7b5396523d3e3675ca98b67de3}\label{structbd_1_1Settings_ae3470e7b5396523d3e3675ca98b67de3}} 
+\index{bd::Settings@{bd::Settings}!wali@{wali}}
+\index{wali@{wali}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{wali}{wali}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::wali = 0.\+125f}
+
+
+
+Poids de la règle d\textquotesingle{}Alignement (mimiétisme de la vitesse des voisins). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_adb02ced7ff4a8ef8514236155c639f4c}\label{structbd_1_1Settings_adb02ced7ff4a8ef8514236155c639f4c}} 
+\index{bd::Settings@{bd::Settings}!wcoh@{wcoh}}
+\index{wcoh@{wcoh}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{wcoh}{wcoh}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::wcoh = 0.\+01f}
+
+
+
+Poids de la règle de Cohésion (attraction vers le centre du groupe). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a9a57c0764d2ddc7a94e061b86fad849d}\label{structbd_1_1Settings_a9a57c0764d2ddc7a94e061b86fad849d}} 
+\index{bd::Settings@{bd::Settings}!weightMax@{weightMax}}
+\index{weightMax@{weightMax}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{weightMax}{weightMax}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::weight\+Max = 1.\+0f}
+
+
+
+Poids maximum pour les règles. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a1a107bbacbb503a7e9dd3719e8468ed5}\label{structbd_1_1Settings_a1a107bbacbb503a7e9dd3719e8468ed5}} 
+\index{bd::Settings@{bd::Settings}!weightMin@{weightMin}}
+\index{weightMin@{weightMin}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{weightMin}{weightMin}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::weight\+Min = 0.\+0f}
+
+
+
+Poids minimum pour les règles (0 = règle désactivée). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_aef589617665d76282092cf8ad4688a5b}\label{structbd_1_1Settings_aef589617665d76282092cf8ad4688a5b}} 
+\index{bd::Settings@{bd::Settings}!widthMax@{widthMax}}
+\index{widthMax@{widthMax}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{widthMax}{widthMax}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::width\+Max = 2560.\+0f}
+
+
+
+Largeur maximale acceptée pour la fenêtre. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_afb4867de66c3b65dc8b7a907d4080dc6}\label{structbd_1_1Settings_afb4867de66c3b65dc8b7a907d4080dc6}} 
+\index{bd::Settings@{bd::Settings}!widthMin@{widthMin}}
+\index{widthMin@{widthMin}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{widthMin}{widthMin}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::width\+Min = 800.\+0f}
+
+
+
+Largeur minimale acceptée pour la fenêtre. 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a62f0513123ca392b461fd1f102a2d4b0}\label{structbd_1_1Settings_a62f0513123ca392b461fd1f102a2d4b0}} 
+\index{bd::Settings@{bd::Settings}!windowHeight@{windowHeight}}
+\index{windowHeight@{windowHeight}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{windowHeight}{windowHeight}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::window\+Height = 600.\+0f}
+
+
+
+Hauteur de la fenêtre de simulation (en pixels). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a478f06852c0d8adae6e4770fd0d50a9f}\label{structbd_1_1Settings_a478f06852c0d8adae6e4770fd0d50a9f}} 
+\index{bd::Settings@{bd::Settings}!windowWidth@{windowWidth}}
+\index{windowWidth@{windowWidth}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{windowWidth}{windowWidth}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::window\+Width = 800.\+0f}
+
+
+
+Largeur de la fenêtre de simulation (en pixels). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a51a29766e320a205e9dd61254355829d}\label{structbd_1_1Settings_a51a29766e320a205e9dd61254355829d}} 
+\index{bd::Settings@{bd::Settings}!wobstacle@{wobstacle}}
+\index{wobstacle@{wobstacle}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{wobstacle}{wobstacle}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::wobstacle = 5.\+0f}
+
+
+
+Poids de la force d\textquotesingle{}évitement d\textquotesingle{}obstacle (prioritaire si élevé). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a4eee7c09da15c6966d24b10c4417278e}\label{structbd_1_1Settings_a4eee7c09da15c6966d24b10c4417278e}} 
+\index{bd::Settings@{bd::Settings}!wpredator@{wpredator}}
+\index{wpredator@{wpredator}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{wpredator}{wpredator}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::wpredator = 8.\+0f}
+
+
+
+Poids de la force de fuite face au prédateur (Très élevé pour panique). 
+
+\mbox{\Hypertarget{structbd_1_1Settings_a9f51f9980d3dee1009174d6ce5ee1bf7}\label{structbd_1_1Settings_a9f51f9980d3dee1009174d6ce5ee1bf7}} 
+\index{bd::Settings@{bd::Settings}!wsep@{wsep}}
+\index{wsep@{wsep}!bd::Settings@{bd::Settings}}
+\doxysubsubsection{\texorpdfstring{wsep}{wsep}}
+{\footnotesize\ttfamily float bd\+::\+Settings\+::wsep = 0.\+05f}
+
+
+
+Poids de la règle de Séparation (répulsion des voisins trop proches). 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{Settings_8h}{Settings.\+h}}\end{DoxyCompactItemize}

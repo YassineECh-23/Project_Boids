@@ -1,0 +1,100 @@
+\hypertarget{classbd_1_1Rule}{}\doxysection{bd\+::Rule Class Reference}
+\label{classbd_1_1Rule}\index{bd::Rule@{bd::Rule}}
+
+
+Classe abstraite de base pour toutes les règles de comportement.  
+
+
+
+
+{\ttfamily \#include $<$Rule.\+h$>$}
+
+
+
+Inheritance diagram for bd\+::Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Rule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for bd\+::Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classbd_1_1Rule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classbd_1_1Rule_a1b1407ca327ccb4b7930f9af3e1a10c1}{$\sim$\+Rule}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructeur virtuel par défaut. Nécessaire pour assurer la destruction correcte des objets dérivés via un pointeur de base. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \mbox{\hyperlink{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227}{compute\+Force}} (const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock, int boid\+Index, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings) const =0
+\begin{DoxyCompactList}\small\item\em Calcule la force exercée sur un boid donné. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe abstraite de base pour toutes les règles de comportement. 
+
+Cette classe définit l\textquotesingle{}interface commune (pattern Strategy) que toutes les règles (Cohésion, Séparation, Alignement, Obstacles, etc.) doivent implémenter. Elle garantit que chaque règle peut calculer une force vectorielle applicable à un boid. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbd_1_1Rule_a1b1407ca327ccb4b7930f9af3e1a10c1}\label{classbd_1_1Rule_a1b1407ca327ccb4b7930f9af3e1a10c1}} 
+\index{bd::Rule@{bd::Rule}!````~Rule@{$\sim$Rule}}
+\index{````~Rule@{$\sim$Rule}!bd::Rule@{bd::Rule}}
+\doxysubsubsection{\texorpdfstring{$\sim$Rule()}{~Rule()}}
+{\footnotesize\ttfamily virtual bd\+::\+Rule\+::$\sim$\+Rule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destructeur virtuel par défaut. Nécessaire pour assurer la destruction correcte des objets dérivés via un pointeur de base. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227}\label{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227}} 
+\index{bd::Rule@{bd::Rule}!computeForce@{computeForce}}
+\index{computeForce@{computeForce}!bd::Rule@{bd::Rule}}
+\doxysubsubsection{\texorpdfstring{computeForce()}{computeForce()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$float$>$ bd\+::\+Rule\+::compute\+Force (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock,  }\item[{int}]{boid\+Index,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calcule la force exercée sur un boid donné. 
+
+Méthode virtuelle pure qui doit être définie par chaque règle concrète.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Référence vers le flock contenant tous les boids (pour accéder aux voisins). \\
+\hline
+{\em boid\+Index} & L\textquotesingle{}index du boid actuel (pour éviter de se comparer à soi-\/même). \\
+\hline
+{\em settings} & Les paramètres globaux (poids, rayons de perception, etc.). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}} Un vecteur force (steering force) à appliquer à l\textquotesingle{}accélération du boid. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classbd_1_1SeparationRule_a8e0b5ddcf959c885cd128e0cf52566dd}{bd\+::\+Separation\+Rule}}, \mbox{\hyperlink{classbd_1_1PredatorRule_acf10f3da014ad6d432f98059b51af424}{bd\+::\+Predator\+Rule}}, \mbox{\hyperlink{classbd_1_1ObstacleRule_ab44bf5f4867f43f989c54781a48de228}{bd\+::\+Obstacle\+Rule}}, \mbox{\hyperlink{classbd_1_1CohesionRule_a2d5eceb7a00287dd38c510a2bf7f2107}{bd\+::\+Cohesion\+Rule}}, and \mbox{\hyperlink{classbd_1_1AlignmentRule_a56637d71caf89aba564aa27372344c83}{bd\+::\+Alignment\+Rule}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{Rule_8h}{Rule.\+h}}\end{DoxyCompactItemize}

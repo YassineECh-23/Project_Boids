@@ -1,0 +1,6 @@
+<map id="bd::Vec2::normalized" name="bd::Vec2::normalized">
+<area shape="rect" id="node1" title="Retourne une copie normalisée du vecteur." alt="" coords="5,31,164,57"/>
+<area shape="rect" id="node2" href="$classbd_1_1Vec2.html#a65843232aa3af8fb109764ccf59b0c7c" title="Calcule la longueur réelle du vecteur (Magnitude)." alt="" coords="212,5,339,32"/>
+<area shape="rect" id="node4" href="$classbd_1_1Vec2.html#a1bfd9cef1fda2910c4b500f899b93936" title="Constructeur par défaut. Initialise le vecteur à l&#39;origine (0, 0)." alt="" coords="217,56,333,83"/>
+<area shape="rect" id="node3" href="$classbd_1_1Vec2.html#aeb6baa21141046a9bee316491d2d1c55" title="Calcule la longueur au carré du vecteur (Magnitude²)." alt="" coords="387,5,565,32"/>
+</map>

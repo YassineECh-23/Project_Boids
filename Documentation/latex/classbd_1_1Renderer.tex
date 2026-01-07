@@ -1,0 +1,174 @@
+\hypertarget{classbd_1_1Renderer}{}\doxysection{bd\+::Renderer Class Reference}
+\label{classbd_1_1Renderer}\index{bd::Renderer@{bd::Renderer}}
+
+
+Classe responsable du rendu graphique de la simulation.  
+
+
+
+
+{\ttfamily \#include $<$Renderer.\+h$>$}
+
+
+
+Collaboration diagram for bd\+::Renderer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classbd_1_1Renderer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Renderer_af2b781369302638c3018f0b8a0d6dc81}{Renderer}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Renderer_ab739ae76e3107b10c765198e4ba37538}{draw\+Boid}} (const \mbox{\hyperlink{classbd_1_1Boid}{Boid}} \&boid)
+\begin{DoxyCompactList}\small\item\em Dessine un boid individuel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Renderer_a6a9dd6d3becca0a5ce90af92effb9cc4}{draw\+Flock}} (const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock)
+\begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}ensemble du groupe (\mbox{\hyperlink{classbd_1_1Flock}{Flock}}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Renderer_a562c9e4f90755b0c6dfcc937f9cb2c3e}{draw\+UI}} (const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}interface utilisateur (UI) superposée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsable du rendu graphique de la simulation. 
+
+Le \mbox{\hyperlink{classbd_1_1Renderer}{Renderer}} s\textquotesingle{}occupe de dessiner les entités (Boids) et l\textquotesingle{}interface utilisateur (UI) sur la fenêtre SFML. Il gère les formes géométriques et les polices d\textquotesingle{}écriture. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbd_1_1Renderer_af2b781369302638c3018f0b8a0d6dc81}\label{classbd_1_1Renderer_af2b781369302638c3018f0b8a0d6dc81}} 
+\index{bd::Renderer@{bd::Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!bd::Renderer@{bd::Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}}
+{\footnotesize\ttfamily bd\+::\+Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur. 
+
+Initialise les formes graphiques (ex\+: triangle pour les boids) et charge les ressources nécessaires comme la police d\textquotesingle{}écriture pour l\textquotesingle{}UI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Référence vers la fenêtre SFML où le rendu sera effectué.\\
+\hline
+\end{DoxyParams}
+Constructeur du \mbox{\hyperlink{classbd_1_1Renderer}{Renderer}}. Initialise la forme graphique utilisée pour représenter un boid (triangle orienté), configure ses couleurs, et charge la police utilisée pour l’affichage de l’\+UI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Référence vers la fenêtre SFML dans laquelle on dessine. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1Renderer_ab739ae76e3107b10c765198e4ba37538}\label{classbd_1_1Renderer_ab739ae76e3107b10c765198e4ba37538}} 
+\index{bd::Renderer@{bd::Renderer}!drawBoid@{drawBoid}}
+\index{drawBoid@{drawBoid}!bd::Renderer@{bd::Renderer}}
+\doxysubsubsection{\texorpdfstring{drawBoid()}{drawBoid()}}
+{\footnotesize\ttfamily void bd\+::\+Renderer\+::draw\+Boid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Boid}{Boid}} \&}]{boid }\end{DoxyParamCaption})}
+
+
+
+Dessine un boid individuel. 
+
+Positionne et oriente la forme graphique selon la position et la vitesse du boid, puis la dessine dans la fenêtre.
+
+
+\begin{DoxyParams}{Parameters}
+{\em boid} & Le boid à afficher.\\
+\hline
+\end{DoxyParams}
+Dessine un boid.
+\begin{DoxyItemize}
+\item Positionne le triangle sur la position du boid
+\item Oriente le triangle selon la direction de la vitesse (atan2)
+\item Dessine la forme dans la fenêtre SFML
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em boid} & \mbox{\hyperlink{classbd_1_1Boid}{Boid}} à dessiner \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Renderer_ab739ae76e3107b10c765198e4ba37538_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Renderer_ab739ae76e3107b10c765198e4ba37538_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Renderer_a6a9dd6d3becca0a5ce90af92effb9cc4}\label{classbd_1_1Renderer_a6a9dd6d3becca0a5ce90af92effb9cc4}} 
+\index{bd::Renderer@{bd::Renderer}!drawFlock@{drawFlock}}
+\index{drawFlock@{drawFlock}!bd::Renderer@{bd::Renderer}}
+\doxysubsubsection{\texorpdfstring{drawFlock()}{drawFlock()}}
+{\footnotesize\ttfamily void bd\+::\+Renderer\+::draw\+Flock (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock }\end{DoxyParamCaption})}
+
+
+
+Dessine l\textquotesingle{}ensemble du groupe (\mbox{\hyperlink{classbd_1_1Flock}{Flock}}). 
+
+Parcourt la liste des boids du flock et appelle \mbox{\hyperlink{classbd_1_1Renderer_ab739ae76e3107b10c765198e4ba37538}{draw\+Boid()}} pour chacun d\textquotesingle{}eux.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Le groupe de boids à dessiner.\\
+\hline
+\end{DoxyParams}
+Dessine tous les boids d’un flock. Parcourt le flock et appelle \mbox{\hyperlink{classbd_1_1Renderer_ab739ae76e3107b10c765198e4ba37538}{draw\+Boid()}} pour chaque boid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Groupe de boids à dessiner \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Renderer_a6a9dd6d3becca0a5ce90af92effb9cc4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Renderer_a562c9e4f90755b0c6dfcc937f9cb2c3e}\label{classbd_1_1Renderer_a562c9e4f90755b0c6dfcc937f9cb2c3e}} 
+\index{bd::Renderer@{bd::Renderer}!drawUI@{drawUI}}
+\index{drawUI@{drawUI}!bd::Renderer@{bd::Renderer}}
+\doxysubsubsection{\texorpdfstring{drawUI()}{drawUI()}}
+{\footnotesize\ttfamily void bd\+::\+Renderer\+::draw\+UI (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}interface utilisateur (UI) superposée. 
+
+Affiche les valeurs actuelles des paramètres (nombre de boids, poids des règles, etc.) sous forme de texte à l\textquotesingle{}écran.
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings} & Les paramètres de la simulation à afficher.\\
+\hline
+\end{DoxyParams}
+Affiche une UI simple contenant quelques paramètres de simulation. Ne fait rien si la police n’a pas été chargée correctement.
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings} & Paramètres à afficher (nb\+Boids, r, dmin, poids des règles...) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{Renderer_8h}{Renderer.\+h}}\item 
+src/bd/\mbox{\hyperlink{Renderer_8cpp}{Renderer.\+cpp}}\end{DoxyCompactItemize}

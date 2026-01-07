@@ -1,0 +1,80 @@
+\hypertarget{classbd_1_1InterfaceMenuSFML}{}\doxysection{bd\+::Interface\+Menu\+SFML Class Reference}
+\label{classbd_1_1InterfaceMenuSFML}\index{bd::InterfaceMenuSFML@{bd::InterfaceMenuSFML}}
+
+
+Classe gérant l’interface graphique du menu principal avec SFML.  
+
+
+
+
+{\ttfamily \#include $<$Interface\+Menu\+SFML.\+h$>$}
+
+
+
+Collaboration diagram for bd\+::Interface\+Menu\+SFML\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classbd_1_1InterfaceMenuSFML__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1InterfaceMenuSFML_a7ac794145dd130d9a1e4b79184f36f76}{Interface\+Menu\+SFML}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1InterfaceMenuSFML_a345d20d6e5cc2c276ce3a8e8cca26604}{run}} ()
+\begin{DoxyCompactList}\small\item\em Lance la boucle principale du menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe gérant l’interface graphique du menu principal avec SFML. 
+
+Cette classe orchestre la navigation entre les différents écrans de l\textquotesingle{}application \+:
+\begin{DoxyItemize}
+\item Le menu principal (Main)
+\item L’écran de configuration des paramètres (\mbox{\hyperlink{structbd_1_1Settings}{Settings}})
+\item L’écran de chargement des sauvegardes (Load)
+\end{DoxyItemize}
+
+Elle gère les événements (souris, clavier), l\textquotesingle{}affichage et la logique de transition vers la simulation. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbd_1_1InterfaceMenuSFML_a7ac794145dd130d9a1e4b79184f36f76}\label{classbd_1_1InterfaceMenuSFML_a7ac794145dd130d9a1e4b79184f36f76}} 
+\index{bd::InterfaceMenuSFML@{bd::InterfaceMenuSFML}!InterfaceMenuSFML@{InterfaceMenuSFML}}
+\index{InterfaceMenuSFML@{InterfaceMenuSFML}!bd::InterfaceMenuSFML@{bd::InterfaceMenuSFML}}
+\doxysubsubsection{\texorpdfstring{InterfaceMenuSFML()}{InterfaceMenuSFML()}}
+{\footnotesize\ttfamily bd\+::\+Interface\+Menu\+SFML\+::\+Interface\+Menu\+SFML (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur par défaut. 
+
+Crée la fenêtre SFML, initialise les paramètres par défaut et configure l\textquotesingle{}interface utilisateur. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1InterfaceMenuSFML_a345d20d6e5cc2c276ce3a8e8cca26604}\label{classbd_1_1InterfaceMenuSFML_a345d20d6e5cc2c276ce3a8e8cca26604}} 
+\index{bd::InterfaceMenuSFML@{bd::InterfaceMenuSFML}!run@{run}}
+\index{run@{run}!bd::InterfaceMenuSFML@{bd::InterfaceMenuSFML}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void bd\+::\+Interface\+Menu\+SFML\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lance la boucle principale du menu. 
+
+Maintient la fenêtre ouverte, traite les événements et rafraîchit l\textquotesingle{}affichage tant que l\textquotesingle{}utilisateur ne quitte pas ou ne lance pas la simulation. Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classbd_1_1InterfaceMenuSFML_a345d20d6e5cc2c276ce3a8e8cca26604_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{InterfaceMenuSFML_8h}{Interface\+Menu\+SFML.\+h}}\item 
+src/bd/\mbox{\hyperlink{InterfaceMenuSFML_8cpp}{Interface\+Menu\+SFML.\+cpp}}\end{DoxyCompactItemize}

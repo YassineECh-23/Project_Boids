@@ -1,0 +1,4 @@
+<map id="bd::Vec2::length" name="bd::Vec2::length">
+<area shape="rect" id="node1" title="Calcule la longueur réelle du vecteur (Magnitude)." alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node2" href="$classbd_1_1Vec2.html#aeb6baa21141046a9bee316491d2d1c55" title="Calcule la longueur au carré du vecteur (Magnitude²)." alt="" coords="180,5,359,32"/>
+</map>

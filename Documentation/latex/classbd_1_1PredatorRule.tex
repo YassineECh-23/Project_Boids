@@ -1,0 +1,105 @@
+\hypertarget{classbd_1_1PredatorRule}{}\doxysection{bd\+::Predator\+Rule Class Reference}
+\label{classbd_1_1PredatorRule}\index{bd::PredatorRule@{bd::PredatorRule}}
+
+
+Règle de fuite de prédateur (Predator Avoidance).  
+
+
+
+
+{\ttfamily \#include $<$Predator\+Rule.\+h$>$}
+
+
+
+Inheritance diagram for bd\+::Predator\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classbd_1_1PredatorRule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for bd\+::Predator\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classbd_1_1PredatorRule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \mbox{\hyperlink{classbd_1_1PredatorRule_acf10f3da014ad6d432f98059b51af424}{compute\+Force}} (const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock, int boid\+Index, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings) const override
+\begin{DoxyCompactList}\small\item\em Calcule la force de fuite face au prédateur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Règle de fuite de prédateur (Predator Avoidance). 
+
+Cette règle simule la peur des boids face à un prédateur. Si un prédateur est actif et proche, les boids vont chercher à fuir dans la direction opposée le plus vite possible (vitesse max). Cette règle a souvent un poids (weight) très élevé pour être prioritaire sur les autres. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1PredatorRule_acf10f3da014ad6d432f98059b51af424}\label{classbd_1_1PredatorRule_acf10f3da014ad6d432f98059b51af424}} 
+\index{bd::PredatorRule@{bd::PredatorRule}!computeForce@{computeForce}}
+\index{computeForce@{computeForce}!bd::PredatorRule@{bd::PredatorRule}}
+\doxysubsubsection{\texorpdfstring{computeForce()}{computeForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ bd\+::\+Predator\+Rule\+::compute\+Force (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock,  }\item[{int}]{boid\+Index,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcule la force de fuite face au prédateur. 
+
+Si le prédateur est activé (settings.\+enable\+Predator) et que le boid se trouve dans son rayon de menace (settings.\+predator\+Radius), une force de fuite est générée. La force dirige le boid à l\textquotesingle{}opposé du prédateur.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Référence vers le groupe de boids. \\
+\hline
+{\em boid\+Index} & Indice du boid courant. \\
+\hline
+{\em settings} & Paramètres globaux (position du prédateur, rayon, etc.). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}} Le vecteur force de fuite (steering force).
+\end{DoxyReturn}
+Calcule la force de fuite appliquée à un boid face à un prédateur.
+\begin{DoxyItemize}
+\item Si le prédateur est désactivé \+: aucune force
+\item Si le boid est hors du rayon de danger \+: aucune force
+\item Sinon \+: application d’une force de steering pour fuir le prédateur
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Le groupe de boids \\
+\hline
+{\em boid\+Index} & Indice du boid courant \\
+\hline
+{\em settings} & Paramètres globaux (activation, position, rayon, vmax, etc.) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vecteur force de fuite (steering) pour ce boid 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227}{bd\+::\+Rule}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1PredatorRule_acf10f3da014ad6d432f98059b51af424_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{PredatorRule_8h}{Predator\+Rule.\+h}}\item 
+src/bd/\mbox{\hyperlink{PredatorRule_8cpp}{Predator\+Rule.\+cpp}}\end{DoxyCompactItemize}

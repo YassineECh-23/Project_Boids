@@ -1,0 +1,100 @@
+\hypertarget{classbd_1_1SeparationRule}{}\doxysection{bd\+::Separation\+Rule Class Reference}
+\label{classbd_1_1SeparationRule}\index{bd::SeparationRule@{bd::SeparationRule}}
+
+
+Règle de séparation (Separation).  
+
+
+
+
+{\ttfamily \#include $<$Separation\+Rule.\+h$>$}
+
+
+
+Inheritance diagram for bd\+::Separation\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classbd_1_1SeparationRule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for bd\+::Separation\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{classbd_1_1SeparationRule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \mbox{\hyperlink{classbd_1_1SeparationRule_a8e0b5ddcf959c885cd128e0cf52566dd}{compute\+Force}} (const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&flock, int boid\+Index, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings) const override
+\begin{DoxyCompactList}\small\item\em Calcule la force de séparation pour un boid donné. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Règle de séparation (Separation). 
+
+Cette règle permet d\textquotesingle{}éviter les collisions et le surpeuplement local. Elle génère une force répulsive si un boid se trouve trop près de ses voisins. C\textquotesingle{}est ce qui maintient une distance minimale de confort entre les individus. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1SeparationRule_a8e0b5ddcf959c885cd128e0cf52566dd}\label{classbd_1_1SeparationRule_a8e0b5ddcf959c885cd128e0cf52566dd}} 
+\index{bd::SeparationRule@{bd::SeparationRule}!computeForce@{computeForce}}
+\index{computeForce@{computeForce}!bd::SeparationRule@{bd::SeparationRule}}
+\doxysubsubsection{\texorpdfstring{computeForce()}{computeForce()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ bd\+::\+Separation\+Rule\+::compute\+Force (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Flock}{Flock}} \&}]{flock,  }\item[{int}]{boid\+Index,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcule la force de séparation pour un boid donné. 
+
+Si des voisins sont détectés à une distance inférieure à la distance de sécurité (définie par settings.\+dmin), une force est calculée pour s\textquotesingle{}éloigner d\textquotesingle{}eux. La force est inversement proportionnelle à la distance (plus c\textquotesingle{}est proche, plus ça pousse fort).
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Référence vers le groupe de boids. \\
+\hline
+{\em boid\+Index} & Indice du boid courant. \\
+\hline
+{\em settings} & Paramètres globaux (distance min de séparation \textquotesingle{}dmin\textquotesingle{}, etc.). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}} Le vecteur force de répulsion (steering force).
+\end{DoxyReturn}
+Calcule la force de séparation appliquée à un boid. Cette règle pousse le boid à s’éloigner de ses voisins trop proches afin d’éviter les collisions et les regroupements excessifs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flock} & Le groupe de boids \\
+\hline
+{\em boid\+Index} & Indice du boid courant \\
+\hline
+{\em settings} & Paramètres globaux (distance minimale dmin, etc.) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vecteur représentant la force de séparation 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classbd_1_1Rule_a30666318a4f6f47347037bec9e788227}{bd\+::\+Rule}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classbd_1_1SeparationRule_a8e0b5ddcf959c885cd128e0cf52566dd_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{SeparationRule_8h}{Separation\+Rule.\+h}}\item 
+src/bd/\mbox{\hyperlink{SeparationRule_8cpp}{Separation\+Rule.\+cpp}}\end{DoxyCompactItemize}

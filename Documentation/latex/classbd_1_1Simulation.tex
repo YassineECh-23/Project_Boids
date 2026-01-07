@@ -1,0 +1,146 @@
+\hypertarget{classbd_1_1Simulation}{}\doxysection{bd\+::Simulation Class Reference}
+\label{classbd_1_1Simulation}\index{bd::Simulation@{bd::Simulation}}
+
+
+Moteur principal de la simulation.  
+
+
+
+
+{\ttfamily \#include $<$Simulation.\+h$>$}
+
+
+
+Collaboration diagram for bd\+::Simulation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classbd_1_1Simulation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Simulation_a075ff8916b2a582747fe35315da86509}{Simulation}} (const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&s)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Simulation_af5b7358a1322f2c1afec64db914d8618}{$\sim$\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Simulation_a4d0ff3c6612f4a3ad917def8609f8320}{run}} ()
+\begin{DoxyCompactList}\small\item\em Lance la boucle principale de la simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Simulation_a20d30dd1eaf08fd76a58a22b2017f6fb}{load\+From\+File}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Charge une simulation depuis un fichier de sauvegarde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Moteur principal de la simulation. 
+
+La classe \mbox{\hyperlink{classbd_1_1Simulation}{Simulation}} orchestre l\textquotesingle{}ensemble de l\textquotesingle{}application. Elle est responsable de \+:
+\begin{DoxyItemize}
+\item La gestion de la fenêtre SFML.
+\item La boucle principale (Game Loop).
+\item La gestion du temps (Delta Time).
+\item L\textquotesingle{}instanciation des règles de comportement.
+\item La coordination entre les entrées utilisateur, la mise à jour physique et le rendu. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbd_1_1Simulation_a075ff8916b2a582747fe35315da86509}\label{classbd_1_1Simulation_a075ff8916b2a582747fe35315da86509}} 
+\index{bd::Simulation@{bd::Simulation}!Simulation@{Simulation}}
+\index{Simulation@{Simulation}!bd::Simulation@{bd::Simulation}}
+\doxysubsubsection{\texorpdfstring{Simulation()}{Simulation()}}
+{\footnotesize\ttfamily bd\+::\+Simulation\+::\+Simulation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur. 
+
+Initialise la simulation à partir des paramètres fournis. Prépare la fenêtre, alloue les règles et initialise le flock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Les paramètres de configuration (\mbox{\hyperlink{structbd_1_1Settings}{Settings}}).\\
+\hline
+\end{DoxyParams}
+Constructeur de \mbox{\hyperlink{classbd_1_1Simulation}{Simulation}}. Initialise les attributs principaux (fenêtre, settings, flock, règles, renderer) puis appelle init() pour créer la fenêtre SFML, initialiser le flock et les règles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Paramètres de simulation à utiliser \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbd_1_1Simulation_af5b7358a1322f2c1afec64db914d8618}\label{classbd_1_1Simulation_af5b7358a1322f2c1afec64db914d8618}} 
+\index{bd::Simulation@{bd::Simulation}!````~Simulation@{$\sim$Simulation}}
+\index{````~Simulation@{$\sim$Simulation}!bd::Simulation@{bd::Simulation}}
+\doxysubsubsection{\texorpdfstring{$\sim$Simulation()}{~Simulation()}}
+{\footnotesize\ttfamily bd\+::\+Simulation\+::$\sim$\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+Libère les ressources dynamiques, notamment les pointeurs de règles stockés dans le tableau dynamique.
+
+Destructeur de \mbox{\hyperlink{classbd_1_1Simulation}{Simulation}}. Libère la mémoire des règles créées dynamiquement (new ...). 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1Simulation_a20d30dd1eaf08fd76a58a22b2017f6fb}\label{classbd_1_1Simulation_a20d30dd1eaf08fd76a58a22b2017f6fb}} 
+\index{bd::Simulation@{bd::Simulation}!loadFromFile@{loadFromFile}}
+\index{loadFromFile@{loadFromFile}!bd::Simulation@{bd::Simulation}}
+\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
+{\footnotesize\ttfamily void bd\+::\+Simulation\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Charge une simulation depuis un fichier de sauvegarde. 
+
+Écrase l\textquotesingle{}état actuel (\mbox{\hyperlink{classbd_1_1Flock}{Flock}} et \mbox{\hyperlink{structbd_1_1Settings}{Settings}}) avec les données lues dans le fichier.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nom du fichier (chemin relatif ou absolu) contenant l’état sauvegardé.\\
+\hline
+\end{DoxyParams}
+Charge une configuration depuis un fichier (appelée depuis le menu LOAD).
+\begin{DoxyItemize}
+\item charge les settings via \mbox{\hyperlink{classbd_1_1SaveManager}{Save\+Manager}}
+\item réinitialise le flock avec le nouveau nb\+Boids et nouvelles dimensions
+\item redimensionne la fenêtre + la vue SFML pour correspondre aux nouvelles dimensions
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Chemin du fichier de configuration à charger \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Simulation_a20d30dd1eaf08fd76a58a22b2017f6fb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Simulation_a4d0ff3c6612f4a3ad917def8609f8320}\label{classbd_1_1Simulation_a4d0ff3c6612f4a3ad917def8609f8320}} 
+\index{bd::Simulation@{bd::Simulation}!run@{run}}
+\index{run@{run}!bd::Simulation@{bd::Simulation}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void bd\+::\+Simulation\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lance la boucle principale de la simulation. 
+
+Cette méthode est bloquante. Elle exécute la boucle \char`\"{}\+Input -\/$>$ Update -\/$>$ Render\char`\"{} tant que la fenêtre reste ouverte. Elle calcule également le temps écoulé (dt) entre deux images pour assurer une simulation fluide.
+
+Boucle principale de la simulation. Tant que la fenêtre est ouverte \+:
+\begin{DoxyItemize}
+\item traite les événements
+\item met à jour la simulation
+\item dessine la scène 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{Simulation_8h}{Simulation.\+h}}\item 
+src/bd/\mbox{\hyperlink{Simulation_8cpp}{Simulation.\+cpp}}\end{DoxyCompactItemize}

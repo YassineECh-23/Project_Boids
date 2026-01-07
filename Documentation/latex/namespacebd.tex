@@ -1,0 +1,97 @@
+\hypertarget{namespacebd}{}\doxysection{bd Namespace Reference}
+\label{namespacebd}\index{bd@{bd}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbd_1_1AlignmentRule}{Alignment\+Rule}}
+\begin{DoxyCompactList}\small\item\em Règle d\textquotesingle{}alignement (Alignment). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1Boid}{Boid}}
+\begin{DoxyCompactList}\small\item\em Agent individuel (boid). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1CohesionRule}{Cohesion\+Rule}}
+\begin{DoxyCompactList}\small\item\em Règle de cohésion (Cohesion). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1DynamicArray}{Dynamic\+Array}}
+\begin{DoxyCompactList}\small\item\em Classe template gérant un tableau dynamique générique. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1Flock}{Flock}}
+\begin{DoxyCompactList}\small\item\em Classe gérant un ensemble de boids (groupe/nuée). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1InterfaceMenuSFML}{Interface\+Menu\+SFML}}
+\begin{DoxyCompactList}\small\item\em Classe gérant l’interface graphique du menu principal avec SFML. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1ObstacleRule}{Obstacle\+Rule}}
+\begin{DoxyCompactList}\small\item\em Règle d\textquotesingle{}évitement d\textquotesingle{}obstacle (Obstacle Avoidance). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1PredatorRule}{Predator\+Rule}}
+\begin{DoxyCompactList}\small\item\em Règle de fuite de prédateur (Predator Avoidance). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1Renderer}{Renderer}}
+\begin{DoxyCompactList}\small\item\em Classe responsable du rendu graphique de la simulation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1Rule}{Rule}}
+\begin{DoxyCompactList}\small\item\em Classe abstraite de base pour toutes les règles de comportement. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1SaveManager}{Save\+Manager}}
+\begin{DoxyCompactList}\small\item\em Gestionnaire de persistance (Sauvegarde et Chargement). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1SeparationRule}{Separation\+Rule}}
+\begin{DoxyCompactList}\small\item\em Règle de séparation (Separation). \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structbd_1_1Settings}{Settings}}
+\begin{DoxyCompactList}\small\item\em Structure contenant tous les paramètres de configuration de la simulation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1Simulation}{Simulation}}
+\begin{DoxyCompactList}\small\item\em Moteur principal de la simulation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}
+\begin{DoxyCompactList}\small\item\em Classe template représentant un vecteur mathématique 2D. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \mbox{\hyperlink{namespacebd_af4798a9fdc75ff51e2b5007a0552f704}{operator$\ast$}} (T scalar, const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Opérateur de multiplication scalaire à gauche (ex\+: 2.\+0f $\ast$ vec). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespacebd_ad333a696fc280c54615d68a417c3d7e9}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Surcharge de l\textquotesingle{}opérateur de flux pour l\textquotesingle{}affichage (ex\+: std\+::cout $<$$<$ vec). Affiche le vecteur sous la forme \char`\"{}(x, y)\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacebd_af4798a9fdc75ff51e2b5007a0552f704}\label{namespacebd_af4798a9fdc75ff51e2b5007a0552f704}} 
+\index{bd@{bd}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!bd@{bd}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$T$>$ bd\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{T}]{scalar,  }\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Opérateur de multiplication scalaire à gauche (ex\+: 2.\+0f $\ast$ vec). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type numérique. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & Le scalaire. \\
+\hline
+{\em v} & Le vecteur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vec2$<$\+T$>$ Le nouveau vecteur résultant. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacebd_ad333a696fc280c54615d68a417c3d7e9}\label{namespacebd_ad333a696fc280c54615d68a417c3d7e9}} 
+\index{bd@{bd}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!bd@{bd}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& bd\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})}
+
+
+
+Surcharge de l\textquotesingle{}opérateur de flux pour l\textquotesingle{}affichage (ex\+: std\+::cout $<$$<$ vec). Affiche le vecteur sous la forme \char`\"{}(x, y)\char`\"{}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type numérique. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Le flux de sortie. \\
+\hline
+{\em v} & Le vecteur à afficher. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream\& Le flux modifié. 
+\end{DoxyReturn}

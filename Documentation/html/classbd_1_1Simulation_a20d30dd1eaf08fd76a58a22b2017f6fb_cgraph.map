@@ -1,0 +1,8 @@
+<map id="bd::Simulation::loadFromFile" name="bd::Simulation::loadFromFile">
+<area shape="rect" id="node1" title="Charge une simulation depuis un fichier de sauvegarde." alt="" coords="5,56,213,83"/>
+<area shape="rect" id="node2" href="$classbd_1_1Flock.html#a309e0bcace04f559e9f6ef6cca1232e4" title="Initialise le flock avec un nombre donné de boids aléatoires." alt="" coords="265,31,429,57"/>
+<area shape="rect" id="node6" href="$classbd_1_1SaveManager.html#ac77bbf1fc5b6fcb18b7b8706648d8055" title="Charge une simulation depuis un fichier spécifique." alt="" coords="261,81,432,108"/>
+<area shape="rect" id="node3" href="$classbd_1_1Flock.html#ae315d20c7a1eedb43c4047ff60096333" title="Redimensionne le flock pour atteindre un nombre cible de boids." alt="" coords="480,31,608,57"/>
+<area shape="rect" id="node4" href="$classbd_1_1Flock.html#ae4ba7ff647c2c374de6b2461beb77b21" title="Ajoute manuellement un boid au groupe." alt="" coords="656,5,799,32"/>
+<area shape="rect" id="node5" href="$classbd_1_1Flock.html#a379014239f890153080fec2c334478a4" title="Retourne le nombre de boids dans le groupe." alt="" coords="670,56,785,83"/>
+</map>

@@ -1,0 +1,248 @@
+\hypertarget{classbd_1_1Boid}{}\doxysection{bd\+::Boid Class Reference}
+\label{classbd_1_1Boid}\index{bd::Boid@{bd::Boid}}
+
+
+Agent individuel (boid).  
+
+
+
+
+{\ttfamily \#include $<$Boids.\+h$>$}
+
+
+
+Collaboration diagram for bd\+::Boid\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classbd_1_1Boid__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbd_1_1Boid_a1a51c5a4fccd942bee744414975cbb93}{Boid}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par défaut. Initialise la position et la vitesse à (0,0). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbd_1_1Boid_a704710d164b86cbd4262a9dd32f8e939}{Boid}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&pos, const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&vel)
+\begin{DoxyCompactList}\small\item\em Constructeur avec position et vitesse initiales. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Boid_a15bb55793741d4b033f772b213385f8a}{update}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&total\+Force, const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings, float dt)
+\begin{DoxyCompactList}\small\item\em Met à jour la vitesse et la position du boid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Boid_a60bfbd7dce6033b30c62bc129e467209}{handle\+Bounds}} (const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&settings)
+\begin{DoxyCompactList}\small\item\em Gère les interactions avec les bords de la fenêtre. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \& \mbox{\hyperlink{classbd_1_1Boid_ac1917af7a157301a08765b93842aaee6}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Récupère la position actuelle. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \& \mbox{\hyperlink{classbd_1_1Boid_a7ae22c008d002847c36c21ea6dbe1479}{get\+Velocity}} () const
+\begin{DoxyCompactList}\small\item\em Récupère la vitesse actuelle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Boid_a6145f6dbba4e09f8afcabbe57047ec32}{set\+Position}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&pos)
+\begin{DoxyCompactList}\small\item\em Modifie la position du boid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbd_1_1Boid_a229869b647c542915737fa686174aba6}{set\+Velocity}} (const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&vel)
+\begin{DoxyCompactList}\small\item\em Modifie la vitesse du boid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Agent individuel (boid). 
+
+Un boid possède \+:
+\begin{DoxyItemize}
+\item Une position (\mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}})
+\item Une vitesse (\mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}})
+\end{DoxyItemize}
+
+Il suit les règles de comportement (cohésion, séparation, alignement) appliquées par le \mbox{\hyperlink{classbd_1_1Flock}{Flock}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbd_1_1Boid_a1a51c5a4fccd942bee744414975cbb93}\label{classbd_1_1Boid_a1a51c5a4fccd942bee744414975cbb93}} 
+\index{bd::Boid@{bd::Boid}!Boid@{Boid}}
+\index{Boid@{Boid}!bd::Boid@{bd::Boid}}
+\doxysubsubsection{\texorpdfstring{Boid()}{Boid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bd\+::\+Boid\+::\+Boid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur par défaut. Initialise la position et la vitesse à (0,0). 
+
+\mbox{\Hypertarget{classbd_1_1Boid_a704710d164b86cbd4262a9dd32f8e939}\label{classbd_1_1Boid_a704710d164b86cbd4262a9dd32f8e939}} 
+\index{bd::Boid@{bd::Boid}!Boid@{Boid}}
+\index{Boid@{Boid}!bd::Boid@{bd::Boid}}
+\doxysubsubsection{\texorpdfstring{Boid()}{Boid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bd\+::\+Boid\+::\+Boid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&}]{pos,  }\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&}]{vel }\end{DoxyParamCaption})}
+
+
+
+Constructeur avec position et vitesse initiales. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & La position de départ du boid. \\
+\hline
+{\em vel} & La vitesse de départ du boid. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbd_1_1Boid_ac1917af7a157301a08765b93842aaee6}\label{classbd_1_1Boid_ac1917af7a157301a08765b93842aaee6}} 
+\index{bd::Boid@{bd::Boid}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!bd::Boid@{bd::Boid}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$float$>$\& bd\+::\+Boid\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la position actuelle. 
+
+\begin{DoxyReturn}{Returns}
+const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}}\& Référence constante vers le vecteur position. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Boid_ac1917af7a157301a08765b93842aaee6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Boid_a7ae22c008d002847c36c21ea6dbe1479}\label{classbd_1_1Boid_a7ae22c008d002847c36c21ea6dbe1479}} 
+\index{bd::Boid@{bd::Boid}!getVelocity@{getVelocity}}
+\index{getVelocity@{getVelocity}!bd::Boid@{bd::Boid}}
+\doxysubsubsection{\texorpdfstring{getVelocity()}{getVelocity()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$float$>$\& bd\+::\+Boid\+::get\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Récupère la vitesse actuelle. 
+
+\begin{DoxyReturn}{Returns}
+const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2$<$float$>$}}\& Référence constante vers le vecteur vitesse. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Boid_a7ae22c008d002847c36c21ea6dbe1479_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classbd_1_1Boid_a60bfbd7dce6033b30c62bc129e467209}\label{classbd_1_1Boid_a60bfbd7dce6033b30c62bc129e467209}} 
+\index{bd::Boid@{bd::Boid}!handleBounds@{handleBounds}}
+\index{handleBounds@{handleBounds}!bd::Boid@{bd::Boid}}
+\doxysubsubsection{\texorpdfstring{handleBounds()}{handleBounds()}}
+{\footnotesize\ttfamily void bd\+::\+Boid\+::handle\+Bounds (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Gère les interactions avec les bords de la fenêtre. 
+
+Selon la configuration (\mbox{\hyperlink{structbd_1_1Settings}{Settings}}) \+:
+\begin{DoxyItemize}
+\item WRAP \+: Le boid traverse l\textquotesingle{}écran et réapparaît de l\textquotesingle{}autre côté.
+\item REBOND \+: Le boid rebondit contre les parois (inverse sa vitesse).
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings} & Les paramètres contenant les dimensions de la fenêtre et le mode de gestion.\\
+\hline
+\end{DoxyParams}
+Gère le comportement du boid lorsqu\textquotesingle{}il atteint les limites de la fenêtre. Deux modes possibles selon les paramètres \+:
+\begin{DoxyItemize}
+\item enable\+Bounce = true \+: rebond sur les bords
+\item enable\+Bounce = false \+: (sort d\textquotesingle{}un côté, réapparaît de l\textquotesingle{}autre)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings} & Paramètres globaux (dimensions fenêtre, mode rebond, etc.) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbd_1_1Boid_a6145f6dbba4e09f8afcabbe57047ec32}\label{classbd_1_1Boid_a6145f6dbba4e09f8afcabbe57047ec32}} 
+\index{bd::Boid@{bd::Boid}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!bd::Boid@{bd::Boid}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void bd\+::\+Boid\+::set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifie la position du boid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Nouvelle position. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbd_1_1Boid_a229869b647c542915737fa686174aba6}\label{classbd_1_1Boid_a229869b647c542915737fa686174aba6}} 
+\index{bd::Boid@{bd::Boid}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!bd::Boid@{bd::Boid}}
+\doxysubsubsection{\texorpdfstring{setVelocity()}{setVelocity()}}
+{\footnotesize\ttfamily void bd\+::\+Boid\+::set\+Velocity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&}]{vel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Modifie la vitesse du boid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vel} & Nouvelle vitesse. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbd_1_1Boid_a15bb55793741d4b033f772b213385f8a}\label{classbd_1_1Boid_a15bb55793741d4b033f772b213385f8a}} 
+\index{bd::Boid@{bd::Boid}!update@{update}}
+\index{update@{update}!bd::Boid@{bd::Boid}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void bd\+::\+Boid\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbd_1_1Vec2}{Vec2}}$<$ float $>$ \&}]{total\+Force,  }\item[{const \mbox{\hyperlink{structbd_1_1Settings}{Settings}} \&}]{settings,  }\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+Met à jour la vitesse et la position du boid. 
+
+Applique la force résultante (steering force) pour modifier l\textquotesingle{}accélération, puis la vitesse et enfin la position, en respectant les contraintes physiques.
+
+Algorithme \+:
+\begin{DoxyEnumerate}
+\item Limiter total\+Force à max\+Accel.
+\item velocity += total\+Force $\ast$ dt.
+\item Limiter velocity à vmax.
+\item position += velocity $\ast$ dt.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em total\+Force} & La somme vectorielle de toutes les forces appliquées. \\
+\hline
+{\em settings} & Les paramètres globaux (vmax, max\+Accel, etc.). \\
+\hline
+{\em dt} & Le pas de temps (delta time) pour l\textquotesingle{}intégration.\\
+\hline
+\end{DoxyParams}
+Met à jour l\textquotesingle{}état du boid en fonction de la force totale appliquée.
+\begin{DoxyItemize}
+\item La force est interprétée comme une accélération
+\item L\textquotesingle{}accélération est limitée par max\+Accel
+\item La vitesse est mise à jour puis limitée par vmax
+\item La position est ensuite mise à jour selon la vitesse
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em total\+Force} & Force résultante calculée par les règles (alignement, cohésion, séparation, obstacles, etc.) \\
+\hline
+{\em settings} & Paramètres globaux (vmax, max\+Accel, etc.) \\
+\hline
+{\em dt} & Delta time (temps écoulé depuis la dernière frame) \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classbd_1_1Boid_a15bb55793741d4b033f772b213385f8a_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/bd/\mbox{\hyperlink{Boids_8h}{Boids.\+h}}\item 
+src/bd/\mbox{\hyperlink{Boids_8cpp}{Boids.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,6 @@
+<map id="bd::Vec2::normalized" name="bd::Vec2::normalized">
+<area shape="rect" id="node1" title="Retourne une copie normalisée du vecteur." alt="" coords="251,78,409,105"/>
+<area shape="rect" id="node2" href="$classbd_1_1ObstacleRule.html#ab44bf5f4867f43f989c54781a48de228" title="Calcule la force d&#39;évitement d&#39;obstacle pour un boid donné." alt="" coords="5,5,203,47"/>
+<area shape="rect" id="node3" href="$classbd_1_1PredatorRule.html#acf10f3da014ad6d432f98059b51af424" title="Calcule la force de fuite face au prédateur." alt="" coords="7,71,201,112"/>
+<area shape="rect" id="node4" href="$classbd_1_1Boid.html#a15bb55793741d4b033f772b213385f8a" title="Met à jour la vitesse et la position du boid." alt="" coords="40,137,168,163"/>
+</map>

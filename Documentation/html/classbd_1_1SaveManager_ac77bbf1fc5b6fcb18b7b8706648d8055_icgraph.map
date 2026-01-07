@@ -1,0 +1,4 @@
+<map id="bd::SaveManager::load" name="bd::SaveManager::load">
+<area shape="rect" id="node1" title="Charge une simulation depuis un fichier spécifique." alt="" coords="261,5,432,32"/>
+<area shape="rect" id="node2" href="$classbd_1_1Simulation.html#a20d30dd1eaf08fd76a58a22b2017f6fb" title="Charge une simulation depuis un fichier de sauvegarde." alt="" coords="5,5,213,32"/>
+</map>

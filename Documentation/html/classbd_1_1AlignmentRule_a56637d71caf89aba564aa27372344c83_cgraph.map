@@ -1,0 +1,8 @@
+<map id="bd::AlignmentRule::computeForce" name="bd::AlignmentRule::computeForce">
+<area shape="rect" id="node1" title="Calcule la force d&#39;alignement appliquée à un boid." alt="" coords="5,99,156,141"/>
+<area shape="rect" id="node2" href="$classbd_1_1Vec2.html#a9c6718dc587abd40dcd5e69971a643b4" title="Calcule la distance euclidienne entre deux points." alt="" coords="212,5,352,32"/>
+<area shape="rect" id="node3" href="$classbd_1_1Flock.html#a93240d7223ba8d46e632803fcc382b70" title="Accès en lecture seule à un boid spécifique." alt="" coords="213,56,351,83"/>
+<area shape="rect" id="node4" href="$classbd_1_1Boid.html#ac1917af7a157301a08765b93842aaee6" title="Récupère la position actuelle." alt="" coords="204,107,360,133"/>
+<area shape="rect" id="node5" href="$classbd_1_1Boid.html#a7ae22c008d002847c36c21ea6dbe1479" title="Récupère la vitesse actuelle." alt="" coords="204,157,360,184"/>
+<area shape="rect" id="node6" href="$classbd_1_1Flock.html#a379014239f890153080fec2c334478a4" title="Retourne le nombre de boids dans le groupe." alt="" coords="225,208,339,235"/>
+</map>

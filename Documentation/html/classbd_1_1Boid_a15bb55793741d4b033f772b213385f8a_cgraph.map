@@ -1,0 +1,7 @@
+<map id="bd::Boid::update" name="bd::Boid::update">
+<area shape="rect" id="node1" title="Met à jour la vitesse et la position du boid." alt="" coords="5,31,133,57"/>
+<area shape="rect" id="node2" href="$classbd_1_1Vec2.html#a65843232aa3af8fb109764ccf59b0c7c" title="Calcule la longueur réelle du vecteur (Magnitude)." alt="" coords="388,5,515,32"/>
+<area shape="rect" id="node4" href="$classbd_1_1Vec2.html#a0c6f60a3d08c6c638ecc2a1f98c684ba" title="Retourne une copie normalisée du vecteur." alt="" coords="181,56,340,83"/>
+<area shape="rect" id="node3" href="$classbd_1_1Vec2.html#aeb6baa21141046a9bee316491d2d1c55" title="Calcule la longueur au carré du vecteur (Magnitude²)." alt="" coords="563,5,741,32"/>
+<area shape="rect" id="node5" href="$classbd_1_1Vec2.html#a1bfd9cef1fda2910c4b500f899b93936" title="Constructeur par défaut. Initialise le vecteur à l&#39;origine (0, 0)." alt="" coords="393,56,509,83"/>
+</map>

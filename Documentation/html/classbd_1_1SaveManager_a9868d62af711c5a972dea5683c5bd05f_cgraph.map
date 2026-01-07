@@ -1,0 +1,4 @@
+<map id="bd::SaveManager::listSaves" name="bd::SaveManager::listSaves">
+<area shape="rect" id="node1" title="Récupère la liste des fichiers de sauvegarde disponibles." alt="" coords="5,5,208,32"/>
+<area shape="rect" id="node2" href="$classbd_1_1DynamicArray.html#ac4e3e4a6322e0702b43050d9dbaedae3" title="Ajoute un élément à la fin du tableau." alt="" coords="256,5,471,32"/>
+</map>

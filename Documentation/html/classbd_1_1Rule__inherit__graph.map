@@ -1,0 +1,8 @@
+<map id="bd::Rule" name="bd::Rule">
+<area shape="rect" id="node1" title="Classe abstraite de base pour toutes les règles de comportement." alt="" coords="335,5,474,97"/>
+<area shape="rect" id="node2" href="$classbd_1_1AlignmentRule.html" title="Règle d&#39;alignement (Alignment)." alt="" coords="5,145,148,223"/>
+<area shape="rect" id="node3" href="$classbd_1_1CohesionRule.html" title="Règle de cohésion (Cohesion)." alt="" coords="173,145,311,223"/>
+<area shape="rect" id="node4" href="$classbd_1_1ObstacleRule.html" title="Règle d&#39;évitement d&#39;obstacle (Obstacle Avoidance)." alt="" coords="335,145,474,223"/>
+<area shape="rect" id="node5" href="$classbd_1_1PredatorRule.html" title="Règle de fuite de prédateur (Predator Avoidance)." alt="" coords="498,145,637,223"/>
+<area shape="rect" id="node6" href="$classbd_1_1SeparationRule.html" title="Règle de séparation (Separation)." alt="" coords="661,145,807,223"/>
+</map>

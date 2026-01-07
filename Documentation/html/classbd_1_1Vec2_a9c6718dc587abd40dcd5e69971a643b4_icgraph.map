@@ -1,0 +1,6 @@
+<map id="bd::Vec2::distance" name="bd::Vec2::distance">
+<area shape="rect" id="node1" title="Calcule la distance euclidienne entre deux points." alt="" coords="253,78,393,105"/>
+<area shape="rect" id="node2" href="$classbd_1_1AlignmentRule.html#a56637d71caf89aba564aa27372344c83" title="Calcule la force d&#39;alignement appliquée à un boid." alt="" coords="30,5,181,47"/>
+<area shape="rect" id="node3" href="$classbd_1_1CohesionRule.html#a2d5eceb7a00287dd38c510a2bf7f2107" title="Calcule la force de cohésion appliquée à un boid." alt="" coords="5,71,205,112"/>
+<area shape="rect" id="node4" href="$classbd_1_1SeparationRule.html#a8e0b5ddcf959c885cd128e0cf52566dd" title="Calcule la force de séparation pour un boid donné." alt="" coords="33,136,178,177"/>
+</map>
